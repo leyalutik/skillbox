@@ -1,2 +1,0 @@
-run = "make all SRC=main.cpp"
-language = "cpp"
