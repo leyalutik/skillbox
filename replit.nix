@@ -1,6 +1,7 @@
 { pkgs }: {
 	deps = [
-		pkgs.cmake
+		pkgs.less
+  pkgs.cmake
   pkgs.xclip
   pkgs.clang_12
 		pkgs.ccls
