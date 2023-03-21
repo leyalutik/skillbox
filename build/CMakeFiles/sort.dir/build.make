@@ -92,8 +92,10 @@ sort_EXTERNAL_OBJECTS =
 
 sort: CMakeFiles/sort.dir/main.cpp.o
 sort: CMakeFiles/sort.dir/build.make
+sort: source/binary_sequences/libbinary_sequences_libraries.a
 sort: source/sort_functions/libsort_functions_libraries.a
 sort: source/display/libdisplay_libraries.a
+sort: source/input/libinput_libraries.a
 sort: CMakeFiles/sort.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/runner/Skillbox/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable sort"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/sort.dir/link.txt --verbose=$(VERBOSE)

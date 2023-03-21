@@ -1,0 +1,30 @@
+#ifndef TEST_CASES_H 
+ #define TEST_CASES_H
+void test_merge_sort_case_1();
+void test_merge_sort_case_2();
+void test_merge_sort_case_3();
+void test_merge_sort_case_4();
+void test_merge_sort_case_5();
+void test_merge_sort_case_6();
+void test_merge_sort_case_7();
+void test_merge_sort_case_8();
+void test_merge_sort_case_9();
+void test_merge_sort_case_10();
+void test_merge_sort_case_11();
+void test_merge_sort_case_12();
+void test_merge_sort_case_13();
+void test_merge_sort_case_14();
+void test_merge_sort_case_15();
+void test_merge_sort_case_16();
+void test_merge_sort_case_17();
+void test_merge_sort_case_18();
+void test_merge_sort_case_19();
+void test_merge_sort_case_20();
+void test_merge_sort_case_21();
+void test_merge_sort_case_22();
+void test_merge_sort_case_23();
+void test_merge_sort_case_24();
+void test_merge_sort_case_25();
+void test_merge_sort_case_26();
+void test_merge_sort_cases();
+#endif

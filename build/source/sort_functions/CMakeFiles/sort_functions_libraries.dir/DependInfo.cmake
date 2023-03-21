@@ -8,6 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
+  "/home/runner/Skillbox/source/sort_functions/base_functions.cpp" "source/sort_functions/CMakeFiles/sort_functions_libraries.dir/base_functions.cpp.o" "gcc" "source/sort_functions/CMakeFiles/sort_functions_libraries.dir/base_functions.cpp.o.d"
   "/home/runner/Skillbox/source/sort_functions/insert_sort.cpp" "source/sort_functions/CMakeFiles/sort_functions_libraries.dir/insert_sort.cpp.o" "gcc" "source/sort_functions/CMakeFiles/sort_functions_libraries.dir/insert_sort.cpp.o.d"
   "/home/runner/Skillbox/source/sort_functions/merge_sort.cpp" "source/sort_functions/CMakeFiles/sort_functions_libraries.dir/merge_sort.cpp.o" "gcc" "source/sort_functions/CMakeFiles/sort_functions_libraries.dir/merge_sort.cpp.o.d"
   )

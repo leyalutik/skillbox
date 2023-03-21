@@ -1,5 +1,5 @@
 #compile = "cd build; make;"
-#run = "cd build; ./sort"
+#run = "cd build; make;"
 run = "rm -r -f build; mkdir build; cd build; cmake -G \"Unix Makefiles\" -B . -S .."
 entrypoint = "main.cpp"
 hidden = ["main", "**/*.o", "**/*.d", ".ccls-cache", "Makefile"]

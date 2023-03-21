@@ -130,6 +130,30 @@ sort_functions_libraries/fast:
 	cd /home/runner/Skillbox/build && $(MAKE) $(MAKESILENT) -f source/sort_functions/CMakeFiles/sort_functions_libraries.dir/build.make source/sort_functions/CMakeFiles/sort_functions_libraries.dir/build
 .PHONY : sort_functions_libraries/fast
 
+base_functions.o: base_functions.cpp.o
+.PHONY : base_functions.o
+
+# target to build an object file
+base_functions.cpp.o:
+	cd /home/runner/Skillbox/build && $(MAKE) $(MAKESILENT) -f source/sort_functions/CMakeFiles/sort_functions_libraries.dir/build.make source/sort_functions/CMakeFiles/sort_functions_libraries.dir/base_functions.cpp.o
+.PHONY : base_functions.cpp.o
+
+base_functions.i: base_functions.cpp.i
+.PHONY : base_functions.i
+
+# target to preprocess a source file
+base_functions.cpp.i:
+	cd /home/runner/Skillbox/build && $(MAKE) $(MAKESILENT) -f source/sort_functions/CMakeFiles/sort_functions_libraries.dir/build.make source/sort_functions/CMakeFiles/sort_functions_libraries.dir/base_functions.cpp.i
+.PHONY : base_functions.cpp.i
+
+base_functions.s: base_functions.cpp.s
+.PHONY : base_functions.s
+
+# target to generate assembly for a file
+base_functions.cpp.s:
+	cd /home/runner/Skillbox/build && $(MAKE) $(MAKESILENT) -f source/sort_functions/CMakeFiles/sort_functions_libraries.dir/build.make source/sort_functions/CMakeFiles/sort_functions_libraries.dir/base_functions.cpp.s
+.PHONY : base_functions.cpp.s
+
 insert_sort.o: insert_sort.cpp.o
 .PHONY : insert_sort.o
 
@@ -187,6 +211,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... sort_functions_libraries"
+	@echo "... base_functions.o"
+	@echo "... base_functions.i"
+	@echo "... base_functions.s"
 	@echo "... insert_sort.o"
 	@echo "... insert_sort.i"
 	@echo "... insert_sort.s"

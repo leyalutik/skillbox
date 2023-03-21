@@ -4,7 +4,7 @@
 # compile CXX with /nix/store/dq0xwmsk1g0i2ayg6pb7y87na2knzylh-gcc-wrapper-11.3.0/bin/g++
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/runner/Skillbox/source/sort_functions -I/home/runner/Skillbox/source/display
+CXX_INCLUDES = -I/home/runner/Skillbox/source/binary_sequences -I/home/runner/Skillbox/source/sort_functions -I/home/runner/Skillbox/source/display -I/home/runner/Skillbox/source/input -I/home/runner/Skillbox/source/test -I/home/runner/Skillbox/source/test/sort_fucntions
 
-CXX_FLAGS = -ggdb -Wall -static -static-libgcc -static-libstdc++ -pthread -std=c++20
+CXX_FLAGS = -ggdb -Wall   -std=c++20
 

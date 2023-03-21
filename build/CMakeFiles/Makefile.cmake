@@ -11,8 +11,11 @@ set(CMAKE_MAKEFILE_DEPENDS
   "CMakeFiles/3.24.3/CMakeCCompiler.cmake"
   "CMakeFiles/3.24.3/CMakeCXXCompiler.cmake"
   "CMakeFiles/3.24.3/CMakeSystem.cmake"
+  "/home/runner/Skillbox/source/binary_sequences/CMakeLists.txt"
   "/home/runner/Skillbox/source/display/CMakeLists.txt"
+  "/home/runner/Skillbox/source/input/CMakeLists.txt"
   "/home/runner/Skillbox/source/sort_functions/CMakeLists.txt"
+  "/home/runner/Skillbox/source/test/CMakeLists.txt"
   "/nix/store/rxb9zl1mdx9f2n3z0nyv9zhngj3f2pw0-cmake-3.24.3/share/cmake-3.24/Modules/CMakeCCompiler.cmake.in"
   "/nix/store/rxb9zl1mdx9f2n3z0nyv9zhngj3f2pw0-cmake-3.24.3/share/cmake-3.24/Modules/CMakeCCompilerABI.c"
   "/nix/store/rxb9zl1mdx9f2n3z0nyv9zhngj3f2pw0-cmake-3.24.3/share/cmake-3.24/Modules/CMakeCInformation.cmake"
@@ -120,13 +123,20 @@ set(CMAKE_MAKEFILE_PRODUCTS
   "CMakeFiles/3.24.3/CMakeCCompiler.cmake"
   "CMakeFiles/3.24.3/CMakeCXXCompiler.cmake"
   "CMakeFiles/CMakeDirectoryInformation.cmake"
+  "source/binary_sequences/CMakeFiles/CMakeDirectoryInformation.cmake"
   "source/display/CMakeFiles/CMakeDirectoryInformation.cmake"
   "source/sort_functions/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "source/input/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "source/test/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/sort.dir/DependInfo.cmake"
+  "CMakeFiles/test.dir/DependInfo.cmake"
+  "source/binary_sequences/CMakeFiles/binary_sequences_libraries.dir/DependInfo.cmake"
   "source/display/CMakeFiles/display_libraries.dir/DependInfo.cmake"
   "source/sort_functions/CMakeFiles/sort_functions_libraries.dir/DependInfo.cmake"
+  "source/input/CMakeFiles/input_libraries.dir/DependInfo.cmake"
+  "source/test/CMakeFiles/test_libraries.dir/DependInfo.cmake"
   )

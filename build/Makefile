@@ -130,6 +130,32 @@ sort/fast:
 .PHONY : sort/fast
 
 #=============================================================================
+# Target rules for targets named test
+
+# Build rule for target.
+test: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test
+.PHONY : test
+
+# fast build rule for target.
+test/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/build
+.PHONY : test/fast
+
+#=============================================================================
+# Target rules for targets named binary_sequences_libraries
+
+# Build rule for target.
+binary_sequences_libraries: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 binary_sequences_libraries
+.PHONY : binary_sequences_libraries
+
+# fast build rule for target.
+binary_sequences_libraries/fast:
+	$(MAKE) $(MAKESILENT) -f source/binary_sequences/CMakeFiles/binary_sequences_libraries.dir/build.make source/binary_sequences/CMakeFiles/binary_sequences_libraries.dir/build
+.PHONY : binary_sequences_libraries/fast
+
+#=============================================================================
 # Target rules for targets named display_libraries
 
 # Build rule for target.
@@ -155,6 +181,32 @@ sort_functions_libraries/fast:
 	$(MAKE) $(MAKESILENT) -f source/sort_functions/CMakeFiles/sort_functions_libraries.dir/build.make source/sort_functions/CMakeFiles/sort_functions_libraries.dir/build
 .PHONY : sort_functions_libraries/fast
 
+#=============================================================================
+# Target rules for targets named input_libraries
+
+# Build rule for target.
+input_libraries: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 input_libraries
+.PHONY : input_libraries
+
+# fast build rule for target.
+input_libraries/fast:
+	$(MAKE) $(MAKESILENT) -f source/input/CMakeFiles/input_libraries.dir/build.make source/input/CMakeFiles/input_libraries.dir/build
+.PHONY : input_libraries/fast
+
+#=============================================================================
+# Target rules for targets named test_libraries
+
+# Build rule for target.
+test_libraries: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_libraries
+.PHONY : test_libraries
+
+# fast build rule for target.
+test_libraries/fast:
+	$(MAKE) $(MAKESILENT) -f source/test/CMakeFiles/test_libraries.dir/build.make source/test/CMakeFiles/test_libraries.dir/build
+.PHONY : test_libraries/fast
+
 main.o: main.cpp.o
 .PHONY : main.o
 
@@ -179,6 +231,30 @@ main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/sort.dir/build.make CMakeFiles/sort.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+test.o: test.cpp.o
+.PHONY : test.o
+
+# target to build an object file
+test.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/test.cpp.o
+.PHONY : test.cpp.o
+
+test.i: test.cpp.i
+.PHONY : test.i
+
+# target to preprocess a source file
+test.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/test.cpp.i
+.PHONY : test.cpp.i
+
+test.s: test.cpp.s
+.PHONY : test.s
+
+# target to generate assembly for a file
+test.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/test.cpp.s
+.PHONY : test.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -187,12 +263,19 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... binary_sequences_libraries"
 	@echo "... display_libraries"
+	@echo "... input_libraries"
 	@echo "... sort"
 	@echo "... sort_functions_libraries"
+	@echo "... test"
+	@echo "... test_libraries"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... test.o"
+	@echo "... test.i"
+	@echo "... test.s"
 .PHONY : help
 
 

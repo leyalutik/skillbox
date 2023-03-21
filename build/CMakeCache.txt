@@ -148,7 +148,7 @@ CMAKE_PROJECT_DESCRIPTION:STATIC=
 CMAKE_PROJECT_HOMEPAGE_URL:STATIC=
 
 //Value Computed by CMake
-CMAKE_PROJECT_NAME:STATIC=sort
+CMAKE_PROJECT_NAME:STATIC=test
 
 //Path to a program.
 CMAKE_RANLIB:FILEPATH=/nix/store/dq0xwmsk1g0i2ayg6pb7y87na2knzylh-gcc-wrapper-11.3.0/bin/ranlib
@@ -222,6 +222,15 @@ display_libraries_IS_TOP_LEVEL:STATIC=OFF
 display_libraries_SOURCE_DIR:STATIC=/home/runner/Skillbox/source/display
 
 //Value Computed by CMake
+input_libraries_BINARY_DIR:STATIC=/home/runner/Skillbox/build/source/input
+
+//Value Computed by CMake
+input_libraries_IS_TOP_LEVEL:STATIC=OFF
+
+//Value Computed by CMake
+input_libraries_SOURCE_DIR:STATIC=/home/runner/Skillbox/source/input
+
+//Value Computed by CMake
 sort_BINARY_DIR:STATIC=/home/runner/Skillbox/build
 
 //Value Computed by CMake
@@ -238,6 +247,15 @@ sort_functions_libraries_IS_TOP_LEVEL:STATIC=OFF
 
 //Value Computed by CMake
 sort_functions_libraries_SOURCE_DIR:STATIC=/home/runner/Skillbox/source/sort_functions
+
+//Value Computed by CMake
+test_BINARY_DIR:STATIC=/home/runner/Skillbox/build
+
+//Value Computed by CMake
+test_IS_TOP_LEVEL:STATIC=ON
+
+//Value Computed by CMake
+test_SOURCE_DIR:STATIC=/home/runner/Skillbox
 
 
 ########################
@@ -344,7 +362,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=3
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=6
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP

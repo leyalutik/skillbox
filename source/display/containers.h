@@ -9,7 +9,9 @@
 #include <vector>
 #include <array>
 
-void display(float *m, const std::size_t N);
+void display(float *m, const size_t  N, const int32_t length_display);
+void display(int32_t *m, const size_t  N, const int32_t length_display);
+void display(std::initializer_list<float> list, const size_t N, const int32_t length_display);
 //display vector
 template <class T>
 std::ostream& operator<< (std::ostream& os, const std::vector<T> v)
