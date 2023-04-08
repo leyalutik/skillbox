@@ -1,2 +1,0 @@
-/nix/store/dq0xwmsk1g0i2ayg6pb7y87na2knzylh-gcc-wrapper-11.3.0/bin/ar qc libinput_libraries.a CMakeFiles/input_libraries.dir/standart_type.cpp.o
-/nix/store/dq0xwmsk1g0i2ayg6pb7y87na2knzylh-gcc-wrapper-11.3.0/bin/ranlib libinput_libraries.a
