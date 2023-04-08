@@ -1,6 +1,8 @@
 #include "test_insert_sort.h"
-#include "create_test_cases.h"
-#include "../display/containers.h"
+
+#include "../create_test_cases.h"
+#include "../../display/containers.h"
+#include "../test_cases.h"
 
 
 #include<initializer_list>

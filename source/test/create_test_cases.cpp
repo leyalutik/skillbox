@@ -1,5 +1,10 @@
-#include "test_insert_sort.h"
-#include "test_merge_sort.h"
+#include "test_sort/test_selection_sort.h"
+#include "test_sort/test_insert_sort.h"
+#include "test_sort/test_merge_sort.h"
+#include "test_sort/test_bubble_sort.h"
+#include "test_sort/test_quick_sort.h"
+#include "test_sort/test_heap_sort.h"
+
 #include "create_test_cases.h"
 #include "test_cases.h"
 #include "bricks.h"
@@ -24,13 +29,6 @@ namespace constants
 	const std::string test_cases_h = "test_cases.h";
 }
 
-void run_test_cases()
-{
-	test_merge_sort_cases();
-	//test_insert_sort_cases();
-	
-	std::cerr << "All tests - OK.\n";
-}
 
 void create_test(const std::vector<std::initializer_list<float>> lists)
 {
@@ -38,8 +36,12 @@ void create_test(const std::vector<std::initializer_list<float>> lists)
 	
 	std::string total_test_function_cpp = "";
 	
-	test_merge_sort(lists,total_test_function_cpp);
-	//test_insert_sort(lists,total_test_function_cpp);
+	//test_merge_sort(lists,total_test_function_cpp);
+	//test_selection_sort(lists,total_test_function_cpp);
+//test_bubble_sort(lists,total_test_function_cpp);
+	//test_quick_sort(lists,total_test_function_cpp);
+test_heap_sort(lists,total_test_function_cpp);
+test_insert_sort(lists,total_test_function_cpp);
 
 	
 	create_endings(total_test_function_cpp);
@@ -47,6 +49,7 @@ void create_test(const std::vector<std::initializer_list<float>> lists)
 	
 	std::cerr << "Test cases have been created!\n";
 }
+
 
 
 
@@ -98,7 +101,7 @@ bool first = true;
 	result += std::string("};\n");
 	result += std::string ("size_t N = list.size();\n");
 	result += std::string ("int32_t operations = 0;\n");
-	result += std::string ("bool increasing = true;\n");
+	result += std::string ("bool increasing = false;\n");
 	result += std::string("float A[N];\n");
 	result += std::string("display(list);\n");
 		
@@ -188,8 +191,13 @@ void create_headings()
 	write << "#include \"bricks.h\"\n";
 	write << "#include \"create_permutations.h\"\n";  
 
+write << "#include \"sort_functions/selection_sort.h\"\n";
 write << "#include \"sort_functions/insert_sort.h\"\n";
-write << "#include \"sort_functions/merge_sort.h\"\n";
+
+	write << "#include \"sort_functions/merge_sort.h\"\n";
+write << "#include \"sort_functions/quick_sort.h\"\n";
+write << "#include \"sort_functions/bubble_sort.h\"\n";
+write << "#include \"sort_functions/heap_sort.h\"\n";
 
 	 
 	write.close();

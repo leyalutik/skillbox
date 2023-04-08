@@ -219,4 +219,5 @@ source/test/CMakeFiles/test_libraries.dir/sort_functions/insert_sort.cpp.o: \
  /nix/store/1gf2flfqnpqbr1b4p4qz2f72y42bs56r-gcc-11.3.0/include/c++/11.3.0/set \
  /nix/store/1gf2flfqnpqbr1b4p4qz2f72y42bs56r-gcc-11.3.0/include/c++/11.3.0/bits/stl_set.h \
  /nix/store/1gf2flfqnpqbr1b4p4qz2f72y42bs56r-gcc-11.3.0/include/c++/11.3.0/bits/stl_multiset.h \
- /home/runner/Skillbox/source/test/sort_functions/insert_sort.h
+ /home/runner/Skillbox/source/test/sort_functions/insert_sort.h \
+ /home/runner/Skillbox/source/test/sort_functions/base_functions.h

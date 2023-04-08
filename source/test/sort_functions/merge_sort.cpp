@@ -29,9 +29,9 @@ void merge(float* left, const size_t Nl, float* right, const size_t Nr, const bo
 	{
 				if (l<Nl && r < Nr )
 				{
+					++operations;
 					if(compare(*(left+l),*(right+r),compare_sign))
 					{
-						++operations;
 						++operations;
 						*(result+i) = *(right+r);
 						++r;
@@ -86,20 +86,21 @@ void merge_sort(float* m , const size_t N,const bool increasing, int32_t& operat
 	}
 	if(N == 2)
 	{
+		++operations;
 		if(compare(*(m+0),*(m+1),compare_sign))
 		{
-			++operations;
-			float temp = *m;
-			*m = *(m+1);
-			*(m+1) = temp;
+			++operations;	
+			swap(*m,*(m+1));
 		}
 		return;
 	}
 	size_t mid = N/2;
 	float left[mid];
 	copy (m,mid,left);
+	operations += mid;
 	float right[N-mid];
 	copy(m+mid,N-mid,right);
+	operations += N-mid;
 	merge_sort(left,mid,increasing, operations);
 	merge_sort(right, N-mid,increasing,operations);
 	merge(left,mid,right,N-mid,increasing, m,operations);

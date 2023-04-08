@@ -69,10 +69,24 @@ include source/sort_functions/CMakeFiles/sort_functions_libraries.dir/progress.m
 # Include the compile flags for this target's objects.
 include source/sort_functions/CMakeFiles/sort_functions_libraries.dir/flags.make
 
+source/sort_functions/CMakeFiles/sort_functions_libraries.dir/bubble_sort.cpp.o: source/sort_functions/CMakeFiles/sort_functions_libraries.dir/flags.make
+source/sort_functions/CMakeFiles/sort_functions_libraries.dir/bubble_sort.cpp.o: /home/runner/Skillbox/source/sort_functions/bubble_sort.cpp
+source/sort_functions/CMakeFiles/sort_functions_libraries.dir/bubble_sort.cpp.o: source/sort_functions/CMakeFiles/sort_functions_libraries.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/runner/Skillbox/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object source/sort_functions/CMakeFiles/sort_functions_libraries.dir/bubble_sort.cpp.o"
+	cd /home/runner/Skillbox/build/source/sort_functions && /nix/store/dq0xwmsk1g0i2ayg6pb7y87na2knzylh-gcc-wrapper-11.3.0/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT source/sort_functions/CMakeFiles/sort_functions_libraries.dir/bubble_sort.cpp.o -MF CMakeFiles/sort_functions_libraries.dir/bubble_sort.cpp.o.d -o CMakeFiles/sort_functions_libraries.dir/bubble_sort.cpp.o -c /home/runner/Skillbox/source/sort_functions/bubble_sort.cpp
+
+source/sort_functions/CMakeFiles/sort_functions_libraries.dir/bubble_sort.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/sort_functions_libraries.dir/bubble_sort.cpp.i"
+	cd /home/runner/Skillbox/build/source/sort_functions && /nix/store/dq0xwmsk1g0i2ayg6pb7y87na2knzylh-gcc-wrapper-11.3.0/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/runner/Skillbox/source/sort_functions/bubble_sort.cpp > CMakeFiles/sort_functions_libraries.dir/bubble_sort.cpp.i
+
+source/sort_functions/CMakeFiles/sort_functions_libraries.dir/bubble_sort.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/sort_functions_libraries.dir/bubble_sort.cpp.s"
+	cd /home/runner/Skillbox/build/source/sort_functions && /nix/store/dq0xwmsk1g0i2ayg6pb7y87na2knzylh-gcc-wrapper-11.3.0/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/runner/Skillbox/source/sort_functions/bubble_sort.cpp -o CMakeFiles/sort_functions_libraries.dir/bubble_sort.cpp.s
+
 source/sort_functions/CMakeFiles/sort_functions_libraries.dir/insert_sort.cpp.o: source/sort_functions/CMakeFiles/sort_functions_libraries.dir/flags.make
 source/sort_functions/CMakeFiles/sort_functions_libraries.dir/insert_sort.cpp.o: /home/runner/Skillbox/source/sort_functions/insert_sort.cpp
 source/sort_functions/CMakeFiles/sort_functions_libraries.dir/insert_sort.cpp.o: source/sort_functions/CMakeFiles/sort_functions_libraries.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/runner/Skillbox/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object source/sort_functions/CMakeFiles/sort_functions_libraries.dir/insert_sort.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/runner/Skillbox/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object source/sort_functions/CMakeFiles/sort_functions_libraries.dir/insert_sort.cpp.o"
 	cd /home/runner/Skillbox/build/source/sort_functions && /nix/store/dq0xwmsk1g0i2ayg6pb7y87na2knzylh-gcc-wrapper-11.3.0/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT source/sort_functions/CMakeFiles/sort_functions_libraries.dir/insert_sort.cpp.o -MF CMakeFiles/sort_functions_libraries.dir/insert_sort.cpp.o.d -o CMakeFiles/sort_functions_libraries.dir/insert_sort.cpp.o -c /home/runner/Skillbox/source/sort_functions/insert_sort.cpp
 
 source/sort_functions/CMakeFiles/sort_functions_libraries.dir/insert_sort.cpp.i: cmake_force
@@ -83,10 +97,24 @@ source/sort_functions/CMakeFiles/sort_functions_libraries.dir/insert_sort.cpp.s:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/sort_functions_libraries.dir/insert_sort.cpp.s"
 	cd /home/runner/Skillbox/build/source/sort_functions && /nix/store/dq0xwmsk1g0i2ayg6pb7y87na2knzylh-gcc-wrapper-11.3.0/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/runner/Skillbox/source/sort_functions/insert_sort.cpp -o CMakeFiles/sort_functions_libraries.dir/insert_sort.cpp.s
 
+source/sort_functions/CMakeFiles/sort_functions_libraries.dir/selection_sort.cpp.o: source/sort_functions/CMakeFiles/sort_functions_libraries.dir/flags.make
+source/sort_functions/CMakeFiles/sort_functions_libraries.dir/selection_sort.cpp.o: /home/runner/Skillbox/source/sort_functions/selection_sort.cpp
+source/sort_functions/CMakeFiles/sort_functions_libraries.dir/selection_sort.cpp.o: source/sort_functions/CMakeFiles/sort_functions_libraries.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/runner/Skillbox/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object source/sort_functions/CMakeFiles/sort_functions_libraries.dir/selection_sort.cpp.o"
+	cd /home/runner/Skillbox/build/source/sort_functions && /nix/store/dq0xwmsk1g0i2ayg6pb7y87na2knzylh-gcc-wrapper-11.3.0/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT source/sort_functions/CMakeFiles/sort_functions_libraries.dir/selection_sort.cpp.o -MF CMakeFiles/sort_functions_libraries.dir/selection_sort.cpp.o.d -o CMakeFiles/sort_functions_libraries.dir/selection_sort.cpp.o -c /home/runner/Skillbox/source/sort_functions/selection_sort.cpp
+
+source/sort_functions/CMakeFiles/sort_functions_libraries.dir/selection_sort.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/sort_functions_libraries.dir/selection_sort.cpp.i"
+	cd /home/runner/Skillbox/build/source/sort_functions && /nix/store/dq0xwmsk1g0i2ayg6pb7y87na2knzylh-gcc-wrapper-11.3.0/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/runner/Skillbox/source/sort_functions/selection_sort.cpp > CMakeFiles/sort_functions_libraries.dir/selection_sort.cpp.i
+
+source/sort_functions/CMakeFiles/sort_functions_libraries.dir/selection_sort.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/sort_functions_libraries.dir/selection_sort.cpp.s"
+	cd /home/runner/Skillbox/build/source/sort_functions && /nix/store/dq0xwmsk1g0i2ayg6pb7y87na2knzylh-gcc-wrapper-11.3.0/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/runner/Skillbox/source/sort_functions/selection_sort.cpp -o CMakeFiles/sort_functions_libraries.dir/selection_sort.cpp.s
+
 source/sort_functions/CMakeFiles/sort_functions_libraries.dir/merge_sort.cpp.o: source/sort_functions/CMakeFiles/sort_functions_libraries.dir/flags.make
 source/sort_functions/CMakeFiles/sort_functions_libraries.dir/merge_sort.cpp.o: /home/runner/Skillbox/source/sort_functions/merge_sort.cpp
 source/sort_functions/CMakeFiles/sort_functions_libraries.dir/merge_sort.cpp.o: source/sort_functions/CMakeFiles/sort_functions_libraries.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/runner/Skillbox/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object source/sort_functions/CMakeFiles/sort_functions_libraries.dir/merge_sort.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/runner/Skillbox/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object source/sort_functions/CMakeFiles/sort_functions_libraries.dir/merge_sort.cpp.o"
 	cd /home/runner/Skillbox/build/source/sort_functions && /nix/store/dq0xwmsk1g0i2ayg6pb7y87na2knzylh-gcc-wrapper-11.3.0/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT source/sort_functions/CMakeFiles/sort_functions_libraries.dir/merge_sort.cpp.o -MF CMakeFiles/sort_functions_libraries.dir/merge_sort.cpp.o.d -o CMakeFiles/sort_functions_libraries.dir/merge_sort.cpp.o -c /home/runner/Skillbox/source/sort_functions/merge_sort.cpp
 
 source/sort_functions/CMakeFiles/sort_functions_libraries.dir/merge_sort.cpp.i: cmake_force
@@ -97,10 +125,38 @@ source/sort_functions/CMakeFiles/sort_functions_libraries.dir/merge_sort.cpp.s: 
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/sort_functions_libraries.dir/merge_sort.cpp.s"
 	cd /home/runner/Skillbox/build/source/sort_functions && /nix/store/dq0xwmsk1g0i2ayg6pb7y87na2knzylh-gcc-wrapper-11.3.0/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/runner/Skillbox/source/sort_functions/merge_sort.cpp -o CMakeFiles/sort_functions_libraries.dir/merge_sort.cpp.s
 
+source/sort_functions/CMakeFiles/sort_functions_libraries.dir/quick_sort.cpp.o: source/sort_functions/CMakeFiles/sort_functions_libraries.dir/flags.make
+source/sort_functions/CMakeFiles/sort_functions_libraries.dir/quick_sort.cpp.o: /home/runner/Skillbox/source/sort_functions/quick_sort.cpp
+source/sort_functions/CMakeFiles/sort_functions_libraries.dir/quick_sort.cpp.o: source/sort_functions/CMakeFiles/sort_functions_libraries.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/runner/Skillbox/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object source/sort_functions/CMakeFiles/sort_functions_libraries.dir/quick_sort.cpp.o"
+	cd /home/runner/Skillbox/build/source/sort_functions && /nix/store/dq0xwmsk1g0i2ayg6pb7y87na2knzylh-gcc-wrapper-11.3.0/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT source/sort_functions/CMakeFiles/sort_functions_libraries.dir/quick_sort.cpp.o -MF CMakeFiles/sort_functions_libraries.dir/quick_sort.cpp.o.d -o CMakeFiles/sort_functions_libraries.dir/quick_sort.cpp.o -c /home/runner/Skillbox/source/sort_functions/quick_sort.cpp
+
+source/sort_functions/CMakeFiles/sort_functions_libraries.dir/quick_sort.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/sort_functions_libraries.dir/quick_sort.cpp.i"
+	cd /home/runner/Skillbox/build/source/sort_functions && /nix/store/dq0xwmsk1g0i2ayg6pb7y87na2knzylh-gcc-wrapper-11.3.0/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/runner/Skillbox/source/sort_functions/quick_sort.cpp > CMakeFiles/sort_functions_libraries.dir/quick_sort.cpp.i
+
+source/sort_functions/CMakeFiles/sort_functions_libraries.dir/quick_sort.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/sort_functions_libraries.dir/quick_sort.cpp.s"
+	cd /home/runner/Skillbox/build/source/sort_functions && /nix/store/dq0xwmsk1g0i2ayg6pb7y87na2knzylh-gcc-wrapper-11.3.0/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/runner/Skillbox/source/sort_functions/quick_sort.cpp -o CMakeFiles/sort_functions_libraries.dir/quick_sort.cpp.s
+
+source/sort_functions/CMakeFiles/sort_functions_libraries.dir/heap_sort.cpp.o: source/sort_functions/CMakeFiles/sort_functions_libraries.dir/flags.make
+source/sort_functions/CMakeFiles/sort_functions_libraries.dir/heap_sort.cpp.o: /home/runner/Skillbox/source/sort_functions/heap_sort.cpp
+source/sort_functions/CMakeFiles/sort_functions_libraries.dir/heap_sort.cpp.o: source/sort_functions/CMakeFiles/sort_functions_libraries.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/runner/Skillbox/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object source/sort_functions/CMakeFiles/sort_functions_libraries.dir/heap_sort.cpp.o"
+	cd /home/runner/Skillbox/build/source/sort_functions && /nix/store/dq0xwmsk1g0i2ayg6pb7y87na2knzylh-gcc-wrapper-11.3.0/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT source/sort_functions/CMakeFiles/sort_functions_libraries.dir/heap_sort.cpp.o -MF CMakeFiles/sort_functions_libraries.dir/heap_sort.cpp.o.d -o CMakeFiles/sort_functions_libraries.dir/heap_sort.cpp.o -c /home/runner/Skillbox/source/sort_functions/heap_sort.cpp
+
+source/sort_functions/CMakeFiles/sort_functions_libraries.dir/heap_sort.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/sort_functions_libraries.dir/heap_sort.cpp.i"
+	cd /home/runner/Skillbox/build/source/sort_functions && /nix/store/dq0xwmsk1g0i2ayg6pb7y87na2knzylh-gcc-wrapper-11.3.0/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/runner/Skillbox/source/sort_functions/heap_sort.cpp > CMakeFiles/sort_functions_libraries.dir/heap_sort.cpp.i
+
+source/sort_functions/CMakeFiles/sort_functions_libraries.dir/heap_sort.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/sort_functions_libraries.dir/heap_sort.cpp.s"
+	cd /home/runner/Skillbox/build/source/sort_functions && /nix/store/dq0xwmsk1g0i2ayg6pb7y87na2knzylh-gcc-wrapper-11.3.0/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/runner/Skillbox/source/sort_functions/heap_sort.cpp -o CMakeFiles/sort_functions_libraries.dir/heap_sort.cpp.s
+
 source/sort_functions/CMakeFiles/sort_functions_libraries.dir/base_functions.cpp.o: source/sort_functions/CMakeFiles/sort_functions_libraries.dir/flags.make
 source/sort_functions/CMakeFiles/sort_functions_libraries.dir/base_functions.cpp.o: /home/runner/Skillbox/source/sort_functions/base_functions.cpp
 source/sort_functions/CMakeFiles/sort_functions_libraries.dir/base_functions.cpp.o: source/sort_functions/CMakeFiles/sort_functions_libraries.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/runner/Skillbox/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object source/sort_functions/CMakeFiles/sort_functions_libraries.dir/base_functions.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/runner/Skillbox/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object source/sort_functions/CMakeFiles/sort_functions_libraries.dir/base_functions.cpp.o"
 	cd /home/runner/Skillbox/build/source/sort_functions && /nix/store/dq0xwmsk1g0i2ayg6pb7y87na2knzylh-gcc-wrapper-11.3.0/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT source/sort_functions/CMakeFiles/sort_functions_libraries.dir/base_functions.cpp.o -MF CMakeFiles/sort_functions_libraries.dir/base_functions.cpp.o.d -o CMakeFiles/sort_functions_libraries.dir/base_functions.cpp.o -c /home/runner/Skillbox/source/sort_functions/base_functions.cpp
 
 source/sort_functions/CMakeFiles/sort_functions_libraries.dir/base_functions.cpp.i: cmake_force
@@ -113,19 +169,27 @@ source/sort_functions/CMakeFiles/sort_functions_libraries.dir/base_functions.cpp
 
 # Object files for target sort_functions_libraries
 sort_functions_libraries_OBJECTS = \
+"CMakeFiles/sort_functions_libraries.dir/bubble_sort.cpp.o" \
 "CMakeFiles/sort_functions_libraries.dir/insert_sort.cpp.o" \
+"CMakeFiles/sort_functions_libraries.dir/selection_sort.cpp.o" \
 "CMakeFiles/sort_functions_libraries.dir/merge_sort.cpp.o" \
+"CMakeFiles/sort_functions_libraries.dir/quick_sort.cpp.o" \
+"CMakeFiles/sort_functions_libraries.dir/heap_sort.cpp.o" \
 "CMakeFiles/sort_functions_libraries.dir/base_functions.cpp.o"
 
 # External object files for target sort_functions_libraries
 sort_functions_libraries_EXTERNAL_OBJECTS =
 
+source/sort_functions/libsort_functions_libraries.a: source/sort_functions/CMakeFiles/sort_functions_libraries.dir/bubble_sort.cpp.o
 source/sort_functions/libsort_functions_libraries.a: source/sort_functions/CMakeFiles/sort_functions_libraries.dir/insert_sort.cpp.o
+source/sort_functions/libsort_functions_libraries.a: source/sort_functions/CMakeFiles/sort_functions_libraries.dir/selection_sort.cpp.o
 source/sort_functions/libsort_functions_libraries.a: source/sort_functions/CMakeFiles/sort_functions_libraries.dir/merge_sort.cpp.o
+source/sort_functions/libsort_functions_libraries.a: source/sort_functions/CMakeFiles/sort_functions_libraries.dir/quick_sort.cpp.o
+source/sort_functions/libsort_functions_libraries.a: source/sort_functions/CMakeFiles/sort_functions_libraries.dir/heap_sort.cpp.o
 source/sort_functions/libsort_functions_libraries.a: source/sort_functions/CMakeFiles/sort_functions_libraries.dir/base_functions.cpp.o
 source/sort_functions/libsort_functions_libraries.a: source/sort_functions/CMakeFiles/sort_functions_libraries.dir/build.make
 source/sort_functions/libsort_functions_libraries.a: source/sort_functions/CMakeFiles/sort_functions_libraries.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/runner/Skillbox/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX static library libsort_functions_libraries.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/runner/Skillbox/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX static library libsort_functions_libraries.a"
 	cd /home/runner/Skillbox/build/source/sort_functions && $(CMAKE_COMMAND) -P CMakeFiles/sort_functions_libraries.dir/cmake_clean_target.cmake
 	cd /home/runner/Skillbox/build/source/sort_functions && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/sort_functions_libraries.dir/link.txt --verbose=$(VERBOSE)
 

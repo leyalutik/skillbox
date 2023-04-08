@@ -240,15 +240,6 @@ sort_IS_TOP_LEVEL:STATIC=ON
 sort_SOURCE_DIR:STATIC=/home/runner/Skillbox
 
 //Value Computed by CMake
-sort_functions_libraries_BINARY_DIR:STATIC=/home/runner/Skillbox/build/source/sort_functions
-
-//Value Computed by CMake
-sort_functions_libraries_IS_TOP_LEVEL:STATIC=OFF
-
-//Value Computed by CMake
-sort_functions_libraries_SOURCE_DIR:STATIC=/home/runner/Skillbox/source/sort_functions
-
-//Value Computed by CMake
 test_BINARY_DIR:STATIC=/home/runner/Skillbox/build
 
 //Value Computed by CMake

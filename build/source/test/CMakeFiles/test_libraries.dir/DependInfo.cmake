@@ -11,12 +11,21 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/runner/Skillbox/source/test/bricks.cpp" "source/test/CMakeFiles/test_libraries.dir/bricks.cpp.o" "gcc" "source/test/CMakeFiles/test_libraries.dir/bricks.cpp.o.d"
   "/home/runner/Skillbox/source/test/create_permutations.cpp" "source/test/CMakeFiles/test_libraries.dir/create_permutations.cpp.o" "gcc" "source/test/CMakeFiles/test_libraries.dir/create_permutations.cpp.o.d"
   "/home/runner/Skillbox/source/test/create_test_cases.cpp" "source/test/CMakeFiles/test_libraries.dir/create_test_cases.cpp.o" "gcc" "source/test/CMakeFiles/test_libraries.dir/create_test_cases.cpp.o.d"
+  "/home/runner/Skillbox/source/test/run_test_cases.cpp" "source/test/CMakeFiles/test_libraries.dir/run_test_cases.cpp.o" "gcc" "source/test/CMakeFiles/test_libraries.dir/run_test_cases.cpp.o.d"
   "/home/runner/Skillbox/source/test/sort_functions/base_functions.cpp" "source/test/CMakeFiles/test_libraries.dir/sort_functions/base_functions.cpp.o" "gcc" "source/test/CMakeFiles/test_libraries.dir/sort_functions/base_functions.cpp.o.d"
+  "/home/runner/Skillbox/source/test/sort_functions/bubble_sort.cpp" "source/test/CMakeFiles/test_libraries.dir/sort_functions/bubble_sort.cpp.o" "gcc" "source/test/CMakeFiles/test_libraries.dir/sort_functions/bubble_sort.cpp.o.d"
+  "/home/runner/Skillbox/source/test/sort_functions/heap_sort.cpp" "source/test/CMakeFiles/test_libraries.dir/sort_functions/heap_sort.cpp.o" "gcc" "source/test/CMakeFiles/test_libraries.dir/sort_functions/heap_sort.cpp.o.d"
   "/home/runner/Skillbox/source/test/sort_functions/insert_sort.cpp" "source/test/CMakeFiles/test_libraries.dir/sort_functions/insert_sort.cpp.o" "gcc" "source/test/CMakeFiles/test_libraries.dir/sort_functions/insert_sort.cpp.o.d"
   "/home/runner/Skillbox/source/test/sort_functions/merge_sort.cpp" "source/test/CMakeFiles/test_libraries.dir/sort_functions/merge_sort.cpp.o" "gcc" "source/test/CMakeFiles/test_libraries.dir/sort_functions/merge_sort.cpp.o.d"
+  "/home/runner/Skillbox/source/test/sort_functions/quick_sort.cpp" "source/test/CMakeFiles/test_libraries.dir/sort_functions/quick_sort.cpp.o" "gcc" "source/test/CMakeFiles/test_libraries.dir/sort_functions/quick_sort.cpp.o.d"
+  "/home/runner/Skillbox/source/test/sort_functions/selection_sort.cpp" "source/test/CMakeFiles/test_libraries.dir/sort_functions/selection_sort.cpp.o" "gcc" "source/test/CMakeFiles/test_libraries.dir/sort_functions/selection_sort.cpp.o.d"
   "/home/runner/Skillbox/source/test/test_cases.cpp" "source/test/CMakeFiles/test_libraries.dir/test_cases.cpp.o" "gcc" "source/test/CMakeFiles/test_libraries.dir/test_cases.cpp.o.d"
-  "/home/runner/Skillbox/source/test/test_insert_sort.cpp" "source/test/CMakeFiles/test_libraries.dir/test_insert_sort.cpp.o" "gcc" "source/test/CMakeFiles/test_libraries.dir/test_insert_sort.cpp.o.d"
-  "/home/runner/Skillbox/source/test/test_merge_sort.cpp" "source/test/CMakeFiles/test_libraries.dir/test_merge_sort.cpp.o" "gcc" "source/test/CMakeFiles/test_libraries.dir/test_merge_sort.cpp.o.d"
+  "/home/runner/Skillbox/source/test/test_sort/test_bubble_sort.cpp" "source/test/CMakeFiles/test_libraries.dir/test_sort/test_bubble_sort.cpp.o" "gcc" "source/test/CMakeFiles/test_libraries.dir/test_sort/test_bubble_sort.cpp.o.d"
+  "/home/runner/Skillbox/source/test/test_sort/test_heap_sort.cpp" "source/test/CMakeFiles/test_libraries.dir/test_sort/test_heap_sort.cpp.o" "gcc" "source/test/CMakeFiles/test_libraries.dir/test_sort/test_heap_sort.cpp.o.d"
+  "/home/runner/Skillbox/source/test/test_sort/test_insert_sort.cpp" "source/test/CMakeFiles/test_libraries.dir/test_sort/test_insert_sort.cpp.o" "gcc" "source/test/CMakeFiles/test_libraries.dir/test_sort/test_insert_sort.cpp.o.d"
+  "/home/runner/Skillbox/source/test/test_sort/test_merge_sort.cpp" "source/test/CMakeFiles/test_libraries.dir/test_sort/test_merge_sort.cpp.o" "gcc" "source/test/CMakeFiles/test_libraries.dir/test_sort/test_merge_sort.cpp.o.d"
+  "/home/runner/Skillbox/source/test/test_sort/test_quick_sort.cpp" "source/test/CMakeFiles/test_libraries.dir/test_sort/test_quick_sort.cpp.o" "gcc" "source/test/CMakeFiles/test_libraries.dir/test_sort/test_quick_sort.cpp.o.d"
+  "/home/runner/Skillbox/source/test/test_sort/test_selection_sort.cpp" "source/test/CMakeFiles/test_libraries.dir/test_sort/test_selection_sort.cpp.o" "gcc" "source/test/CMakeFiles/test_libraries.dir/test_sort/test_selection_sort.cpp.o.d"
   )
 
 # Targets to which this target links.

@@ -83,38 +83,108 @@ source/test/CMakeFiles/test_libraries.dir/bricks.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/test_libraries.dir/bricks.cpp.s"
 	cd /home/runner/Skillbox/build/source/test && /nix/store/dq0xwmsk1g0i2ayg6pb7y87na2knzylh-gcc-wrapper-11.3.0/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/runner/Skillbox/source/test/bricks.cpp -o CMakeFiles/test_libraries.dir/bricks.cpp.s
 
-source/test/CMakeFiles/test_libraries.dir/test_insert_sort.cpp.o: source/test/CMakeFiles/test_libraries.dir/flags.make
-source/test/CMakeFiles/test_libraries.dir/test_insert_sort.cpp.o: /home/runner/Skillbox/source/test/test_insert_sort.cpp
-source/test/CMakeFiles/test_libraries.dir/test_insert_sort.cpp.o: source/test/CMakeFiles/test_libraries.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/runner/Skillbox/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object source/test/CMakeFiles/test_libraries.dir/test_insert_sort.cpp.o"
-	cd /home/runner/Skillbox/build/source/test && /nix/store/dq0xwmsk1g0i2ayg6pb7y87na2knzylh-gcc-wrapper-11.3.0/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT source/test/CMakeFiles/test_libraries.dir/test_insert_sort.cpp.o -MF CMakeFiles/test_libraries.dir/test_insert_sort.cpp.o.d -o CMakeFiles/test_libraries.dir/test_insert_sort.cpp.o -c /home/runner/Skillbox/source/test/test_insert_sort.cpp
+source/test/CMakeFiles/test_libraries.dir/test_sort/test_insert_sort.cpp.o: source/test/CMakeFiles/test_libraries.dir/flags.make
+source/test/CMakeFiles/test_libraries.dir/test_sort/test_insert_sort.cpp.o: /home/runner/Skillbox/source/test/test_sort/test_insert_sort.cpp
+source/test/CMakeFiles/test_libraries.dir/test_sort/test_insert_sort.cpp.o: source/test/CMakeFiles/test_libraries.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/runner/Skillbox/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object source/test/CMakeFiles/test_libraries.dir/test_sort/test_insert_sort.cpp.o"
+	cd /home/runner/Skillbox/build/source/test && /nix/store/dq0xwmsk1g0i2ayg6pb7y87na2knzylh-gcc-wrapper-11.3.0/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT source/test/CMakeFiles/test_libraries.dir/test_sort/test_insert_sort.cpp.o -MF CMakeFiles/test_libraries.dir/test_sort/test_insert_sort.cpp.o.d -o CMakeFiles/test_libraries.dir/test_sort/test_insert_sort.cpp.o -c /home/runner/Skillbox/source/test/test_sort/test_insert_sort.cpp
 
-source/test/CMakeFiles/test_libraries.dir/test_insert_sort.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/test_libraries.dir/test_insert_sort.cpp.i"
-	cd /home/runner/Skillbox/build/source/test && /nix/store/dq0xwmsk1g0i2ayg6pb7y87na2knzylh-gcc-wrapper-11.3.0/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/runner/Skillbox/source/test/test_insert_sort.cpp > CMakeFiles/test_libraries.dir/test_insert_sort.cpp.i
+source/test/CMakeFiles/test_libraries.dir/test_sort/test_insert_sort.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/test_libraries.dir/test_sort/test_insert_sort.cpp.i"
+	cd /home/runner/Skillbox/build/source/test && /nix/store/dq0xwmsk1g0i2ayg6pb7y87na2knzylh-gcc-wrapper-11.3.0/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/runner/Skillbox/source/test/test_sort/test_insert_sort.cpp > CMakeFiles/test_libraries.dir/test_sort/test_insert_sort.cpp.i
 
-source/test/CMakeFiles/test_libraries.dir/test_insert_sort.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/test_libraries.dir/test_insert_sort.cpp.s"
-	cd /home/runner/Skillbox/build/source/test && /nix/store/dq0xwmsk1g0i2ayg6pb7y87na2knzylh-gcc-wrapper-11.3.0/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/runner/Skillbox/source/test/test_insert_sort.cpp -o CMakeFiles/test_libraries.dir/test_insert_sort.cpp.s
+source/test/CMakeFiles/test_libraries.dir/test_sort/test_insert_sort.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/test_libraries.dir/test_sort/test_insert_sort.cpp.s"
+	cd /home/runner/Skillbox/build/source/test && /nix/store/dq0xwmsk1g0i2ayg6pb7y87na2knzylh-gcc-wrapper-11.3.0/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/runner/Skillbox/source/test/test_sort/test_insert_sort.cpp -o CMakeFiles/test_libraries.dir/test_sort/test_insert_sort.cpp.s
 
-source/test/CMakeFiles/test_libraries.dir/test_merge_sort.cpp.o: source/test/CMakeFiles/test_libraries.dir/flags.make
-source/test/CMakeFiles/test_libraries.dir/test_merge_sort.cpp.o: /home/runner/Skillbox/source/test/test_merge_sort.cpp
-source/test/CMakeFiles/test_libraries.dir/test_merge_sort.cpp.o: source/test/CMakeFiles/test_libraries.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/runner/Skillbox/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object source/test/CMakeFiles/test_libraries.dir/test_merge_sort.cpp.o"
-	cd /home/runner/Skillbox/build/source/test && /nix/store/dq0xwmsk1g0i2ayg6pb7y87na2knzylh-gcc-wrapper-11.3.0/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT source/test/CMakeFiles/test_libraries.dir/test_merge_sort.cpp.o -MF CMakeFiles/test_libraries.dir/test_merge_sort.cpp.o.d -o CMakeFiles/test_libraries.dir/test_merge_sort.cpp.o -c /home/runner/Skillbox/source/test/test_merge_sort.cpp
+source/test/CMakeFiles/test_libraries.dir/test_sort/test_merge_sort.cpp.o: source/test/CMakeFiles/test_libraries.dir/flags.make
+source/test/CMakeFiles/test_libraries.dir/test_sort/test_merge_sort.cpp.o: /home/runner/Skillbox/source/test/test_sort/test_merge_sort.cpp
+source/test/CMakeFiles/test_libraries.dir/test_sort/test_merge_sort.cpp.o: source/test/CMakeFiles/test_libraries.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/runner/Skillbox/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object source/test/CMakeFiles/test_libraries.dir/test_sort/test_merge_sort.cpp.o"
+	cd /home/runner/Skillbox/build/source/test && /nix/store/dq0xwmsk1g0i2ayg6pb7y87na2knzylh-gcc-wrapper-11.3.0/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT source/test/CMakeFiles/test_libraries.dir/test_sort/test_merge_sort.cpp.o -MF CMakeFiles/test_libraries.dir/test_sort/test_merge_sort.cpp.o.d -o CMakeFiles/test_libraries.dir/test_sort/test_merge_sort.cpp.o -c /home/runner/Skillbox/source/test/test_sort/test_merge_sort.cpp
 
-source/test/CMakeFiles/test_libraries.dir/test_merge_sort.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/test_libraries.dir/test_merge_sort.cpp.i"
-	cd /home/runner/Skillbox/build/source/test && /nix/store/dq0xwmsk1g0i2ayg6pb7y87na2knzylh-gcc-wrapper-11.3.0/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/runner/Skillbox/source/test/test_merge_sort.cpp > CMakeFiles/test_libraries.dir/test_merge_sort.cpp.i
+source/test/CMakeFiles/test_libraries.dir/test_sort/test_merge_sort.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/test_libraries.dir/test_sort/test_merge_sort.cpp.i"
+	cd /home/runner/Skillbox/build/source/test && /nix/store/dq0xwmsk1g0i2ayg6pb7y87na2knzylh-gcc-wrapper-11.3.0/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/runner/Skillbox/source/test/test_sort/test_merge_sort.cpp > CMakeFiles/test_libraries.dir/test_sort/test_merge_sort.cpp.i
 
-source/test/CMakeFiles/test_libraries.dir/test_merge_sort.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/test_libraries.dir/test_merge_sort.cpp.s"
-	cd /home/runner/Skillbox/build/source/test && /nix/store/dq0xwmsk1g0i2ayg6pb7y87na2knzylh-gcc-wrapper-11.3.0/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/runner/Skillbox/source/test/test_merge_sort.cpp -o CMakeFiles/test_libraries.dir/test_merge_sort.cpp.s
+source/test/CMakeFiles/test_libraries.dir/test_sort/test_merge_sort.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/test_libraries.dir/test_sort/test_merge_sort.cpp.s"
+	cd /home/runner/Skillbox/build/source/test && /nix/store/dq0xwmsk1g0i2ayg6pb7y87na2knzylh-gcc-wrapper-11.3.0/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/runner/Skillbox/source/test/test_sort/test_merge_sort.cpp -o CMakeFiles/test_libraries.dir/test_sort/test_merge_sort.cpp.s
+
+source/test/CMakeFiles/test_libraries.dir/test_sort/test_selection_sort.cpp.o: source/test/CMakeFiles/test_libraries.dir/flags.make
+source/test/CMakeFiles/test_libraries.dir/test_sort/test_selection_sort.cpp.o: /home/runner/Skillbox/source/test/test_sort/test_selection_sort.cpp
+source/test/CMakeFiles/test_libraries.dir/test_sort/test_selection_sort.cpp.o: source/test/CMakeFiles/test_libraries.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/runner/Skillbox/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object source/test/CMakeFiles/test_libraries.dir/test_sort/test_selection_sort.cpp.o"
+	cd /home/runner/Skillbox/build/source/test && /nix/store/dq0xwmsk1g0i2ayg6pb7y87na2knzylh-gcc-wrapper-11.3.0/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT source/test/CMakeFiles/test_libraries.dir/test_sort/test_selection_sort.cpp.o -MF CMakeFiles/test_libraries.dir/test_sort/test_selection_sort.cpp.o.d -o CMakeFiles/test_libraries.dir/test_sort/test_selection_sort.cpp.o -c /home/runner/Skillbox/source/test/test_sort/test_selection_sort.cpp
+
+source/test/CMakeFiles/test_libraries.dir/test_sort/test_selection_sort.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/test_libraries.dir/test_sort/test_selection_sort.cpp.i"
+	cd /home/runner/Skillbox/build/source/test && /nix/store/dq0xwmsk1g0i2ayg6pb7y87na2knzylh-gcc-wrapper-11.3.0/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/runner/Skillbox/source/test/test_sort/test_selection_sort.cpp > CMakeFiles/test_libraries.dir/test_sort/test_selection_sort.cpp.i
+
+source/test/CMakeFiles/test_libraries.dir/test_sort/test_selection_sort.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/test_libraries.dir/test_sort/test_selection_sort.cpp.s"
+	cd /home/runner/Skillbox/build/source/test && /nix/store/dq0xwmsk1g0i2ayg6pb7y87na2knzylh-gcc-wrapper-11.3.0/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/runner/Skillbox/source/test/test_sort/test_selection_sort.cpp -o CMakeFiles/test_libraries.dir/test_sort/test_selection_sort.cpp.s
+
+source/test/CMakeFiles/test_libraries.dir/test_sort/test_bubble_sort.cpp.o: source/test/CMakeFiles/test_libraries.dir/flags.make
+source/test/CMakeFiles/test_libraries.dir/test_sort/test_bubble_sort.cpp.o: /home/runner/Skillbox/source/test/test_sort/test_bubble_sort.cpp
+source/test/CMakeFiles/test_libraries.dir/test_sort/test_bubble_sort.cpp.o: source/test/CMakeFiles/test_libraries.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/runner/Skillbox/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object source/test/CMakeFiles/test_libraries.dir/test_sort/test_bubble_sort.cpp.o"
+	cd /home/runner/Skillbox/build/source/test && /nix/store/dq0xwmsk1g0i2ayg6pb7y87na2knzylh-gcc-wrapper-11.3.0/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT source/test/CMakeFiles/test_libraries.dir/test_sort/test_bubble_sort.cpp.o -MF CMakeFiles/test_libraries.dir/test_sort/test_bubble_sort.cpp.o.d -o CMakeFiles/test_libraries.dir/test_sort/test_bubble_sort.cpp.o -c /home/runner/Skillbox/source/test/test_sort/test_bubble_sort.cpp
+
+source/test/CMakeFiles/test_libraries.dir/test_sort/test_bubble_sort.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/test_libraries.dir/test_sort/test_bubble_sort.cpp.i"
+	cd /home/runner/Skillbox/build/source/test && /nix/store/dq0xwmsk1g0i2ayg6pb7y87na2knzylh-gcc-wrapper-11.3.0/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/runner/Skillbox/source/test/test_sort/test_bubble_sort.cpp > CMakeFiles/test_libraries.dir/test_sort/test_bubble_sort.cpp.i
+
+source/test/CMakeFiles/test_libraries.dir/test_sort/test_bubble_sort.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/test_libraries.dir/test_sort/test_bubble_sort.cpp.s"
+	cd /home/runner/Skillbox/build/source/test && /nix/store/dq0xwmsk1g0i2ayg6pb7y87na2knzylh-gcc-wrapper-11.3.0/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/runner/Skillbox/source/test/test_sort/test_bubble_sort.cpp -o CMakeFiles/test_libraries.dir/test_sort/test_bubble_sort.cpp.s
+
+source/test/CMakeFiles/test_libraries.dir/test_sort/test_quick_sort.cpp.o: source/test/CMakeFiles/test_libraries.dir/flags.make
+source/test/CMakeFiles/test_libraries.dir/test_sort/test_quick_sort.cpp.o: /home/runner/Skillbox/source/test/test_sort/test_quick_sort.cpp
+source/test/CMakeFiles/test_libraries.dir/test_sort/test_quick_sort.cpp.o: source/test/CMakeFiles/test_libraries.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/runner/Skillbox/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object source/test/CMakeFiles/test_libraries.dir/test_sort/test_quick_sort.cpp.o"
+	cd /home/runner/Skillbox/build/source/test && /nix/store/dq0xwmsk1g0i2ayg6pb7y87na2knzylh-gcc-wrapper-11.3.0/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT source/test/CMakeFiles/test_libraries.dir/test_sort/test_quick_sort.cpp.o -MF CMakeFiles/test_libraries.dir/test_sort/test_quick_sort.cpp.o.d -o CMakeFiles/test_libraries.dir/test_sort/test_quick_sort.cpp.o -c /home/runner/Skillbox/source/test/test_sort/test_quick_sort.cpp
+
+source/test/CMakeFiles/test_libraries.dir/test_sort/test_quick_sort.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/test_libraries.dir/test_sort/test_quick_sort.cpp.i"
+	cd /home/runner/Skillbox/build/source/test && /nix/store/dq0xwmsk1g0i2ayg6pb7y87na2knzylh-gcc-wrapper-11.3.0/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/runner/Skillbox/source/test/test_sort/test_quick_sort.cpp > CMakeFiles/test_libraries.dir/test_sort/test_quick_sort.cpp.i
+
+source/test/CMakeFiles/test_libraries.dir/test_sort/test_quick_sort.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/test_libraries.dir/test_sort/test_quick_sort.cpp.s"
+	cd /home/runner/Skillbox/build/source/test && /nix/store/dq0xwmsk1g0i2ayg6pb7y87na2knzylh-gcc-wrapper-11.3.0/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/runner/Skillbox/source/test/test_sort/test_quick_sort.cpp -o CMakeFiles/test_libraries.dir/test_sort/test_quick_sort.cpp.s
+
+source/test/CMakeFiles/test_libraries.dir/test_sort/test_heap_sort.cpp.o: source/test/CMakeFiles/test_libraries.dir/flags.make
+source/test/CMakeFiles/test_libraries.dir/test_sort/test_heap_sort.cpp.o: /home/runner/Skillbox/source/test/test_sort/test_heap_sort.cpp
+source/test/CMakeFiles/test_libraries.dir/test_sort/test_heap_sort.cpp.o: source/test/CMakeFiles/test_libraries.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/runner/Skillbox/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object source/test/CMakeFiles/test_libraries.dir/test_sort/test_heap_sort.cpp.o"
+	cd /home/runner/Skillbox/build/source/test && /nix/store/dq0xwmsk1g0i2ayg6pb7y87na2knzylh-gcc-wrapper-11.3.0/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT source/test/CMakeFiles/test_libraries.dir/test_sort/test_heap_sort.cpp.o -MF CMakeFiles/test_libraries.dir/test_sort/test_heap_sort.cpp.o.d -o CMakeFiles/test_libraries.dir/test_sort/test_heap_sort.cpp.o -c /home/runner/Skillbox/source/test/test_sort/test_heap_sort.cpp
+
+source/test/CMakeFiles/test_libraries.dir/test_sort/test_heap_sort.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/test_libraries.dir/test_sort/test_heap_sort.cpp.i"
+	cd /home/runner/Skillbox/build/source/test && /nix/store/dq0xwmsk1g0i2ayg6pb7y87na2knzylh-gcc-wrapper-11.3.0/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/runner/Skillbox/source/test/test_sort/test_heap_sort.cpp > CMakeFiles/test_libraries.dir/test_sort/test_heap_sort.cpp.i
+
+source/test/CMakeFiles/test_libraries.dir/test_sort/test_heap_sort.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/test_libraries.dir/test_sort/test_heap_sort.cpp.s"
+	cd /home/runner/Skillbox/build/source/test && /nix/store/dq0xwmsk1g0i2ayg6pb7y87na2knzylh-gcc-wrapper-11.3.0/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/runner/Skillbox/source/test/test_sort/test_heap_sort.cpp -o CMakeFiles/test_libraries.dir/test_sort/test_heap_sort.cpp.s
+
+source/test/CMakeFiles/test_libraries.dir/run_test_cases.cpp.o: source/test/CMakeFiles/test_libraries.dir/flags.make
+source/test/CMakeFiles/test_libraries.dir/run_test_cases.cpp.o: /home/runner/Skillbox/source/test/run_test_cases.cpp
+source/test/CMakeFiles/test_libraries.dir/run_test_cases.cpp.o: source/test/CMakeFiles/test_libraries.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/runner/Skillbox/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object source/test/CMakeFiles/test_libraries.dir/run_test_cases.cpp.o"
+	cd /home/runner/Skillbox/build/source/test && /nix/store/dq0xwmsk1g0i2ayg6pb7y87na2knzylh-gcc-wrapper-11.3.0/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT source/test/CMakeFiles/test_libraries.dir/run_test_cases.cpp.o -MF CMakeFiles/test_libraries.dir/run_test_cases.cpp.o.d -o CMakeFiles/test_libraries.dir/run_test_cases.cpp.o -c /home/runner/Skillbox/source/test/run_test_cases.cpp
+
+source/test/CMakeFiles/test_libraries.dir/run_test_cases.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/test_libraries.dir/run_test_cases.cpp.i"
+	cd /home/runner/Skillbox/build/source/test && /nix/store/dq0xwmsk1g0i2ayg6pb7y87na2knzylh-gcc-wrapper-11.3.0/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/runner/Skillbox/source/test/run_test_cases.cpp > CMakeFiles/test_libraries.dir/run_test_cases.cpp.i
+
+source/test/CMakeFiles/test_libraries.dir/run_test_cases.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/test_libraries.dir/run_test_cases.cpp.s"
+	cd /home/runner/Skillbox/build/source/test && /nix/store/dq0xwmsk1g0i2ayg6pb7y87na2knzylh-gcc-wrapper-11.3.0/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/runner/Skillbox/source/test/run_test_cases.cpp -o CMakeFiles/test_libraries.dir/run_test_cases.cpp.s
 
 source/test/CMakeFiles/test_libraries.dir/create_test_cases.cpp.o: source/test/CMakeFiles/test_libraries.dir/flags.make
 source/test/CMakeFiles/test_libraries.dir/create_test_cases.cpp.o: /home/runner/Skillbox/source/test/create_test_cases.cpp
 source/test/CMakeFiles/test_libraries.dir/create_test_cases.cpp.o: source/test/CMakeFiles/test_libraries.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/runner/Skillbox/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object source/test/CMakeFiles/test_libraries.dir/create_test_cases.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/runner/Skillbox/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object source/test/CMakeFiles/test_libraries.dir/create_test_cases.cpp.o"
 	cd /home/runner/Skillbox/build/source/test && /nix/store/dq0xwmsk1g0i2ayg6pb7y87na2knzylh-gcc-wrapper-11.3.0/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT source/test/CMakeFiles/test_libraries.dir/create_test_cases.cpp.o -MF CMakeFiles/test_libraries.dir/create_test_cases.cpp.o.d -o CMakeFiles/test_libraries.dir/create_test_cases.cpp.o -c /home/runner/Skillbox/source/test/create_test_cases.cpp
 
 source/test/CMakeFiles/test_libraries.dir/create_test_cases.cpp.i: cmake_force
@@ -128,7 +198,7 @@ source/test/CMakeFiles/test_libraries.dir/create_test_cases.cpp.s: cmake_force
 source/test/CMakeFiles/test_libraries.dir/create_permutations.cpp.o: source/test/CMakeFiles/test_libraries.dir/flags.make
 source/test/CMakeFiles/test_libraries.dir/create_permutations.cpp.o: /home/runner/Skillbox/source/test/create_permutations.cpp
 source/test/CMakeFiles/test_libraries.dir/create_permutations.cpp.o: source/test/CMakeFiles/test_libraries.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/runner/Skillbox/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object source/test/CMakeFiles/test_libraries.dir/create_permutations.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/runner/Skillbox/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object source/test/CMakeFiles/test_libraries.dir/create_permutations.cpp.o"
 	cd /home/runner/Skillbox/build/source/test && /nix/store/dq0xwmsk1g0i2ayg6pb7y87na2knzylh-gcc-wrapper-11.3.0/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT source/test/CMakeFiles/test_libraries.dir/create_permutations.cpp.o -MF CMakeFiles/test_libraries.dir/create_permutations.cpp.o.d -o CMakeFiles/test_libraries.dir/create_permutations.cpp.o -c /home/runner/Skillbox/source/test/create_permutations.cpp
 
 source/test/CMakeFiles/test_libraries.dir/create_permutations.cpp.i: cmake_force
@@ -142,7 +212,7 @@ source/test/CMakeFiles/test_libraries.dir/create_permutations.cpp.s: cmake_force
 source/test/CMakeFiles/test_libraries.dir/test_cases.cpp.o: source/test/CMakeFiles/test_libraries.dir/flags.make
 source/test/CMakeFiles/test_libraries.dir/test_cases.cpp.o: /home/runner/Skillbox/source/test/test_cases.cpp
 source/test/CMakeFiles/test_libraries.dir/test_cases.cpp.o: source/test/CMakeFiles/test_libraries.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/runner/Skillbox/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object source/test/CMakeFiles/test_libraries.dir/test_cases.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/runner/Skillbox/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object source/test/CMakeFiles/test_libraries.dir/test_cases.cpp.o"
 	cd /home/runner/Skillbox/build/source/test && /nix/store/dq0xwmsk1g0i2ayg6pb7y87na2knzylh-gcc-wrapper-11.3.0/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT source/test/CMakeFiles/test_libraries.dir/test_cases.cpp.o -MF CMakeFiles/test_libraries.dir/test_cases.cpp.o.d -o CMakeFiles/test_libraries.dir/test_cases.cpp.o -c /home/runner/Skillbox/source/test/test_cases.cpp
 
 source/test/CMakeFiles/test_libraries.dir/test_cases.cpp.i: cmake_force
@@ -156,7 +226,7 @@ source/test/CMakeFiles/test_libraries.dir/test_cases.cpp.s: cmake_force
 source/test/CMakeFiles/test_libraries.dir/sort_functions/insert_sort.cpp.o: source/test/CMakeFiles/test_libraries.dir/flags.make
 source/test/CMakeFiles/test_libraries.dir/sort_functions/insert_sort.cpp.o: /home/runner/Skillbox/source/test/sort_functions/insert_sort.cpp
 source/test/CMakeFiles/test_libraries.dir/sort_functions/insert_sort.cpp.o: source/test/CMakeFiles/test_libraries.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/runner/Skillbox/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object source/test/CMakeFiles/test_libraries.dir/sort_functions/insert_sort.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/runner/Skillbox/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object source/test/CMakeFiles/test_libraries.dir/sort_functions/insert_sort.cpp.o"
 	cd /home/runner/Skillbox/build/source/test && /nix/store/dq0xwmsk1g0i2ayg6pb7y87na2knzylh-gcc-wrapper-11.3.0/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT source/test/CMakeFiles/test_libraries.dir/sort_functions/insert_sort.cpp.o -MF CMakeFiles/test_libraries.dir/sort_functions/insert_sort.cpp.o.d -o CMakeFiles/test_libraries.dir/sort_functions/insert_sort.cpp.o -c /home/runner/Skillbox/source/test/sort_functions/insert_sort.cpp
 
 source/test/CMakeFiles/test_libraries.dir/sort_functions/insert_sort.cpp.i: cmake_force
@@ -170,7 +240,7 @@ source/test/CMakeFiles/test_libraries.dir/sort_functions/insert_sort.cpp.s: cmak
 source/test/CMakeFiles/test_libraries.dir/sort_functions/merge_sort.cpp.o: source/test/CMakeFiles/test_libraries.dir/flags.make
 source/test/CMakeFiles/test_libraries.dir/sort_functions/merge_sort.cpp.o: /home/runner/Skillbox/source/test/sort_functions/merge_sort.cpp
 source/test/CMakeFiles/test_libraries.dir/sort_functions/merge_sort.cpp.o: source/test/CMakeFiles/test_libraries.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/runner/Skillbox/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object source/test/CMakeFiles/test_libraries.dir/sort_functions/merge_sort.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/runner/Skillbox/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object source/test/CMakeFiles/test_libraries.dir/sort_functions/merge_sort.cpp.o"
 	cd /home/runner/Skillbox/build/source/test && /nix/store/dq0xwmsk1g0i2ayg6pb7y87na2knzylh-gcc-wrapper-11.3.0/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT source/test/CMakeFiles/test_libraries.dir/sort_functions/merge_sort.cpp.o -MF CMakeFiles/test_libraries.dir/sort_functions/merge_sort.cpp.o.d -o CMakeFiles/test_libraries.dir/sort_functions/merge_sort.cpp.o -c /home/runner/Skillbox/source/test/sort_functions/merge_sort.cpp
 
 source/test/CMakeFiles/test_libraries.dir/sort_functions/merge_sort.cpp.i: cmake_force
@@ -181,10 +251,38 @@ source/test/CMakeFiles/test_libraries.dir/sort_functions/merge_sort.cpp.s: cmake
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/test_libraries.dir/sort_functions/merge_sort.cpp.s"
 	cd /home/runner/Skillbox/build/source/test && /nix/store/dq0xwmsk1g0i2ayg6pb7y87na2knzylh-gcc-wrapper-11.3.0/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/runner/Skillbox/source/test/sort_functions/merge_sort.cpp -o CMakeFiles/test_libraries.dir/sort_functions/merge_sort.cpp.s
 
+source/test/CMakeFiles/test_libraries.dir/sort_functions/quick_sort.cpp.o: source/test/CMakeFiles/test_libraries.dir/flags.make
+source/test/CMakeFiles/test_libraries.dir/sort_functions/quick_sort.cpp.o: /home/runner/Skillbox/source/test/sort_functions/quick_sort.cpp
+source/test/CMakeFiles/test_libraries.dir/sort_functions/quick_sort.cpp.o: source/test/CMakeFiles/test_libraries.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/runner/Skillbox/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object source/test/CMakeFiles/test_libraries.dir/sort_functions/quick_sort.cpp.o"
+	cd /home/runner/Skillbox/build/source/test && /nix/store/dq0xwmsk1g0i2ayg6pb7y87na2knzylh-gcc-wrapper-11.3.0/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT source/test/CMakeFiles/test_libraries.dir/sort_functions/quick_sort.cpp.o -MF CMakeFiles/test_libraries.dir/sort_functions/quick_sort.cpp.o.d -o CMakeFiles/test_libraries.dir/sort_functions/quick_sort.cpp.o -c /home/runner/Skillbox/source/test/sort_functions/quick_sort.cpp
+
+source/test/CMakeFiles/test_libraries.dir/sort_functions/quick_sort.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/test_libraries.dir/sort_functions/quick_sort.cpp.i"
+	cd /home/runner/Skillbox/build/source/test && /nix/store/dq0xwmsk1g0i2ayg6pb7y87na2knzylh-gcc-wrapper-11.3.0/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/runner/Skillbox/source/test/sort_functions/quick_sort.cpp > CMakeFiles/test_libraries.dir/sort_functions/quick_sort.cpp.i
+
+source/test/CMakeFiles/test_libraries.dir/sort_functions/quick_sort.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/test_libraries.dir/sort_functions/quick_sort.cpp.s"
+	cd /home/runner/Skillbox/build/source/test && /nix/store/dq0xwmsk1g0i2ayg6pb7y87na2knzylh-gcc-wrapper-11.3.0/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/runner/Skillbox/source/test/sort_functions/quick_sort.cpp -o CMakeFiles/test_libraries.dir/sort_functions/quick_sort.cpp.s
+
+source/test/CMakeFiles/test_libraries.dir/sort_functions/heap_sort.cpp.o: source/test/CMakeFiles/test_libraries.dir/flags.make
+source/test/CMakeFiles/test_libraries.dir/sort_functions/heap_sort.cpp.o: /home/runner/Skillbox/source/test/sort_functions/heap_sort.cpp
+source/test/CMakeFiles/test_libraries.dir/sort_functions/heap_sort.cpp.o: source/test/CMakeFiles/test_libraries.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/runner/Skillbox/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object source/test/CMakeFiles/test_libraries.dir/sort_functions/heap_sort.cpp.o"
+	cd /home/runner/Skillbox/build/source/test && /nix/store/dq0xwmsk1g0i2ayg6pb7y87na2knzylh-gcc-wrapper-11.3.0/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT source/test/CMakeFiles/test_libraries.dir/sort_functions/heap_sort.cpp.o -MF CMakeFiles/test_libraries.dir/sort_functions/heap_sort.cpp.o.d -o CMakeFiles/test_libraries.dir/sort_functions/heap_sort.cpp.o -c /home/runner/Skillbox/source/test/sort_functions/heap_sort.cpp
+
+source/test/CMakeFiles/test_libraries.dir/sort_functions/heap_sort.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/test_libraries.dir/sort_functions/heap_sort.cpp.i"
+	cd /home/runner/Skillbox/build/source/test && /nix/store/dq0xwmsk1g0i2ayg6pb7y87na2knzylh-gcc-wrapper-11.3.0/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/runner/Skillbox/source/test/sort_functions/heap_sort.cpp > CMakeFiles/test_libraries.dir/sort_functions/heap_sort.cpp.i
+
+source/test/CMakeFiles/test_libraries.dir/sort_functions/heap_sort.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/test_libraries.dir/sort_functions/heap_sort.cpp.s"
+	cd /home/runner/Skillbox/build/source/test && /nix/store/dq0xwmsk1g0i2ayg6pb7y87na2knzylh-gcc-wrapper-11.3.0/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/runner/Skillbox/source/test/sort_functions/heap_sort.cpp -o CMakeFiles/test_libraries.dir/sort_functions/heap_sort.cpp.s
+
 source/test/CMakeFiles/test_libraries.dir/sort_functions/base_functions.cpp.o: source/test/CMakeFiles/test_libraries.dir/flags.make
 source/test/CMakeFiles/test_libraries.dir/sort_functions/base_functions.cpp.o: /home/runner/Skillbox/source/test/sort_functions/base_functions.cpp
 source/test/CMakeFiles/test_libraries.dir/sort_functions/base_functions.cpp.o: source/test/CMakeFiles/test_libraries.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/runner/Skillbox/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object source/test/CMakeFiles/test_libraries.dir/sort_functions/base_functions.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/runner/Skillbox/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object source/test/CMakeFiles/test_libraries.dir/sort_functions/base_functions.cpp.o"
 	cd /home/runner/Skillbox/build/source/test && /nix/store/dq0xwmsk1g0i2ayg6pb7y87na2knzylh-gcc-wrapper-11.3.0/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT source/test/CMakeFiles/test_libraries.dir/sort_functions/base_functions.cpp.o -MF CMakeFiles/test_libraries.dir/sort_functions/base_functions.cpp.o.d -o CMakeFiles/test_libraries.dir/sort_functions/base_functions.cpp.o -c /home/runner/Skillbox/source/test/sort_functions/base_functions.cpp
 
 source/test/CMakeFiles/test_libraries.dir/sort_functions/base_functions.cpp.i: cmake_force
@@ -195,33 +293,79 @@ source/test/CMakeFiles/test_libraries.dir/sort_functions/base_functions.cpp.s: c
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/test_libraries.dir/sort_functions/base_functions.cpp.s"
 	cd /home/runner/Skillbox/build/source/test && /nix/store/dq0xwmsk1g0i2ayg6pb7y87na2knzylh-gcc-wrapper-11.3.0/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/runner/Skillbox/source/test/sort_functions/base_functions.cpp -o CMakeFiles/test_libraries.dir/sort_functions/base_functions.cpp.s
 
+source/test/CMakeFiles/test_libraries.dir/sort_functions/selection_sort.cpp.o: source/test/CMakeFiles/test_libraries.dir/flags.make
+source/test/CMakeFiles/test_libraries.dir/sort_functions/selection_sort.cpp.o: /home/runner/Skillbox/source/test/sort_functions/selection_sort.cpp
+source/test/CMakeFiles/test_libraries.dir/sort_functions/selection_sort.cpp.o: source/test/CMakeFiles/test_libraries.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/runner/Skillbox/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object source/test/CMakeFiles/test_libraries.dir/sort_functions/selection_sort.cpp.o"
+	cd /home/runner/Skillbox/build/source/test && /nix/store/dq0xwmsk1g0i2ayg6pb7y87na2knzylh-gcc-wrapper-11.3.0/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT source/test/CMakeFiles/test_libraries.dir/sort_functions/selection_sort.cpp.o -MF CMakeFiles/test_libraries.dir/sort_functions/selection_sort.cpp.o.d -o CMakeFiles/test_libraries.dir/sort_functions/selection_sort.cpp.o -c /home/runner/Skillbox/source/test/sort_functions/selection_sort.cpp
+
+source/test/CMakeFiles/test_libraries.dir/sort_functions/selection_sort.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/test_libraries.dir/sort_functions/selection_sort.cpp.i"
+	cd /home/runner/Skillbox/build/source/test && /nix/store/dq0xwmsk1g0i2ayg6pb7y87na2knzylh-gcc-wrapper-11.3.0/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/runner/Skillbox/source/test/sort_functions/selection_sort.cpp > CMakeFiles/test_libraries.dir/sort_functions/selection_sort.cpp.i
+
+source/test/CMakeFiles/test_libraries.dir/sort_functions/selection_sort.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/test_libraries.dir/sort_functions/selection_sort.cpp.s"
+	cd /home/runner/Skillbox/build/source/test && /nix/store/dq0xwmsk1g0i2ayg6pb7y87na2knzylh-gcc-wrapper-11.3.0/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/runner/Skillbox/source/test/sort_functions/selection_sort.cpp -o CMakeFiles/test_libraries.dir/sort_functions/selection_sort.cpp.s
+
+source/test/CMakeFiles/test_libraries.dir/sort_functions/bubble_sort.cpp.o: source/test/CMakeFiles/test_libraries.dir/flags.make
+source/test/CMakeFiles/test_libraries.dir/sort_functions/bubble_sort.cpp.o: /home/runner/Skillbox/source/test/sort_functions/bubble_sort.cpp
+source/test/CMakeFiles/test_libraries.dir/sort_functions/bubble_sort.cpp.o: source/test/CMakeFiles/test_libraries.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/runner/Skillbox/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object source/test/CMakeFiles/test_libraries.dir/sort_functions/bubble_sort.cpp.o"
+	cd /home/runner/Skillbox/build/source/test && /nix/store/dq0xwmsk1g0i2ayg6pb7y87na2knzylh-gcc-wrapper-11.3.0/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT source/test/CMakeFiles/test_libraries.dir/sort_functions/bubble_sort.cpp.o -MF CMakeFiles/test_libraries.dir/sort_functions/bubble_sort.cpp.o.d -o CMakeFiles/test_libraries.dir/sort_functions/bubble_sort.cpp.o -c /home/runner/Skillbox/source/test/sort_functions/bubble_sort.cpp
+
+source/test/CMakeFiles/test_libraries.dir/sort_functions/bubble_sort.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/test_libraries.dir/sort_functions/bubble_sort.cpp.i"
+	cd /home/runner/Skillbox/build/source/test && /nix/store/dq0xwmsk1g0i2ayg6pb7y87na2knzylh-gcc-wrapper-11.3.0/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/runner/Skillbox/source/test/sort_functions/bubble_sort.cpp > CMakeFiles/test_libraries.dir/sort_functions/bubble_sort.cpp.i
+
+source/test/CMakeFiles/test_libraries.dir/sort_functions/bubble_sort.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/test_libraries.dir/sort_functions/bubble_sort.cpp.s"
+	cd /home/runner/Skillbox/build/source/test && /nix/store/dq0xwmsk1g0i2ayg6pb7y87na2knzylh-gcc-wrapper-11.3.0/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/runner/Skillbox/source/test/sort_functions/bubble_sort.cpp -o CMakeFiles/test_libraries.dir/sort_functions/bubble_sort.cpp.s
+
 # Object files for target test_libraries
 test_libraries_OBJECTS = \
 "CMakeFiles/test_libraries.dir/bricks.cpp.o" \
-"CMakeFiles/test_libraries.dir/test_insert_sort.cpp.o" \
-"CMakeFiles/test_libraries.dir/test_merge_sort.cpp.o" \
+"CMakeFiles/test_libraries.dir/test_sort/test_insert_sort.cpp.o" \
+"CMakeFiles/test_libraries.dir/test_sort/test_merge_sort.cpp.o" \
+"CMakeFiles/test_libraries.dir/test_sort/test_selection_sort.cpp.o" \
+"CMakeFiles/test_libraries.dir/test_sort/test_bubble_sort.cpp.o" \
+"CMakeFiles/test_libraries.dir/test_sort/test_quick_sort.cpp.o" \
+"CMakeFiles/test_libraries.dir/test_sort/test_heap_sort.cpp.o" \
+"CMakeFiles/test_libraries.dir/run_test_cases.cpp.o" \
 "CMakeFiles/test_libraries.dir/create_test_cases.cpp.o" \
 "CMakeFiles/test_libraries.dir/create_permutations.cpp.o" \
 "CMakeFiles/test_libraries.dir/test_cases.cpp.o" \
 "CMakeFiles/test_libraries.dir/sort_functions/insert_sort.cpp.o" \
 "CMakeFiles/test_libraries.dir/sort_functions/merge_sort.cpp.o" \
-"CMakeFiles/test_libraries.dir/sort_functions/base_functions.cpp.o"
+"CMakeFiles/test_libraries.dir/sort_functions/quick_sort.cpp.o" \
+"CMakeFiles/test_libraries.dir/sort_functions/heap_sort.cpp.o" \
+"CMakeFiles/test_libraries.dir/sort_functions/base_functions.cpp.o" \
+"CMakeFiles/test_libraries.dir/sort_functions/selection_sort.cpp.o" \
+"CMakeFiles/test_libraries.dir/sort_functions/bubble_sort.cpp.o"
 
 # External object files for target test_libraries
 test_libraries_EXTERNAL_OBJECTS =
 
 source/test/libtest_libraries.a: source/test/CMakeFiles/test_libraries.dir/bricks.cpp.o
-source/test/libtest_libraries.a: source/test/CMakeFiles/test_libraries.dir/test_insert_sort.cpp.o
-source/test/libtest_libraries.a: source/test/CMakeFiles/test_libraries.dir/test_merge_sort.cpp.o
+source/test/libtest_libraries.a: source/test/CMakeFiles/test_libraries.dir/test_sort/test_insert_sort.cpp.o
+source/test/libtest_libraries.a: source/test/CMakeFiles/test_libraries.dir/test_sort/test_merge_sort.cpp.o
+source/test/libtest_libraries.a: source/test/CMakeFiles/test_libraries.dir/test_sort/test_selection_sort.cpp.o
+source/test/libtest_libraries.a: source/test/CMakeFiles/test_libraries.dir/test_sort/test_bubble_sort.cpp.o
+source/test/libtest_libraries.a: source/test/CMakeFiles/test_libraries.dir/test_sort/test_quick_sort.cpp.o
+source/test/libtest_libraries.a: source/test/CMakeFiles/test_libraries.dir/test_sort/test_heap_sort.cpp.o
+source/test/libtest_libraries.a: source/test/CMakeFiles/test_libraries.dir/run_test_cases.cpp.o
 source/test/libtest_libraries.a: source/test/CMakeFiles/test_libraries.dir/create_test_cases.cpp.o
 source/test/libtest_libraries.a: source/test/CMakeFiles/test_libraries.dir/create_permutations.cpp.o
 source/test/libtest_libraries.a: source/test/CMakeFiles/test_libraries.dir/test_cases.cpp.o
 source/test/libtest_libraries.a: source/test/CMakeFiles/test_libraries.dir/sort_functions/insert_sort.cpp.o
 source/test/libtest_libraries.a: source/test/CMakeFiles/test_libraries.dir/sort_functions/merge_sort.cpp.o
+source/test/libtest_libraries.a: source/test/CMakeFiles/test_libraries.dir/sort_functions/quick_sort.cpp.o
+source/test/libtest_libraries.a: source/test/CMakeFiles/test_libraries.dir/sort_functions/heap_sort.cpp.o
 source/test/libtest_libraries.a: source/test/CMakeFiles/test_libraries.dir/sort_functions/base_functions.cpp.o
+source/test/libtest_libraries.a: source/test/CMakeFiles/test_libraries.dir/sort_functions/selection_sort.cpp.o
+source/test/libtest_libraries.a: source/test/CMakeFiles/test_libraries.dir/sort_functions/bubble_sort.cpp.o
 source/test/libtest_libraries.a: source/test/CMakeFiles/test_libraries.dir/build.make
 source/test/libtest_libraries.a: source/test/CMakeFiles/test_libraries.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/runner/Skillbox/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking CXX static library libtest_libraries.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/runner/Skillbox/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Linking CXX static library libtest_libraries.a"
 	cd /home/runner/Skillbox/build/source/test && $(CMAKE_COMMAND) -P CMakeFiles/test_libraries.dir/cmake_clean_target.cmake
 	cd /home/runner/Skillbox/build/source/test && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/test_libraries.dir/link.txt --verbose=$(VERBOSE)
 

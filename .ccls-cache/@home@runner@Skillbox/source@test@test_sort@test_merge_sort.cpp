@@ -1,6 +1,7 @@
 #include "test_merge_sort.h"
-#include "create_test_cases.h"
-#include "../display/containers.h"
+#include "../create_test_cases.h"
+#include "../../display/containers.h"
+#include "../test_cases.h"
 
 #include<initializer_list>
 #include<string>

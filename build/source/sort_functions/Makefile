@@ -154,6 +154,54 @@ base_functions.cpp.s:
 	cd /home/runner/Skillbox/build && $(MAKE) $(MAKESILENT) -f source/sort_functions/CMakeFiles/sort_functions_libraries.dir/build.make source/sort_functions/CMakeFiles/sort_functions_libraries.dir/base_functions.cpp.s
 .PHONY : base_functions.cpp.s
 
+bubble_sort.o: bubble_sort.cpp.o
+.PHONY : bubble_sort.o
+
+# target to build an object file
+bubble_sort.cpp.o:
+	cd /home/runner/Skillbox/build && $(MAKE) $(MAKESILENT) -f source/sort_functions/CMakeFiles/sort_functions_libraries.dir/build.make source/sort_functions/CMakeFiles/sort_functions_libraries.dir/bubble_sort.cpp.o
+.PHONY : bubble_sort.cpp.o
+
+bubble_sort.i: bubble_sort.cpp.i
+.PHONY : bubble_sort.i
+
+# target to preprocess a source file
+bubble_sort.cpp.i:
+	cd /home/runner/Skillbox/build && $(MAKE) $(MAKESILENT) -f source/sort_functions/CMakeFiles/sort_functions_libraries.dir/build.make source/sort_functions/CMakeFiles/sort_functions_libraries.dir/bubble_sort.cpp.i
+.PHONY : bubble_sort.cpp.i
+
+bubble_sort.s: bubble_sort.cpp.s
+.PHONY : bubble_sort.s
+
+# target to generate assembly for a file
+bubble_sort.cpp.s:
+	cd /home/runner/Skillbox/build && $(MAKE) $(MAKESILENT) -f source/sort_functions/CMakeFiles/sort_functions_libraries.dir/build.make source/sort_functions/CMakeFiles/sort_functions_libraries.dir/bubble_sort.cpp.s
+.PHONY : bubble_sort.cpp.s
+
+heap_sort.o: heap_sort.cpp.o
+.PHONY : heap_sort.o
+
+# target to build an object file
+heap_sort.cpp.o:
+	cd /home/runner/Skillbox/build && $(MAKE) $(MAKESILENT) -f source/sort_functions/CMakeFiles/sort_functions_libraries.dir/build.make source/sort_functions/CMakeFiles/sort_functions_libraries.dir/heap_sort.cpp.o
+.PHONY : heap_sort.cpp.o
+
+heap_sort.i: heap_sort.cpp.i
+.PHONY : heap_sort.i
+
+# target to preprocess a source file
+heap_sort.cpp.i:
+	cd /home/runner/Skillbox/build && $(MAKE) $(MAKESILENT) -f source/sort_functions/CMakeFiles/sort_functions_libraries.dir/build.make source/sort_functions/CMakeFiles/sort_functions_libraries.dir/heap_sort.cpp.i
+.PHONY : heap_sort.cpp.i
+
+heap_sort.s: heap_sort.cpp.s
+.PHONY : heap_sort.s
+
+# target to generate assembly for a file
+heap_sort.cpp.s:
+	cd /home/runner/Skillbox/build && $(MAKE) $(MAKESILENT) -f source/sort_functions/CMakeFiles/sort_functions_libraries.dir/build.make source/sort_functions/CMakeFiles/sort_functions_libraries.dir/heap_sort.cpp.s
+.PHONY : heap_sort.cpp.s
+
 insert_sort.o: insert_sort.cpp.o
 .PHONY : insert_sort.o
 
@@ -202,6 +250,54 @@ merge_sort.cpp.s:
 	cd /home/runner/Skillbox/build && $(MAKE) $(MAKESILENT) -f source/sort_functions/CMakeFiles/sort_functions_libraries.dir/build.make source/sort_functions/CMakeFiles/sort_functions_libraries.dir/merge_sort.cpp.s
 .PHONY : merge_sort.cpp.s
 
+quick_sort.o: quick_sort.cpp.o
+.PHONY : quick_sort.o
+
+# target to build an object file
+quick_sort.cpp.o:
+	cd /home/runner/Skillbox/build && $(MAKE) $(MAKESILENT) -f source/sort_functions/CMakeFiles/sort_functions_libraries.dir/build.make source/sort_functions/CMakeFiles/sort_functions_libraries.dir/quick_sort.cpp.o
+.PHONY : quick_sort.cpp.o
+
+quick_sort.i: quick_sort.cpp.i
+.PHONY : quick_sort.i
+
+# target to preprocess a source file
+quick_sort.cpp.i:
+	cd /home/runner/Skillbox/build && $(MAKE) $(MAKESILENT) -f source/sort_functions/CMakeFiles/sort_functions_libraries.dir/build.make source/sort_functions/CMakeFiles/sort_functions_libraries.dir/quick_sort.cpp.i
+.PHONY : quick_sort.cpp.i
+
+quick_sort.s: quick_sort.cpp.s
+.PHONY : quick_sort.s
+
+# target to generate assembly for a file
+quick_sort.cpp.s:
+	cd /home/runner/Skillbox/build && $(MAKE) $(MAKESILENT) -f source/sort_functions/CMakeFiles/sort_functions_libraries.dir/build.make source/sort_functions/CMakeFiles/sort_functions_libraries.dir/quick_sort.cpp.s
+.PHONY : quick_sort.cpp.s
+
+selection_sort.o: selection_sort.cpp.o
+.PHONY : selection_sort.o
+
+# target to build an object file
+selection_sort.cpp.o:
+	cd /home/runner/Skillbox/build && $(MAKE) $(MAKESILENT) -f source/sort_functions/CMakeFiles/sort_functions_libraries.dir/build.make source/sort_functions/CMakeFiles/sort_functions_libraries.dir/selection_sort.cpp.o
+.PHONY : selection_sort.cpp.o
+
+selection_sort.i: selection_sort.cpp.i
+.PHONY : selection_sort.i
+
+# target to preprocess a source file
+selection_sort.cpp.i:
+	cd /home/runner/Skillbox/build && $(MAKE) $(MAKESILENT) -f source/sort_functions/CMakeFiles/sort_functions_libraries.dir/build.make source/sort_functions/CMakeFiles/sort_functions_libraries.dir/selection_sort.cpp.i
+.PHONY : selection_sort.cpp.i
+
+selection_sort.s: selection_sort.cpp.s
+.PHONY : selection_sort.s
+
+# target to generate assembly for a file
+selection_sort.cpp.s:
+	cd /home/runner/Skillbox/build && $(MAKE) $(MAKESILENT) -f source/sort_functions/CMakeFiles/sort_functions_libraries.dir/build.make source/sort_functions/CMakeFiles/sort_functions_libraries.dir/selection_sort.cpp.s
+.PHONY : selection_sort.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -214,12 +310,24 @@ help:
 	@echo "... base_functions.o"
 	@echo "... base_functions.i"
 	@echo "... base_functions.s"
+	@echo "... bubble_sort.o"
+	@echo "... bubble_sort.i"
+	@echo "... bubble_sort.s"
+	@echo "... heap_sort.o"
+	@echo "... heap_sort.i"
+	@echo "... heap_sort.s"
 	@echo "... insert_sort.o"
 	@echo "... insert_sort.i"
 	@echo "... insert_sort.s"
 	@echo "... merge_sort.o"
 	@echo "... merge_sort.i"
 	@echo "... merge_sort.s"
+	@echo "... quick_sort.o"
+	@echo "... quick_sort.i"
+	@echo "... quick_sort.s"
+	@echo "... selection_sort.o"
+	@echo "... selection_sort.i"
+	@echo "... selection_sort.s"
 .PHONY : help
 
 

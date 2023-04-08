@@ -233,7 +233,12 @@ CMakeFiles/sort.dir/main.cpp.o
  /nix/store/1gf2flfqnpqbr1b4p4qz2f72y42bs56r-gcc-11.3.0/include/c++/11.3.0/bits/stl_vector.h
  /nix/store/1gf2flfqnpqbr1b4p4qz2f72y42bs56r-gcc-11.3.0/include/c++/11.3.0/bits/stl_bvector.h
  /nix/store/1gf2flfqnpqbr1b4p4qz2f72y42bs56r-gcc-11.3.0/include/c++/11.3.0/bits/vector.tcc
+ /home/runner/Skillbox/source/sort_functions/quick_sort.h
+ /home/runner/Skillbox/source/sort_functions/heap_sort.h
  /home/runner/Skillbox/source/sort_functions/merge_sort.h
+ /home/runner/Skillbox/source/sort_functions/selection_sort.h
+ /home/runner/Skillbox/source/sort_functions/base_functions.h
+ /home/runner/Skillbox/source/sort_functions/bubble_sort.h
  /home/runner/Skillbox/source/display/containers.h
  /nix/store/1gf2flfqnpqbr1b4p4qz2f72y42bs56r-gcc-11.3.0/include/c++/11.3.0/sstream
  /nix/store/1gf2flfqnpqbr1b4p4qz2f72y42bs56r-gcc-11.3.0/include/c++/11.3.0/bits/sstream.tcc

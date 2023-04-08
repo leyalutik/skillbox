@@ -1,7 +1,7 @@
 source/test/CMakeFiles/test_libraries.dir/create_test_cases.cpp.o: \
  /home/runner/Skillbox/source/test/create_test_cases.cpp \
  /nix/store/4pqv2mwdn88h7xvsm7a5zplrd8sxzvw0-glibc-2.35-163-dev/include/stdc-predef.h \
- /home/runner/Skillbox/source/test/test_insert_sort.h \
+ /home/runner/Skillbox/source/test/test_sort/test_selection_sort.h \
  /nix/store/1gf2flfqnpqbr1b4p4qz2f72y42bs56r-gcc-11.3.0/include/c++/11.3.0/initializer_list \
  /nix/store/1gf2flfqnpqbr1b4p4qz2f72y42bs56r-gcc-11.3.0/include/c++/11.3.0/x86_64-unknown-linux-gnu/bits/c++config.h \
  /nix/store/1gf2flfqnpqbr1b4p4qz2f72y42bs56r-gcc-11.3.0/include/c++/11.3.0/x86_64-unknown-linux-gnu/bits/os_defines.h \
@@ -175,7 +175,11 @@ source/test/CMakeFiles/test_libraries.dir/create_test_cases.cpp.o: \
  /nix/store/1gf2flfqnpqbr1b4p4qz2f72y42bs56r-gcc-11.3.0/include/c++/11.3.0/bits/stl_vector.h \
  /nix/store/1gf2flfqnpqbr1b4p4qz2f72y42bs56r-gcc-11.3.0/include/c++/11.3.0/bits/stl_bvector.h \
  /nix/store/1gf2flfqnpqbr1b4p4qz2f72y42bs56r-gcc-11.3.0/include/c++/11.3.0/bits/vector.tcc \
- /home/runner/Skillbox/source/test/test_merge_sort.h \
+ /home/runner/Skillbox/source/test/test_sort/test_insert_sort.h \
+ /home/runner/Skillbox/source/test/test_sort/test_merge_sort.h \
+ /home/runner/Skillbox/source/test/test_sort/test_bubble_sort.h \
+ /home/runner/Skillbox/source/test/test_sort/test_quick_sort.h \
+ /home/runner/Skillbox/source/test/test_sort/test_heap_sort.h \
  /home/runner/Skillbox/source/test/create_test_cases.h \
  /home/runner/Skillbox/source/test/test_cases.h \
  /home/runner/Skillbox/source/test/bricks.h \

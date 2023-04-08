@@ -1,6 +1,12 @@
 #include "base_functions.h"
 #include<iostream>
 
+void swap (float& m1, float& m2)
+{
+	float temp = m1;
+	m1 = m2;
+	m2 = temp;
+}
 void copy(const float* m, const size_t N, float* result)
 {
 	for(size_t i=0; i<N; ++i)

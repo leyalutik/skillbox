@@ -202,6 +202,30 @@ create_test_cases.cpp.s:
 	cd /home/runner/Skillbox/build && $(MAKE) $(MAKESILENT) -f source/test/CMakeFiles/test_libraries.dir/build.make source/test/CMakeFiles/test_libraries.dir/create_test_cases.cpp.s
 .PHONY : create_test_cases.cpp.s
 
+run_test_cases.o: run_test_cases.cpp.o
+.PHONY : run_test_cases.o
+
+# target to build an object file
+run_test_cases.cpp.o:
+	cd /home/runner/Skillbox/build && $(MAKE) $(MAKESILENT) -f source/test/CMakeFiles/test_libraries.dir/build.make source/test/CMakeFiles/test_libraries.dir/run_test_cases.cpp.o
+.PHONY : run_test_cases.cpp.o
+
+run_test_cases.i: run_test_cases.cpp.i
+.PHONY : run_test_cases.i
+
+# target to preprocess a source file
+run_test_cases.cpp.i:
+	cd /home/runner/Skillbox/build && $(MAKE) $(MAKESILENT) -f source/test/CMakeFiles/test_libraries.dir/build.make source/test/CMakeFiles/test_libraries.dir/run_test_cases.cpp.i
+.PHONY : run_test_cases.cpp.i
+
+run_test_cases.s: run_test_cases.cpp.s
+.PHONY : run_test_cases.s
+
+# target to generate assembly for a file
+run_test_cases.cpp.s:
+	cd /home/runner/Skillbox/build && $(MAKE) $(MAKESILENT) -f source/test/CMakeFiles/test_libraries.dir/build.make source/test/CMakeFiles/test_libraries.dir/run_test_cases.cpp.s
+.PHONY : run_test_cases.cpp.s
+
 sort_functions/base_functions.o: sort_functions/base_functions.cpp.o
 .PHONY : sort_functions/base_functions.o
 
@@ -225,6 +249,54 @@ sort_functions/base_functions.s: sort_functions/base_functions.cpp.s
 sort_functions/base_functions.cpp.s:
 	cd /home/runner/Skillbox/build && $(MAKE) $(MAKESILENT) -f source/test/CMakeFiles/test_libraries.dir/build.make source/test/CMakeFiles/test_libraries.dir/sort_functions/base_functions.cpp.s
 .PHONY : sort_functions/base_functions.cpp.s
+
+sort_functions/bubble_sort.o: sort_functions/bubble_sort.cpp.o
+.PHONY : sort_functions/bubble_sort.o
+
+# target to build an object file
+sort_functions/bubble_sort.cpp.o:
+	cd /home/runner/Skillbox/build && $(MAKE) $(MAKESILENT) -f source/test/CMakeFiles/test_libraries.dir/build.make source/test/CMakeFiles/test_libraries.dir/sort_functions/bubble_sort.cpp.o
+.PHONY : sort_functions/bubble_sort.cpp.o
+
+sort_functions/bubble_sort.i: sort_functions/bubble_sort.cpp.i
+.PHONY : sort_functions/bubble_sort.i
+
+# target to preprocess a source file
+sort_functions/bubble_sort.cpp.i:
+	cd /home/runner/Skillbox/build && $(MAKE) $(MAKESILENT) -f source/test/CMakeFiles/test_libraries.dir/build.make source/test/CMakeFiles/test_libraries.dir/sort_functions/bubble_sort.cpp.i
+.PHONY : sort_functions/bubble_sort.cpp.i
+
+sort_functions/bubble_sort.s: sort_functions/bubble_sort.cpp.s
+.PHONY : sort_functions/bubble_sort.s
+
+# target to generate assembly for a file
+sort_functions/bubble_sort.cpp.s:
+	cd /home/runner/Skillbox/build && $(MAKE) $(MAKESILENT) -f source/test/CMakeFiles/test_libraries.dir/build.make source/test/CMakeFiles/test_libraries.dir/sort_functions/bubble_sort.cpp.s
+.PHONY : sort_functions/bubble_sort.cpp.s
+
+sort_functions/heap_sort.o: sort_functions/heap_sort.cpp.o
+.PHONY : sort_functions/heap_sort.o
+
+# target to build an object file
+sort_functions/heap_sort.cpp.o:
+	cd /home/runner/Skillbox/build && $(MAKE) $(MAKESILENT) -f source/test/CMakeFiles/test_libraries.dir/build.make source/test/CMakeFiles/test_libraries.dir/sort_functions/heap_sort.cpp.o
+.PHONY : sort_functions/heap_sort.cpp.o
+
+sort_functions/heap_sort.i: sort_functions/heap_sort.cpp.i
+.PHONY : sort_functions/heap_sort.i
+
+# target to preprocess a source file
+sort_functions/heap_sort.cpp.i:
+	cd /home/runner/Skillbox/build && $(MAKE) $(MAKESILENT) -f source/test/CMakeFiles/test_libraries.dir/build.make source/test/CMakeFiles/test_libraries.dir/sort_functions/heap_sort.cpp.i
+.PHONY : sort_functions/heap_sort.cpp.i
+
+sort_functions/heap_sort.s: sort_functions/heap_sort.cpp.s
+.PHONY : sort_functions/heap_sort.s
+
+# target to generate assembly for a file
+sort_functions/heap_sort.cpp.s:
+	cd /home/runner/Skillbox/build && $(MAKE) $(MAKESILENT) -f source/test/CMakeFiles/test_libraries.dir/build.make source/test/CMakeFiles/test_libraries.dir/sort_functions/heap_sort.cpp.s
+.PHONY : sort_functions/heap_sort.cpp.s
 
 sort_functions/insert_sort.o: sort_functions/insert_sort.cpp.o
 .PHONY : sort_functions/insert_sort.o
@@ -274,6 +346,54 @@ sort_functions/merge_sort.cpp.s:
 	cd /home/runner/Skillbox/build && $(MAKE) $(MAKESILENT) -f source/test/CMakeFiles/test_libraries.dir/build.make source/test/CMakeFiles/test_libraries.dir/sort_functions/merge_sort.cpp.s
 .PHONY : sort_functions/merge_sort.cpp.s
 
+sort_functions/quick_sort.o: sort_functions/quick_sort.cpp.o
+.PHONY : sort_functions/quick_sort.o
+
+# target to build an object file
+sort_functions/quick_sort.cpp.o:
+	cd /home/runner/Skillbox/build && $(MAKE) $(MAKESILENT) -f source/test/CMakeFiles/test_libraries.dir/build.make source/test/CMakeFiles/test_libraries.dir/sort_functions/quick_sort.cpp.o
+.PHONY : sort_functions/quick_sort.cpp.o
+
+sort_functions/quick_sort.i: sort_functions/quick_sort.cpp.i
+.PHONY : sort_functions/quick_sort.i
+
+# target to preprocess a source file
+sort_functions/quick_sort.cpp.i:
+	cd /home/runner/Skillbox/build && $(MAKE) $(MAKESILENT) -f source/test/CMakeFiles/test_libraries.dir/build.make source/test/CMakeFiles/test_libraries.dir/sort_functions/quick_sort.cpp.i
+.PHONY : sort_functions/quick_sort.cpp.i
+
+sort_functions/quick_sort.s: sort_functions/quick_sort.cpp.s
+.PHONY : sort_functions/quick_sort.s
+
+# target to generate assembly for a file
+sort_functions/quick_sort.cpp.s:
+	cd /home/runner/Skillbox/build && $(MAKE) $(MAKESILENT) -f source/test/CMakeFiles/test_libraries.dir/build.make source/test/CMakeFiles/test_libraries.dir/sort_functions/quick_sort.cpp.s
+.PHONY : sort_functions/quick_sort.cpp.s
+
+sort_functions/selection_sort.o: sort_functions/selection_sort.cpp.o
+.PHONY : sort_functions/selection_sort.o
+
+# target to build an object file
+sort_functions/selection_sort.cpp.o:
+	cd /home/runner/Skillbox/build && $(MAKE) $(MAKESILENT) -f source/test/CMakeFiles/test_libraries.dir/build.make source/test/CMakeFiles/test_libraries.dir/sort_functions/selection_sort.cpp.o
+.PHONY : sort_functions/selection_sort.cpp.o
+
+sort_functions/selection_sort.i: sort_functions/selection_sort.cpp.i
+.PHONY : sort_functions/selection_sort.i
+
+# target to preprocess a source file
+sort_functions/selection_sort.cpp.i:
+	cd /home/runner/Skillbox/build && $(MAKE) $(MAKESILENT) -f source/test/CMakeFiles/test_libraries.dir/build.make source/test/CMakeFiles/test_libraries.dir/sort_functions/selection_sort.cpp.i
+.PHONY : sort_functions/selection_sort.cpp.i
+
+sort_functions/selection_sort.s: sort_functions/selection_sort.cpp.s
+.PHONY : sort_functions/selection_sort.s
+
+# target to generate assembly for a file
+sort_functions/selection_sort.cpp.s:
+	cd /home/runner/Skillbox/build && $(MAKE) $(MAKESILENT) -f source/test/CMakeFiles/test_libraries.dir/build.make source/test/CMakeFiles/test_libraries.dir/sort_functions/selection_sort.cpp.s
+.PHONY : sort_functions/selection_sort.cpp.s
+
 test_cases.o: test_cases.cpp.o
 .PHONY : test_cases.o
 
@@ -298,53 +418,149 @@ test_cases.cpp.s:
 	cd /home/runner/Skillbox/build && $(MAKE) $(MAKESILENT) -f source/test/CMakeFiles/test_libraries.dir/build.make source/test/CMakeFiles/test_libraries.dir/test_cases.cpp.s
 .PHONY : test_cases.cpp.s
 
-test_insert_sort.o: test_insert_sort.cpp.o
-.PHONY : test_insert_sort.o
+test_sort/test_bubble_sort.o: test_sort/test_bubble_sort.cpp.o
+.PHONY : test_sort/test_bubble_sort.o
 
 # target to build an object file
-test_insert_sort.cpp.o:
-	cd /home/runner/Skillbox/build && $(MAKE) $(MAKESILENT) -f source/test/CMakeFiles/test_libraries.dir/build.make source/test/CMakeFiles/test_libraries.dir/test_insert_sort.cpp.o
-.PHONY : test_insert_sort.cpp.o
+test_sort/test_bubble_sort.cpp.o:
+	cd /home/runner/Skillbox/build && $(MAKE) $(MAKESILENT) -f source/test/CMakeFiles/test_libraries.dir/build.make source/test/CMakeFiles/test_libraries.dir/test_sort/test_bubble_sort.cpp.o
+.PHONY : test_sort/test_bubble_sort.cpp.o
 
-test_insert_sort.i: test_insert_sort.cpp.i
-.PHONY : test_insert_sort.i
+test_sort/test_bubble_sort.i: test_sort/test_bubble_sort.cpp.i
+.PHONY : test_sort/test_bubble_sort.i
 
 # target to preprocess a source file
-test_insert_sort.cpp.i:
-	cd /home/runner/Skillbox/build && $(MAKE) $(MAKESILENT) -f source/test/CMakeFiles/test_libraries.dir/build.make source/test/CMakeFiles/test_libraries.dir/test_insert_sort.cpp.i
-.PHONY : test_insert_sort.cpp.i
+test_sort/test_bubble_sort.cpp.i:
+	cd /home/runner/Skillbox/build && $(MAKE) $(MAKESILENT) -f source/test/CMakeFiles/test_libraries.dir/build.make source/test/CMakeFiles/test_libraries.dir/test_sort/test_bubble_sort.cpp.i
+.PHONY : test_sort/test_bubble_sort.cpp.i
 
-test_insert_sort.s: test_insert_sort.cpp.s
-.PHONY : test_insert_sort.s
+test_sort/test_bubble_sort.s: test_sort/test_bubble_sort.cpp.s
+.PHONY : test_sort/test_bubble_sort.s
 
 # target to generate assembly for a file
-test_insert_sort.cpp.s:
-	cd /home/runner/Skillbox/build && $(MAKE) $(MAKESILENT) -f source/test/CMakeFiles/test_libraries.dir/build.make source/test/CMakeFiles/test_libraries.dir/test_insert_sort.cpp.s
-.PHONY : test_insert_sort.cpp.s
+test_sort/test_bubble_sort.cpp.s:
+	cd /home/runner/Skillbox/build && $(MAKE) $(MAKESILENT) -f source/test/CMakeFiles/test_libraries.dir/build.make source/test/CMakeFiles/test_libraries.dir/test_sort/test_bubble_sort.cpp.s
+.PHONY : test_sort/test_bubble_sort.cpp.s
 
-test_merge_sort.o: test_merge_sort.cpp.o
-.PHONY : test_merge_sort.o
+test_sort/test_heap_sort.o: test_sort/test_heap_sort.cpp.o
+.PHONY : test_sort/test_heap_sort.o
 
 # target to build an object file
-test_merge_sort.cpp.o:
-	cd /home/runner/Skillbox/build && $(MAKE) $(MAKESILENT) -f source/test/CMakeFiles/test_libraries.dir/build.make source/test/CMakeFiles/test_libraries.dir/test_merge_sort.cpp.o
-.PHONY : test_merge_sort.cpp.o
+test_sort/test_heap_sort.cpp.o:
+	cd /home/runner/Skillbox/build && $(MAKE) $(MAKESILENT) -f source/test/CMakeFiles/test_libraries.dir/build.make source/test/CMakeFiles/test_libraries.dir/test_sort/test_heap_sort.cpp.o
+.PHONY : test_sort/test_heap_sort.cpp.o
 
-test_merge_sort.i: test_merge_sort.cpp.i
-.PHONY : test_merge_sort.i
+test_sort/test_heap_sort.i: test_sort/test_heap_sort.cpp.i
+.PHONY : test_sort/test_heap_sort.i
 
 # target to preprocess a source file
-test_merge_sort.cpp.i:
-	cd /home/runner/Skillbox/build && $(MAKE) $(MAKESILENT) -f source/test/CMakeFiles/test_libraries.dir/build.make source/test/CMakeFiles/test_libraries.dir/test_merge_sort.cpp.i
-.PHONY : test_merge_sort.cpp.i
+test_sort/test_heap_sort.cpp.i:
+	cd /home/runner/Skillbox/build && $(MAKE) $(MAKESILENT) -f source/test/CMakeFiles/test_libraries.dir/build.make source/test/CMakeFiles/test_libraries.dir/test_sort/test_heap_sort.cpp.i
+.PHONY : test_sort/test_heap_sort.cpp.i
 
-test_merge_sort.s: test_merge_sort.cpp.s
-.PHONY : test_merge_sort.s
+test_sort/test_heap_sort.s: test_sort/test_heap_sort.cpp.s
+.PHONY : test_sort/test_heap_sort.s
 
 # target to generate assembly for a file
-test_merge_sort.cpp.s:
-	cd /home/runner/Skillbox/build && $(MAKE) $(MAKESILENT) -f source/test/CMakeFiles/test_libraries.dir/build.make source/test/CMakeFiles/test_libraries.dir/test_merge_sort.cpp.s
-.PHONY : test_merge_sort.cpp.s
+test_sort/test_heap_sort.cpp.s:
+	cd /home/runner/Skillbox/build && $(MAKE) $(MAKESILENT) -f source/test/CMakeFiles/test_libraries.dir/build.make source/test/CMakeFiles/test_libraries.dir/test_sort/test_heap_sort.cpp.s
+.PHONY : test_sort/test_heap_sort.cpp.s
+
+test_sort/test_insert_sort.o: test_sort/test_insert_sort.cpp.o
+.PHONY : test_sort/test_insert_sort.o
+
+# target to build an object file
+test_sort/test_insert_sort.cpp.o:
+	cd /home/runner/Skillbox/build && $(MAKE) $(MAKESILENT) -f source/test/CMakeFiles/test_libraries.dir/build.make source/test/CMakeFiles/test_libraries.dir/test_sort/test_insert_sort.cpp.o
+.PHONY : test_sort/test_insert_sort.cpp.o
+
+test_sort/test_insert_sort.i: test_sort/test_insert_sort.cpp.i
+.PHONY : test_sort/test_insert_sort.i
+
+# target to preprocess a source file
+test_sort/test_insert_sort.cpp.i:
+	cd /home/runner/Skillbox/build && $(MAKE) $(MAKESILENT) -f source/test/CMakeFiles/test_libraries.dir/build.make source/test/CMakeFiles/test_libraries.dir/test_sort/test_insert_sort.cpp.i
+.PHONY : test_sort/test_insert_sort.cpp.i
+
+test_sort/test_insert_sort.s: test_sort/test_insert_sort.cpp.s
+.PHONY : test_sort/test_insert_sort.s
+
+# target to generate assembly for a file
+test_sort/test_insert_sort.cpp.s:
+	cd /home/runner/Skillbox/build && $(MAKE) $(MAKESILENT) -f source/test/CMakeFiles/test_libraries.dir/build.make source/test/CMakeFiles/test_libraries.dir/test_sort/test_insert_sort.cpp.s
+.PHONY : test_sort/test_insert_sort.cpp.s
+
+test_sort/test_merge_sort.o: test_sort/test_merge_sort.cpp.o
+.PHONY : test_sort/test_merge_sort.o
+
+# target to build an object file
+test_sort/test_merge_sort.cpp.o:
+	cd /home/runner/Skillbox/build && $(MAKE) $(MAKESILENT) -f source/test/CMakeFiles/test_libraries.dir/build.make source/test/CMakeFiles/test_libraries.dir/test_sort/test_merge_sort.cpp.o
+.PHONY : test_sort/test_merge_sort.cpp.o
+
+test_sort/test_merge_sort.i: test_sort/test_merge_sort.cpp.i
+.PHONY : test_sort/test_merge_sort.i
+
+# target to preprocess a source file
+test_sort/test_merge_sort.cpp.i:
+	cd /home/runner/Skillbox/build && $(MAKE) $(MAKESILENT) -f source/test/CMakeFiles/test_libraries.dir/build.make source/test/CMakeFiles/test_libraries.dir/test_sort/test_merge_sort.cpp.i
+.PHONY : test_sort/test_merge_sort.cpp.i
+
+test_sort/test_merge_sort.s: test_sort/test_merge_sort.cpp.s
+.PHONY : test_sort/test_merge_sort.s
+
+# target to generate assembly for a file
+test_sort/test_merge_sort.cpp.s:
+	cd /home/runner/Skillbox/build && $(MAKE) $(MAKESILENT) -f source/test/CMakeFiles/test_libraries.dir/build.make source/test/CMakeFiles/test_libraries.dir/test_sort/test_merge_sort.cpp.s
+.PHONY : test_sort/test_merge_sort.cpp.s
+
+test_sort/test_quick_sort.o: test_sort/test_quick_sort.cpp.o
+.PHONY : test_sort/test_quick_sort.o
+
+# target to build an object file
+test_sort/test_quick_sort.cpp.o:
+	cd /home/runner/Skillbox/build && $(MAKE) $(MAKESILENT) -f source/test/CMakeFiles/test_libraries.dir/build.make source/test/CMakeFiles/test_libraries.dir/test_sort/test_quick_sort.cpp.o
+.PHONY : test_sort/test_quick_sort.cpp.o
+
+test_sort/test_quick_sort.i: test_sort/test_quick_sort.cpp.i
+.PHONY : test_sort/test_quick_sort.i
+
+# target to preprocess a source file
+test_sort/test_quick_sort.cpp.i:
+	cd /home/runner/Skillbox/build && $(MAKE) $(MAKESILENT) -f source/test/CMakeFiles/test_libraries.dir/build.make source/test/CMakeFiles/test_libraries.dir/test_sort/test_quick_sort.cpp.i
+.PHONY : test_sort/test_quick_sort.cpp.i
+
+test_sort/test_quick_sort.s: test_sort/test_quick_sort.cpp.s
+.PHONY : test_sort/test_quick_sort.s
+
+# target to generate assembly for a file
+test_sort/test_quick_sort.cpp.s:
+	cd /home/runner/Skillbox/build && $(MAKE) $(MAKESILENT) -f source/test/CMakeFiles/test_libraries.dir/build.make source/test/CMakeFiles/test_libraries.dir/test_sort/test_quick_sort.cpp.s
+.PHONY : test_sort/test_quick_sort.cpp.s
+
+test_sort/test_selection_sort.o: test_sort/test_selection_sort.cpp.o
+.PHONY : test_sort/test_selection_sort.o
+
+# target to build an object file
+test_sort/test_selection_sort.cpp.o:
+	cd /home/runner/Skillbox/build && $(MAKE) $(MAKESILENT) -f source/test/CMakeFiles/test_libraries.dir/build.make source/test/CMakeFiles/test_libraries.dir/test_sort/test_selection_sort.cpp.o
+.PHONY : test_sort/test_selection_sort.cpp.o
+
+test_sort/test_selection_sort.i: test_sort/test_selection_sort.cpp.i
+.PHONY : test_sort/test_selection_sort.i
+
+# target to preprocess a source file
+test_sort/test_selection_sort.cpp.i:
+	cd /home/runner/Skillbox/build && $(MAKE) $(MAKESILENT) -f source/test/CMakeFiles/test_libraries.dir/build.make source/test/CMakeFiles/test_libraries.dir/test_sort/test_selection_sort.cpp.i
+.PHONY : test_sort/test_selection_sort.cpp.i
+
+test_sort/test_selection_sort.s: test_sort/test_selection_sort.cpp.s
+.PHONY : test_sort/test_selection_sort.s
+
+# target to generate assembly for a file
+test_sort/test_selection_sort.cpp.s:
+	cd /home/runner/Skillbox/build && $(MAKE) $(MAKESILENT) -f source/test/CMakeFiles/test_libraries.dir/build.make source/test/CMakeFiles/test_libraries.dir/test_sort/test_selection_sort.cpp.s
+.PHONY : test_sort/test_selection_sort.cpp.s
 
 # Help Target
 help:
@@ -364,24 +580,51 @@ help:
 	@echo "... create_test_cases.o"
 	@echo "... create_test_cases.i"
 	@echo "... create_test_cases.s"
+	@echo "... run_test_cases.o"
+	@echo "... run_test_cases.i"
+	@echo "... run_test_cases.s"
 	@echo "... sort_functions/base_functions.o"
 	@echo "... sort_functions/base_functions.i"
 	@echo "... sort_functions/base_functions.s"
+	@echo "... sort_functions/bubble_sort.o"
+	@echo "... sort_functions/bubble_sort.i"
+	@echo "... sort_functions/bubble_sort.s"
+	@echo "... sort_functions/heap_sort.o"
+	@echo "... sort_functions/heap_sort.i"
+	@echo "... sort_functions/heap_sort.s"
 	@echo "... sort_functions/insert_sort.o"
 	@echo "... sort_functions/insert_sort.i"
 	@echo "... sort_functions/insert_sort.s"
 	@echo "... sort_functions/merge_sort.o"
 	@echo "... sort_functions/merge_sort.i"
 	@echo "... sort_functions/merge_sort.s"
+	@echo "... sort_functions/quick_sort.o"
+	@echo "... sort_functions/quick_sort.i"
+	@echo "... sort_functions/quick_sort.s"
+	@echo "... sort_functions/selection_sort.o"
+	@echo "... sort_functions/selection_sort.i"
+	@echo "... sort_functions/selection_sort.s"
 	@echo "... test_cases.o"
 	@echo "... test_cases.i"
 	@echo "... test_cases.s"
-	@echo "... test_insert_sort.o"
-	@echo "... test_insert_sort.i"
-	@echo "... test_insert_sort.s"
-	@echo "... test_merge_sort.o"
-	@echo "... test_merge_sort.i"
-	@echo "... test_merge_sort.s"
+	@echo "... test_sort/test_bubble_sort.o"
+	@echo "... test_sort/test_bubble_sort.i"
+	@echo "... test_sort/test_bubble_sort.s"
+	@echo "... test_sort/test_heap_sort.o"
+	@echo "... test_sort/test_heap_sort.i"
+	@echo "... test_sort/test_heap_sort.s"
+	@echo "... test_sort/test_insert_sort.o"
+	@echo "... test_sort/test_insert_sort.i"
+	@echo "... test_sort/test_insert_sort.s"
+	@echo "... test_sort/test_merge_sort.o"
+	@echo "... test_sort/test_merge_sort.i"
+	@echo "... test_sort/test_merge_sort.s"
+	@echo "... test_sort/test_quick_sort.o"
+	@echo "... test_sort/test_quick_sort.i"
+	@echo "... test_sort/test_quick_sort.s"
+	@echo "... test_sort/test_selection_sort.o"
+	@echo "... test_sort/test_selection_sort.i"
+	@echo "... test_sort/test_selection_sort.s"
 .PHONY : help
 
 
