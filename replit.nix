@@ -1,6 +1,8 @@
 { pkgs }: {
 	deps = [
-		pkgs.less
+		pkgs.testdisk
+  pkgs.safecopy
+  pkgs.less
   pkgs.cmake
   pkgs.xclip
   pkgs.clang_12
