@@ -20,6 +20,7 @@ int main()
 {
     std::cout << "Input distance and speed, values must be positive: \n";
     float distance = 1, speed = 1;
+	std::cin >> distance >> speed;
     while (!(std::cin))
     {
         std::cin.ignore(32767, '\n'); // delete garbage
