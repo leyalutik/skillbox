@@ -9,27 +9,23 @@ Write your code in this editor and press "Run" button to compile and execute it.
 #include <iostream>
 #include <cassert>
 
-float travelTime(float distance, float speed)
+int32_t repeated_number(const int A[15])
 {
-    assert(!(distance <= 0));
-    assert (!(speed <= 0));
-    return (distance/speed);
+	
+	int sum = 0;
+	int min = A[0];
+	for(size_t i=0; i<15; ++i)
+		{
+			min = (min > A[i] ? A[i] : min);
+			sum += A[i];
+			
+		}
+	return (sum - (14*min+91));
 }
 
 int main()
 {
-    std::cout << "Input distance and speed, values must be positive: \n";
-    float distance = 1, speed = 1;
-	std::cin >> distance >> speed;
-    while (!(std::cin))
-    {
-        std::cin.ignore(32767, '\n'); // delete garbage
-
-			std::cout << "Illegal value. Input again:\n";
-			std::cin >> distance >> speed;
-        
-    }
-    
-    std::cout << "Time = " << travelTime(distance,speed) << std::endl;
+    int A[15] = {114,111,106,107,108,105,115,108,110,109,112,113,116,117,118};
+		std::cout << "Repeated_number = " << repeated_number(A) << std::endl;
     return 0;
 }
