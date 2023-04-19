@@ -1,3 +1,0 @@
-/home/runner/Skillbox/build/CMakeFiles/sequence.dir
-/home/runner/Skillbox/build/CMakeFiles/edit_cache.dir
-/home/runner/Skillbox/build/CMakeFiles/rebuild_cache.dir
