@@ -1,6 +1,6 @@
 #run = "rm -r -f build; mkdir build; cd build; cmake -G \"Unix Makefiles\" -B . -S .."
 #compile = "cd build; make;"
-run = "cd build; make; ./sequence"
+run = "cd build; make; ./main"
 entrypoint = "main.cpp"
 hidden = ["main", "**/*.o", "**/*.d", ".ccls-cache", "Makefile"]
 
