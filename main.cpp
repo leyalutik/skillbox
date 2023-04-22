@@ -70,27 +70,25 @@ void remove_value(const int32_t value, std::vector<int32_t>& v)
 
 int main()
 {
-	int32_t N = 0;
-	std::cout << "Input vector size:";
-	input(N); 
-	while(!is_positive(N))
-		{
-			std::cout << "The vector_size must be positive.\nTry again:\n";
-			input(N);
-		}
 	
-	std::vector<int32_t> v(N);
-	for(size_t i=0; i<N; ++i)
+std::vector<float> prices {2.5, 4.25, 3.0, 10.0};
+
+// Вектор покупок: {1, 1, 0, 3}, то есть два товара по индексу 1 и по одному — индексов 0 и 3.
+
+std::vector<int> items {1, 1, 0, 3};
+float sum = 0.;
+for(size_t i=0; i< items.size(); ++i)
+	{
+		if(items[i] >= prices.size() || items[i] < 0)
 		{
-			std::cout << "Input number:\n";
-			input(v[i]); 
+			std::cout << "Illegal value of vector \"items\" elemens.\nTerminate program.\n";
+			return 0;
 		}
-	int32_t number = 0;
-	std::cout << "Input number to delete:";
-	input(number);
-	remove_value(number,v);
-	std::cout << "Result : " << v << "\n";
-  
+		sum += prices[items[i]];
+	}
+	
+std::cout << "Суммарная стоимость будет равна " << sum << "\n"; 
+	
 	return 0;
 }
 
