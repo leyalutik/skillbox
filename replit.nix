@@ -1,6 +1,7 @@
 { pkgs }: {
 	deps = [
-		pkgs.testdisk
+		pkgs.qtcreator
+  pkgs.testdisk
   pkgs.safecopy
   pkgs.less
   pkgs.cmake
