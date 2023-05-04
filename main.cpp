@@ -1,8 +1,6 @@
 
 #include <iostream>
-#include <cassert>
-#include<vector>
-#include "source/output.h"
+
 //--------------------------MAIN-------
 bool equal(const int32_t x, const int32_t y, const int32_t z)
 {
