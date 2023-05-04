@@ -1,6 +1,0 @@
-/home/runner/Skillbox/build/CMakeFiles/main.dir
-/home/runner/Skillbox/build/CMakeFiles/edit_cache.dir
-/home/runner/Skillbox/build/CMakeFiles/rebuild_cache.dir
-/home/runner/Skillbox/build/source/CMakeFiles/source_libraries.dir
-/home/runner/Skillbox/build/source/CMakeFiles/edit_cache.dir
-/home/runner/Skillbox/build/source/CMakeFiles/rebuild_cache.dir
