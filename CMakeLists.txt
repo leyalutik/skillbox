@@ -10,5 +10,5 @@ add_executable(main main.cpp) ##исполняемый файл со списк�
 
 add_subdirectory(source)
 	
-target_link_libraries(sort			source_libraries) #Линковка программы с библиотекой
+target_link_libraries(main		source_libraries) #Линковка программы с библиотекой
 

@@ -1,0 +1,2 @@
+/nix/store/dq0xwmsk1g0i2ayg6pb7y87na2knzylh-gcc-wrapper-11.3.0/bin/ar qc libsource_libraries.a CMakeFiles/source_libraries.dir/output.cpp.o
+/nix/store/dq0xwmsk1g0i2ayg6pb7y87na2knzylh-gcc-wrapper-11.3.0/bin/ranlib libsource_libraries.a
