@@ -2,7 +2,6 @@
 #include <iostream>
 #include <cassert>
 #include<vector>
-#include "source/output.h"
 //--------------------------MAIN-------
 bool equal(const int32_t x, const int32_t y, const int32_t z)
 {
@@ -78,6 +77,23 @@ bool input(int32_t& x)
 	}
 	return true;
 }
+
+void output(const char grid[3][3]) {
+	std::cout << " " << grid[0][0] << " " << "|" << " " << grid[0][1] << " " << "|" 
+		<< " " << grid[0][2] << " " << '\n';
+	std::cout << "-" << "-" << "-" << "+" << "-" << "-" << "-" << "+" 
+		<< "-" << "-" << "-" << '\n';
+	std::cout << " " << grid[1][0] << " " << "|" << " " << grid[1][1] << " " << "|" 
+		<< " " << grid[1][2]<< " " << '\n';
+	std::cout << "-" << "-" <<  "-" << "+" << "-" << "-" << "-" << "+" 
+		<< "-" << "-" << "-" << '\n';
+	std::cout << " " << grid[2][0] << " " << "|" << " " << grid[2][1] << " " << "|" 
+	<< " " << grid[2][2] << " " << '\n';
+
+}
+
+
+//---------------MAIN------------
 int main()
 {
 	char grid[3][3];
@@ -85,6 +101,8 @@ int main()
 		{//Initialization grid
 			grid[i/3][i%3] = '.';
 		}
+
+	std::cout << "\n--Game grid--\n\n";
 	output(grid);
 
 	int32_t turn_X = true;
@@ -94,7 +112,7 @@ int main()
 			int32_t x=0, y=0;
 			while(input(x) && input(y) && !check_is_empty(grid,x,y) )
 				{
-					std::cout << "Incorrect x,y. Input other values.\n";
+					std::cout << "Incorrect x,y. Input other values:\n";
 				}
 			grid[x][y] = (turn_X ? 'X' : 'O');
 			std::cout << std::endl;
