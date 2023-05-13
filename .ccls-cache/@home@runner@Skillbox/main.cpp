@@ -5,7 +5,7 @@
 
 //--------------------------MAIN-------
 void input(float& value);
-void input(std::vector<float>& v);
+void input(const size_t N, std::vector<float> v);
 void display(const std::vector<float>& v);
 int main()
 {
@@ -21,14 +21,52 @@ int main()
 }
 //-------------MAIN-----------------
 
-void display(const std::vector<float>& v);
+void display_(const std::vector<float>& v)
+{	
+	bool first = true;
+	std::cout << "{";
+	for(size_t i=0; i<v.size(); i++)
+		{
+			if(!first)
+			{
+				std::cout << "\n";
+			}
+			first = false;
+			
+			std::cout << v[i];
+		}
+	std::cout << "}";
+	std::cout << "\n";
+}
 
+void display_horizontal(const std::vector<float>& v)
+{	
+	bool first = true;
+	std::cout << "{";
+	for(size_t i=0; i<v.size(); i++)
+		{
+			if(!first)
+			{
+				std::cout << ", ";
+			}
+			first = false;
+			
+			std::cout << v[i];
+		}
+	std::cout << "}";
+	std::cout << "\n";
+}
 
-void input(std::vector<float> v)
+void input(const size_t N, std::vector<float> v)
 {
+	if(N<0)
+	{
+		std::cout << "Illegal value of vector size.\n";
+		return;
+	}
 	v.clear();
 
-	for(size_t i = 0; i<v.size(); ++i)
+	for(size_t i = 0; i<N; ++i)
 		{
 			float value = 0;
 			input(value);
