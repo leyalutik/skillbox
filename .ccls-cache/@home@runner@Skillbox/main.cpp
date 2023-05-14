@@ -10,40 +10,75 @@ void input(const int32_t R,const int32_t C, std::vector<std::vector<float>>& m);
 void display_vertical(const std::vector<float>& v);
 void display_horizontal(const std::vector<float>& v);
 void display(const std::vector<std::vector<float>>& m);
+
+bool is_equal(const std::vector<std::vector<float>>& m1, const std::vector<std::vector<float>>& m2);
+void to_diagonal_type( std::vector<std::vector<float>>& m);
 //--------------MAIN-----------------
 int main()
 {
-	std::cout << "Enter vector size: ";
-	int32_t N = 0;
-	std::cin >> N;
-	if(!std::cin || N<0)
-	{
-		std::cout << " Illegal value.\n";
-		std::cout << "N= " << N << "\n";
-		return 1;
-	}
-	std::vector<float> v;
-	std::cout << "\nEnter elements of vector:\n";
-	input(N,v);
-	display_vertical(v);
-	display_horizontal(v);
+	
 	
 //Matrix
-	std::cout << "\nEnter matrix size\n(number of rows and number of columns): ";
-	int32_t R = 0, C = 0;
-	std::cin >> R >> C;
-	if(!std::cin || R<0 || C<0 )
+	int32_t N = 4;
+	
+	std::vector<std::vector<float>> m1,m2;
+	std::cout << "Enter elements of matrix m1 and m2:\n";
+	input(N,N,m1);
+	input(N,N,m2);
+	display(m1);
+	std::cout << "\n";
+	display(m2);
+	if(!is_equal(m1,m2))
 	{
-		std::cout << " Illegal value.\n";
-		return 1;
+		std::cout << "Matrices are not equal.\n";
+		std::getchar();
+		return 0;
 	}
-	std::vector<std::vector<float>> m;
-	std::cout << "Enter elements of matrix  \n(from left to right, from top to bottom):\n";
-	input(R,C,m);
-	display(m);
+	std::cout << "Matrices are equal.\n";
+	to_diagonal_type(m1);
+	std::cout << "Diagonal type: \n";
+	display(m1);
+	
 	return 0;
 }
 //-------------Definitions of functions-----------------
+
+void to_diagonal_type( std::vector<std::vector<float>>& m)
+{
+	for(size_t i=0; i<m.size(); ++i)
+		{
+			for(size_t j=0; j<m[i].size(); ++j)
+				{
+					if(i != j)
+					{	
+						m[i][j] = 0;
+					}
+				}
+		}
+}
+
+bool is_equal(const std::vector<std::vector<float>>& m1, const std::vector<std::vector<float>>& m2)
+{
+	if(m1.size() != m2.size())
+	{
+		return false;
+	}
+	for(size_t i=0; i<m1.size(); ++i)
+		{
+			if(m1[i].size() != m2.size())
+			{
+				return false;
+			}
+			for(size_t j=0; j<m1[i].size(); ++j)
+				{
+					if(m1[i][j] != m2[i][j])
+					{
+						return false;
+					}
+				}
+		}
+	return true;
+}
 
 void display(const std::vector<std::vector<float>>& m)
 {
