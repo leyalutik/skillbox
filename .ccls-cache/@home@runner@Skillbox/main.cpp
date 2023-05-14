@@ -2,62 +2,102 @@
 #include <iostream>
 #include <cassert>
 #include<vector>
-
-//--------------------------MAIN-------
+#include<iomanip>
+//-----------Head functions ------------
 void input(float& value);
-void input(const size_t N, std::vector<float> v);
-void display(const std::vector<float>& v);
+void input(const int32_t N, std::vector<float>& v);
+void input(const int32_t R,const int32_t C, std::vector<std::vector<float>>& m);
+void display_vertical(const std::vector<float>& v);
+void display_horizontal(const std::vector<float>& v);
+void display(const std::vector<std::vector<float>>& m);
+//--------------MAIN-----------------
 int main()
 {
-	std::cout << "Enter value: ";
-	float value = 0;
-	input(value);
-	std::cout << value << "\n";
-	std::vector<float> v = {1,2,3};
-	std::cout << "Size = " << v.size();
-	v.clear();
-	std::cout << "Size = " << v.size();
+	std::cout << "Enter vector size: ";
+	int32_t N = 0;
+	std::cin >> N;
+	if(!std::cin || N<0)
+	{
+		std::cout << " Illegal value.\n";
+		std::cout << "N= " << N << "\n";
+		return 1;
+	}
+	std::vector<float> v;
+	std::cout << "\nEnter elements of vector:\n";
+	input(N,v);
+	display_vertical(v);
+	display_horizontal(v);
+	
+//Matrix
+	std::cout << "\nEnter matrix size\n(number of rows and number of columns): ";
+	int32_t R = 0, C = 0;
+	std::cin >> R >> C;
+	if(!std::cin || R<0 || C<0 )
+	{
+		std::cout << " Illegal value.\n";
+		return 1;
+	}
+	std::vector<std::vector<float>> m;
+	std::cout << "Enter elements of matrix  \n(from left to right, from top to bottom):\n";
+	input(R,C,m);
+	display(m);
 	return 0;
 }
-//-------------MAIN-----------------
+//-------------Definitions of functions-----------------
 
-void display_(const std::vector<float>& v)
+void display(const std::vector<std::vector<float>>& m)
+{
+	for(size_t i=0; i<m.size(); ++i)
+		{
+			display_horizontal(m[i]);
+			std::cout << "\n";
+		}
+}
+
+void input(const int32_t R,const int32_t C, std::vector<std::vector<float>>& m)
+{
+	m.clear();
+	if(R<0 || C<0)
+	{
+		std::cout << "Illegal value of matrix size.\n";
+		return;
+	}
+	for(int32_t i = 0; i<R; ++i)
+		{
+			std::vector<float> v;
+			input(C,v);
+			m.push_back(v);
+		}
+}
+
+void display_vertical(const std::vector<float>& v)
 {	
-	bool first = true;
-	std::cout << "{";
 	for(size_t i=0; i<v.size(); i++)
 		{
-			if(!first)
-			{
-				std::cout << "\n";
-			}
-			first = false;
-			
-			std::cout << v[i];
+			std::cout << v[i] << "\n";
 		}
-	std::cout << "}";
-	std::cout << "\n";
+		
 }
 
 void display_horizontal(const std::vector<float>& v)
 {	
 	bool first = true;
-	std::cout << "{";
+	//std::cout << "{";
 	for(size_t i=0; i<v.size(); i++)
 		{
 			if(!first)
 			{
-				std::cout << ", ";
+				std::cout << " ";
 			}
 			first = false;
 			
-			std::cout << v[i];
+			std::cout << std::setw(10) << v[i];
 		}
-	std::cout << "}";
-	std::cout << "\n";
+	//std::cout << "}";
+	//std::cout << "\n";
 }
 
-void input(const size_t N, std::vector<float> v)
+void input(const int32_t N, std::vector<float>& v)
 {
 	if(N<0)
 	{
@@ -66,7 +106,7 @@ void input(const size_t N, std::vector<float> v)
 	}
 	v.clear();
 
-	for(size_t i = 0; i<N; ++i)
+	for(int32_t i = 0; i<N; ++i)
 		{
 			float value = 0;
 			input(value);
