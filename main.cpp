@@ -10,9 +10,7 @@ void input(const int32_t R,const int32_t C, std::vector<std::vector<float>>& m);
 void display_vertical(const std::vector<float>& v);
 void display_horizontal(const std::vector<float>& v);
 void display(const std::vector<std::vector<float>>& m);
-
-bool is_equal(const std::vector<std::vector<float>>& m1, const std::vector<std::vector<float>>& m2);
-void to_diagonal_type( std::vector<std::vector<float>>& m);
+void product(const std::vector<std::vector<float>>& m, const std::vector<float>& v, std::vector<float>& result);
 //--------------MAIN-----------------
 int main()
 {
@@ -20,64 +18,48 @@ int main()
 	
 //Matrix
 	int32_t N = 4;
-	
-	std::vector<std::vector<float>> m1,m2;
-	std::cout << "Enter elements of matrix m1 and m2:\n";
-	input(N,N,m1);
-	input(N,N,m2);
-	display(m1);
+
+	std::vector<float> v;
+	std::vector<std::vector<float>> m;
+	std::cout << "Enter elements of matrix:\n";
+	input(N,N,m);
+	display(m);
 	std::cout << "\n";
-	display(m2);
-	if(!is_equal(m1,m2))
-	{
-		std::cout << "Matrices are not equal.\n";
-		std::getchar();
-		return 0;
-	}
-	std::cout << "Matrices are equal.\n";
-	to_diagonal_type(m1);
-	std::cout << "Diagonal type: \n";
-	display(m1);
+	std::cout << "Enter elements of vector:\n";
+	input(N,v);
+	display_horizontal(v);
+	std::cout << "\n";
+
+	std::vector<float> result;
+	product(m,v,result);
+	std::cout << "Product of matrix and vector:\n";
+	display_horizontal(result);
 	
 	return 0;
 }
 //-------------Definitions of functions-----------------
 
-void to_diagonal_type( std::vector<std::vector<float>>& m)
+void product(const std::vector<std::vector<float>>& m, const std::vector<float>& v, std::vector<float>& result)
 {
+	//check matrix size
 	for(size_t i=0; i<m.size(); ++i)
+	{
+		if(m[i].size() != v.size())
 		{
+		std::cout << "Incorrect sizes of vector and matrix.\n";
+			return;
+		}
+	}
+	result.clear();
+	for(size_t i=0; i<v.size(); ++i)
+		{
+			float sum = 0;
 			for(size_t j=0; j<m[i].size(); ++j)
 				{
-					if(i != j)
-					{	
-						m[i][j] = 0;
-					}
+					sum += m[i][j]*v[j];
 				}
+			result.push_back(sum);
 		}
-}
-
-bool is_equal(const std::vector<std::vector<float>>& m1, const std::vector<std::vector<float>>& m2)
-{
-	if(m1.size() != m2.size())
-	{
-		return false;
-	}
-	for(size_t i=0; i<m1.size(); ++i)
-		{
-			if(m1[i].size() != m2.size())
-			{
-				return false;
-			}
-			for(size_t j=0; j<m1[i].size(); ++j)
-				{
-					if(m1[i][j] != m2[i][j])
-					{
-						return false;
-					}
-				}
-		}
-	return true;
 }
 
 void display(const std::vector<std::vector<float>>& m)
