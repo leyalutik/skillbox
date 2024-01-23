@@ -1,35 +1,35 @@
 #include <iostream>
 #include<string>
-#include <sstream>
+#include<sstream>
 #include<exception>
 
 #define THROW(x) \
-	std::stringstream ss;\
+	std::stringstream ss; \
 	ss << x << "\n"; \
 	ss << "Mistake :\n"; \
-	ss << __FILE__ << "\n"; \
-	ss << __LINE__<< "\n";\
+	ss << "FILE:" << __FILE__ << "\n"; \
+	ss << "LINE:" << __LINE__<< "\n"; \
 	throw std::runtime_error(ss.str());
 	
 class LANDSCAPE
 {
 	public:
-		LANDSCAPE();
-		int& at(const int x, const int y) {if(!check_x(x) || !check_y(y)) 
-			{
-				THROW("Out of boundary X0Y");
+		LANDSCAPE()
+		{
+			for(int i=0; i< Nx; ++i)                                                {
+				for(int j=0; j<Ny; ++j)
+				{                                                                               for(int k=0; k<Nz; ++k)
+					{                                                                                                                                                       landscape[i][j][k] = 0;                                                                                     }
+				}
 			}
-
-			return landscape[x][y];
-
 		}
 
-		bool check_x(const int x) { return x < 5 && x>= 0;} 
-		bool check_y(const int y) { return y < 5 && y>= 0;}
-		bool check_z(const int z){ return z < 10 && z >= 0;}
+		bool check_x(const int x) { return x < Nx && x>= 0;} 
+		bool check_y(const int y) { return y < Ny && y>= 0;}
+		bool check_z(const int z){ return z < Nz && z >= 0;}
 		void show_heights();
 		void show_slice(const int slice);
-		void init_heights(const int& heights[5][5]);
+		void init_heights(const int (& heights)[5][5]);
 		void update_landscape();
 
 	private:
@@ -39,16 +39,16 @@ class LANDSCAPE
 
 };
 
-void LANDSCAPE::init_heights(const int& heights[5][5])
+void LANDSCAPE::init_heights(const int(& heights)[5][5])
 {
 	for(int i=0; i< Nx; ++i)
 	{
 		for(int j=0; j<Ny; ++j)
 		{
-			this->heights[i][j] heights[i][j];
+			this->heights[i][j]= heights[i][j];
 		}
 	}
-	update_landscape;
+	update_landscape();
 }
 
 void LANDSCAPE::update_landscape()
@@ -80,7 +80,9 @@ void LANDSCAPE::show_heights()
 
 void LANDSCAPE::show_slice(const int slice)
 {
-	if(check_z(slice)) THROW("Out of boundary 0Z");
+	if(!check_z(slice)) {
+		THROW("Out of boundary 0Z");
+	}
 
 	for(int i=0; i< Nx; ++i)
 	{
@@ -96,10 +98,18 @@ void LANDSCAPE::show_slice(const int slice)
 int main()
 {
 
-	LANDSCAPE land();
-	int heights[5][5]  = { {5,5,5,5,5},{4,4,4,4,4},{3,3,3,3,3},{2,2,2,2,2},{1,1,1,1,1}};
-	land.init(heights);
-	land.show_slice(4);
+	LANDSCAPE land;
+	int heights[5][5]  = { {5,5,5,5,5},{4,4,4,4,4},{3,2,2,2,3},{2,2,2,2,2},{1,1,1,1,1}};
+	land.init_heights(heights);
+	
+	int32_t slice=0;
+
+	std::cout << "Landscape X0Y:\n";
+	while(std::cout << "\nInput slice:\n" &&
+std::cin >> slice)
+			{
+		land.show_slice(slice);
+	}
 
 	return 0;
 }
