@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 #include <iomanip>
-
+#include <algorithm>
 
 
 class PLAYER
@@ -26,14 +26,14 @@ class PLAYER
 
 	private:
 	static const int SIZE_BOARD = 10;
-	static const int N_ships = 10; // general number of ships
-	int list[N_ships] = {1,1,1,1,2,2,2,3,3,4}; //number of distinct grid ships
+	int N_ships = 10; // general number of ships
+	int list[10] = {1,1,1,1,2,2,2,3,3,4}; //number of distinct grid ships
 	char attack_result = '.'; //unhit
 	int location_ship[SIZE_BOARD][SIZE_BOARD] =  // 1,10 -0 -1 -2  ships| untouched grids| hit grids | hit the s
 
 	{
 		{0,0,0,0,0,0,0,0,0,0},
-		{0,0,0,0,4,0,0,0,0,0},
+		{0,0,0,0,0,0,0,0,0,0},
 		{0,0,0,0,0,0,0,0,0,0},
 		{0,0,0,0,0,0,0,0,0,0},
 		{0,0,0,0,0,0,0,0,0,0},
@@ -79,21 +79,40 @@ int main()
 
 	int turn = 0;
 	int i = 0;
-	std::cout << std::internal << std::setw(30) << "START OF THE GAME !!!\n";
+	std::cout << std::internal << std::setw(30) << "\t\t\tSTART OF THE GAME !!!\n";
 
 	while(i < 101)
 	{
 		++i;
-
-		std::cout << "TURN OF PLAYER " << turn+1 << "\n";
+		std::cout << "\n";
+		std::cout << "\t\t------------------------------\n";
+		std::cout << "\t\t\tTURN OF PLAYER " << turn+1 << "\n";
+		std::cout << "\t\t------------------------------\n";
 		player[turn].display_game_boards();
                 
 		int x,y;
-		player[turn].create_a_fire(x,y);              //Player1
+		std::cout << "\n";
 
+		std::cin.ignore(32767,'\n');
+		player[turn].create_a_fire(x,y);              //Player1
+		std::cin.clear();
+		std::cin0 0
+1 2
+3 3
+4 4
+5 2 5 3
+5 5 5 6
+6 6 7 6
+0 1 0 2 0 3
+7 0 7 1 7 2
+8 0 8 1 8 2 8 3
+.ignore(32767,'\n');
+	
+		std::cout << "\n";
 		change(turn);                         //Player2
 		player[turn].take_a_hit(x,y);
 		player[turn].display_attack_result();
+		std::cout << "\n";
 		char result = player[turn].get_attack_result();
 
 		if(player[turn].get_N_ships() == 0)
@@ -105,7 +124,12 @@ int main()
 
 		change(turn);				//Player1
 		player[turn].mark_a_grid(x,y,result);
-	     
+
+		std::cout << "\n";
+		player[turn].display_game_boards();
+		std::cout << "\n";
+		std::getchar();
+	   	change(turn); 
 	}
 
 	std::cout << "The game was constructed wrong!\n";
@@ -122,7 +146,7 @@ void change(int& turn)
 
 void input(int& x, int& y)
 {
-	while(std::cin >> x >> y)
+	while(!(std::cin >> x >> y))
 	{
 		std::cin.clear();
 		std::cin.ignore(32767,'\n');
@@ -147,13 +171,13 @@ void PLAYER::locate_ships()
 		std::cout << "Input x,y for ship " << i << ":\n";
 		int x,y;
 		input(x,y);
-		while(!check(x,y) || location_ship[x][y] != 0)
+		while(!check(x,y) || location_ship[y][x] != 0)
 		{
 			std::cout << "Try other x,y:\n";
 			input(x,y);
 			
 		}
-		location_ship[x][y] = i+1;
+		location_ship[y][x] = i+1;
 		display_dislocation_ship(); 
 	}
 
@@ -166,7 +190,7 @@ void PLAYER::locate_ships()
 		input(X[1],Y[1]);
 
 		while(!check(X[0],Y[0]) || !check(X[1],Y[1]) 
-			|| location_ship[X[0]][Y[0]] != 0 || location_ship[X[1]][Y[1]] != 0 
+			|| location_ship[Y[0]][X[0]] != 0 || location_ship[Y[1]][X[1]] != 0 
 			|| !check_continuous(2,X,Y)
 		     )
 		{
@@ -174,8 +198,9 @@ void PLAYER::locate_ships()
 			input(X[0],Y[0]);
 			input(X[1],Y[1]);
 		}
-		location_ship[X[0]][Y[0]] = i+1;
-		location_ship[X[1]][Y[1]] = i+1;
+		location_ship[Y[0]][X[0]] = i+1;
+		location_ship[Y[1]][X[1]] = i+1;
+		display_dislocation_ship(); 
 
 	}
 	
@@ -189,7 +214,7 @@ void PLAYER::locate_ships()
 		input(X[2],Y[2]);
 
 		while(!check(X[0],Y[0]) || !check(X[1],Y[1]) ||  !check(X[2],Y[2])  
-			|| location_ship[X[0]][Y[0]] != 0 || location_ship[X[1]][Y[1]] != 0 ||  location_ship[X[2]][Y[2]] != 0 
+			|| location_ship[Y[0]][X[0]] != 0 || location_ship[Y[1]][X[1]] != 0 ||  location_ship[Y[2]][X[2]] != 0 
 			|| !check_continuous(3,X,Y)
 		     )
 		{
@@ -198,9 +223,10 @@ void PLAYER::locate_ships()
 			input(X[1],Y[1]);
 			input(X[2],Y[2]);
 		}
-		location_ship[X[0]][Y[0]] = i+1;
-		location_ship[X[1]][Y[1]] = i+1;
-		location_ship[X[2]][Y[2]] = i+1;
+		location_ship[Y[0]][X[0]] = i+1;
+		location_ship[Y[1]][X[1]] = i+1;
+		location_ship[Y[2]][X[2]] = i+1;
+		display_dislocation_ship(); 
 
 	}
 	std::cout << "Create 1 four-grid ship:\n";
@@ -211,8 +237,9 @@ void PLAYER::locate_ships()
 		input(X[2],Y[2]);
 		input(X[3],Y[3]);
 
-		while(!check(X[0],Y[0]) || !check(X[1],Y[1]) ||  !check(X[2],Y[2]) || !check(X[3],Y[3])  
-			|| location_ship[X[0]][Y[0]] != 0 || location_ship[X[1]][Y[1]] != 0 ||  location_ship[X[2]][Y[2]] != 0 ||  location_ship[X[3]][Y[3]] 
+		while(!check(X[0],Y[0]) || !check(X[1],Y[1]) ||  !check(X[2],Y[2])
+				|| !check(X[3],Y[3])  
+			|| location_ship[Y[0]][X[0]] != 0 || location_ship[Y[1]][X[1]] != 0 ||  location_ship[Y[2]][X[2]] != 0 ||  location_ship[Y[3]][X[3]] != 0
 			|| !check_continuous(4,X,Y)
 		     )
 		{
@@ -222,11 +249,11 @@ void PLAYER::locate_ships()
 			input(X[2],Y[2]);
 			input(X[3],Y[3]);
 		}
-		location_ship[X[0]][Y[0]] = 10;
-		location_ship[X[1]][Y[1]] = 10;
-		location_ship[X[2]][Y[2]] = 10;
-		location_ship[X[3]][Y[3]] = 10;
-
+		location_ship[Y[0]][X[0]] = 10;
+		location_ship[Y[1]][X[1]] = 10;
+		location_ship[Y[2]][X[2]] = 10;
+		location_ship[Y[3]][X[3]] = 10;
+		display_dislocation_ship(); 
 
 }
 
@@ -277,6 +304,7 @@ bool check_continuous(const int N_grids, const int X[4], const int  Y[4])
 			break;
 		case 4:{
 			int T[4]; //create increasing sequance
+			int k = Y[0];
 			if((X[0] == X[1]) && (X[0] == X[2]) && (X[0] == X[3]) && (X[1] == X[2]) && (X[1] == X[3]) && (X[2] == X[3]) )
 			{
 				T[0] = Y[0];
@@ -284,7 +312,7 @@ bool check_continuous(const int N_grids, const int X[4], const int  Y[4])
 				T[2] = Y[2];
 				T[3] = Y[3];
 			}
-			else if (int k = Y[0] && (Y[1] == k) && (Y[2] == k) && (Y[3] == k))
+			else if ((Y[1] == k) && (Y[2] == k) && (Y[3] == k))
 			{
 				T[0] = X[0];
 				T[1] = X[1];
@@ -297,8 +325,10 @@ bool check_continuous(const int N_grids, const int X[4], const int  Y[4])
 				return false;
 			}
 			std::sort(T,(T+4));
-			if( ((T[3]-T[0])==3) && ((T[3]-T[1])==2) &&  ((T[3]-T[2])==1) && ((T[2]-T[0])==2) && ((T[2]-T[1])==1) && ((T[1]-T[0])==1 )  )
+			if( ((T[3]-T[0])==3) && ((T[3]-T[1])==2) &&  ((T[3]-T[2])==1)
+					&& ((T[2]-T[0])==2) && ((T[2]-T[1])==1) && ((T[1]-T[0])==1 )  )
 			{
+			
 				return true;
 			}
 			}
@@ -316,41 +346,47 @@ void PLAYER::take_a_hit(const int x, const int y)
 		std::cout << "Illegal value of x,y.\n";
 		return;
 	}
-	int k = location_ship[x][y];
+	int k = location_ship[y][x];
 		if(k > 0)
 		{
 
-			--list[k];
+			--list[k-1];
 			this->attack_result = 'X';
-			if(list[k] == 0)
+			if(list[k-1] == 0)
 			{
 				this->attack_result = '#';
 				--N_ships;
 			}
-			location_ship[x][y] = -2;
+			location_ship[y][x] = -2;
 		}
 		else if(k == 0)
 		{
 			this->attack_result = '0';
-			this->location_ship[x][y] = -1;
+			this->location_ship[y][x] = -1;
 		}
 		else
 		{
 			std::cout << "Same coordinates.he-he.\n";
+			
+				this->attack_result = this->game_board[y][x];;
+			
 		}
 }
 
 void PLAYER::create_a_fire(int& x,int& y)
 {
 	std::cout << "Create a fire: input x,y\n";
-	int x,y;
-	while(std::cin >> x >> y || x<0 || x>this->SIZE_BOARD || 
-y<0 || y>this->SIZE_BOARD)
+	int x1, y1;
+	while(!(std::cin >> x1 >> y1) || x1<0 || x1>=this->SIZE_BOARD || 
+y1<0 || y1>=this->SIZE_BOARD)
 	{
 		std::cin.clear();
 		std::cin.ignore(32767,'\n');
 		std::cout << "Illegal value. Try again.\n";
 	}
+
+	x=x1;
+	y=y1;
 
 }
 void PLAYER::mark_a_grid(const int x,const int y,const char attack_result)
@@ -360,18 +396,18 @@ void PLAYER::mark_a_grid(const int x,const int y,const char attack_result)
 		std::cout << "Illegal value of x,y.\n";
 		return;
 	}
-	this->game_board[x][y] = attack_result;
+	this->game_board[y][x] = attack_result;
 
 }
 void PLAYER::display_attack_result()
 {
 	switch(this->attack_result)
 	{
-		case '0': std::cout << "MISS!\n";
+		case '0': std::cout << "\t\t\tMISS!\n";
 			  break;
-		case 'x': std::cout << "HIT!\n";
+		case 'X': std::cout << "\t\t\tHIT!\n";
 			  break;
-		case '#': std::cout << "SINK!\n";
+		case '#': std::cout << "\t\t\tSINK!\n";
 			  break;
 		default:
 			  std::cout << "Illegal value of attack_result\n";
@@ -408,7 +444,7 @@ void PLAYER::display_game_boards()
       std::cout << std::left << std::setw(2) << i << " ";
 
     }
-
+    std::cout << "\n";
     std::cout << "   -----------------------------" << "      " << "   -----------------------------";     
     std::cout << "\n";;
 
