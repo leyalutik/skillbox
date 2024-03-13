@@ -74,13 +74,18 @@ int main()
 
 	PLAYER player[2];
         
+	std::cout << "There is a board 10x10.\n";
+	std::cout << "Every player should locate their ships.\n\n";
 	player[0].locate_ships();
 	player[1].locate_ships();
 
 	int turn = 0;
 	int i = 0;
-	std::cout << std::internal << std::setw(30) << "\t\t\tSTART OF THE GAME !!!\n";
 
+	std::cout << "\n\nEvery player has 2 boards. Left board is enemy's board where we guess coordinates. Miss - 0, Hit - X, Sink #.\n";
+	std::cout << "Right board is a place where our ships are. Miss - 1, Hit - -2.\n\n";   
+
+	std::cout << std::internal << std::setw(30) << "\t\t\tSTART OF THE GAME !!!\n";
 	while(i < 101)
 	{
 		++i;
@@ -142,6 +147,7 @@ void input(int& x, int& y)
 		std::cin.ignore(32767,'\n');
 		std::cout << "Illegal value. Try again.\n";
 	}
+	std:: cout << x << " " << y << "\n"; 
 }
 
 
@@ -356,7 +362,7 @@ void PLAYER::take_a_hit(const int x, const int y)
 		}
 		else
 		{
-			std::cout << "Same coordinates.he-he.\n";
+			std::cout << "Same coordinates! Be careful.\n";
 			
 				this->attack_result = this->game_board[y][x];;
 			
