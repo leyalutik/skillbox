@@ -96,17 +96,7 @@ int main()
 		std::cin.ignore(32767,'\n');
 		player[turn].create_a_fire(x,y);              //Player1
 		std::cin.clear();
-		std::cin0 0
-1 2
-3 3
-4 4
-5 2 5 3
-5 5 5 6
-6 6 7 6
-0 1 0 2 0 3
-7 0 7 1 7 2
-8 0 8 1 8 2 8 3
-.ignore(32767,'\n');
+		std::cin.ignore(32767,'\n');
 	
 		std::cout << "\n";
 		change(turn);                         //Player2
