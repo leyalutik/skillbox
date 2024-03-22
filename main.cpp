@@ -23,7 +23,7 @@ int max_accumulator(const std::vector<int>& seq)
 {
 	if(seq.size() <2)
 	{
-		std::cout << "Incorrect input data.\n";
+		std::cerr << "Incorrect input data.\n";
 		return -1;
 	}
 int N = seq.size();
