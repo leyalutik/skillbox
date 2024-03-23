@@ -1,99 +1,92 @@
 #include<iostream>
 #include<vector>
+#include<cstdlib>
 
 
-
-void sort(std::vector<int>& massive);
 
 void run();
+bool is_sorted(const std::vector<int>& v);
 
-
-
-
+//------------------------------------------
 int main()
 {
 	run();
-
 	return 0;
 }
 
 
+//------------------------------------------
 
 void run()
 {
-
-	int number;
-	std::vector<int> massive;
-	while(( std::cout << "Input number:\n") &&
-  std::cin >> number)
+	//given data
+	std::vector v = {-100,-50,-5,0,5,10,30};
+	if(!is_sorted(v))
 	{
-		if(number == -2)
-		{
-			return;
-		}
-		if(number == -1)
-		{
-			if(massive.size() >=5)
-			{
-				std::cout << "{" <<  massive[4] << "}\n";
-			}
-			else
-			{
-				std::cout << "Size of massive is less 5.\n";
-			}
-		}
-		else
-		{
-			if(massive.size() <= 5)
-			{
-				massive.push_back(number);
-			}
-			else
-			{
-				massive[5] = number; //5 auxilary indexto save new element
-			}
-			sort(massive);
-		}
-			}
-
-	std::cout << "Incorrect input.\n";
-
-}
-
-void sort(std::vector<int>& massive) //sort ordered massive with last unsorted element
-				     
-{
-	int N = massive.size();
-	if(N == 0)
+		std::cout << "The vector is unsorted.\n";
+	}
+	
+	int N = v.size();
+	int min_index =0;
+	while(v[min_index]<0)
 	{
-		std::cout << "function sort: massive size = 0.\n";
-		return;
+		++min_index;
 	}
 
-	for(int i=N-1; i>0; --i)
+	if(min_index > 0 && v[min_index] > abs( v[min_index-1]))
 	{
-		if(massive[i] < massive[i-1])
-		{
-			std::swap(massive[i],massive[i-1]);
-		}
+		--min_index;
 	}
-}
+	else if(min_index == N-1)
+	{
+		min_index = 0;
+	}
 
-/*
-void output(const std::vector<int>& v)
-{
-	bool isFirst = true;
+	int p = min_index+1;
+	int k = min_index;
+	int current_index;
 	std::cout << "{ ";
-	for(int i=0; i<v.size(); ++i)
+	while(p<N || k>=0)
 	{
-
-		if(!isFirst)
+		if(k>=0 && p<N && abs(v[p]) > abs( v[k]))
 		{
-			std::cout << ",";
+			current_index = k;
+			--k;
 		}
-		isFirst = false;
-		std::cout << v[i];
+		else if(p<N && k>=0 &&   abs(v[p]) <= abs(v[k]))
+		{
+			current_index = p;
+			++p;
+		}
+		else if(k<0)
+		{
+			p = current_index;
+			++p;
+		}
+		else if(p>=N)
+		{
+			current_index = k;
+			--k;
+		}
+
+			std::cout << v[current_index] << " ";
+		//	std::cout << min_index << " " << k << " " << p << "\n";
 	}
+
 	std::cout << " }\n";
+
 }
-*/
+
+
+bool is_sorted(const std::vector<int>& v)
+{
+	for(int i=0; i<v.size()-1; ++i)
+	{
+		if(v[i] > v[i+1])
+		{
+			return false;
+		}
+	}
+	return true;
+}
+
