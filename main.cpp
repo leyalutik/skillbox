@@ -2,9 +2,8 @@
 #include<vector>
 
 
-void add_element_to_fix_sorted_massive(std::vector<int>& massive, const int element);
 
-void output(const std::vector<int>& massive);
+void sort(std::vector<int>& massive);
 
 void run();
 
@@ -34,11 +33,26 @@ void run()
 		}
 		if(number == -1)
 		{
-			output(massive);
+			if(massive.size() >=5)
+			{
+				std::cout << "{" <<  massive[4] << "}\n";
+			}
+			else
+			{
+				std::cout << "Size of massive is less 5.\n";
+			}
 		}
 		else
 		{
-			add_element_to_fix_sorted_massive(massive,number);
+			if(massive.size() <= 5)
+			{
+				massive.push_back(number);
+			}
+			else
+			{
+				massive[5] = number; //5 auxilary indexto save new element
+			}
+			sort(massive);
 		}
 			}
 
@@ -46,60 +60,26 @@ void run()
 
 }
 
-
-void add_element_to_fix_sorted_massive(std::vector<int>& massive, const int element)
+void sort(std::vector<int>& massive) //sort ordered massive with last unsorted element
+				     
 {
 	int N = massive.size();
-	
-	if(N>5)
+	if(N == 0)
 	{
-		std::cout << "Incorrect size of massive.\n";
-		return;
-	}
-	if(N==0)
-	{
-		massive.push_back(element);
+		std::cout << "function sort: massive size = 0.\n";
 		return;
 	}
 
-	int index = 0;
-	//find index
-	
-	if(element >= massive[N-1])
-	{//last element
-		if(N<5)
+	for(int i=N-1; i>0; --i)
+	{
+		if(massive[i] < massive[i-1])
 		{
-			massive.push_back(element);
+			std::swap(massive[i],massive[i-1]);
 		}
-		return;
 	}
-
-	if(element < massive[0])
-	{//first element
-		index = 0;
-	}
-
-	while( index < 5 &&  element > massive[index] )
-	{
-		++index;
-	}
-
-	//insert element
-
-	if(N<5)
-	{
-		++N;
-	}
-
-	for(int i=N-1; i>index; --i)
-	{
-		massive[i] = massive[i-1];
-	}
-
-	massive[index] = element;
-
 }
 
+/*
 void output(const std::vector<int>& v)
 {
 	bool isFirst = true;
@@ -116,4 +96,4 @@ void output(const std::vector<int>& v)
 	}
 	std::cout << " }\n";
 }
-
+*/
