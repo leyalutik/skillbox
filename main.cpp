@@ -33,47 +33,29 @@ void run()
 		++min_index;
 	}
 
-	if(min_index > 0 && v[min_index] > abs( v[min_index-1]))
-	{
-		--min_index;
-	}
-	else if(min_index == N-1)
-	{
-		min_index = 0;
-	}
 
-	int p = min_index+1;
-	int k = min_index;
+	int p = min_index;
+	int k = min_index-1;
 	int current_index;
 	std::cout << "{ ";
 	while(p<N || k>=0)
 	{
-		if(k>=0 && p<N && abs(v[p]) > abs( v[k]))
+		if(k>=0 && ( (abs(v[p]) > abs( v[k]) || p>=N)))
 		{
 			current_index = k;
 			--k;
 		}
-		else if(p<N && k>=0 &&   abs(v[p]) <= abs(v[k]))
+		else if(p<N && ( (abs(v[p]) <= abs(v[k])) || k<0))
 		{
 			current_index = p;
 			++p;
-		}
-		else if(k<0)
-		{
-			p = current_index;
-			++p;
-		}
-		else if(p>=N)
-		{
-			current_index = k;
-			--k;
 		}
 
 			std::cout << v[current_index] << " ";
 		//	std::cout << min_index << " " << k << " " << p << "\n";
 	}
 
-	std::cout << " }\n";
+	std::cout << "}\n";
 
 }
 
