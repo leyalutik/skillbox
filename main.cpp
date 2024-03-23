@@ -79,21 +79,4 @@ void sort(std::vector<int>& massive) //sort ordered massive with last unsorted e
 	}
 }
 
-/*
-void output(const std::vector<int>& v)
-{
-	bool isFirst = true;
-	std::cout << "{ ";
-	for(int i=0; i<v.size(); ++i)
-	{
 
-		if(!isFirst)
-		{
-			std::cout << ",";
-		}
-		isFirst = false;
-		std::cout << v[i];
-	}
-	std::cout << " }\n";
-}
-*/
