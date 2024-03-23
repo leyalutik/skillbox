@@ -32,27 +32,25 @@ void find_sum_pair(const int REZ, const std::vector<int>& sorted_list)
 		return;
 	}
 	
-	int i=0,j=0;
-	while(sorted_list[i]+sorted_list[j] < REZ)
+	int i = 0, j = sorted_list.size() - 1;
+	while(i < j)
 	{
-		++j;
-	}
-
-	while(i<=j)
-	{
-		while(sorted_list[i]+sorted_list[j] < REZ)
+		int sum = sorted_list[i] + sorted_list[j];
+		if(sum < REZ)
 		{
 			++i;
-
 		}
-		if(sorted_list[i]+sorted_list[j] == REZ)
+		else if(sum > REZ)
 		{
-			std::cout << "\nThe given number = " << REZ << "\nNum1 = " <<sorted_list[i] << " Num2 = " <<sorted_list [j] << "\n"; 
+			--j;
 		}
-
-
-		--j;
+		else
+		{
+			std::cout << "\nThe given number = " << REZ << "\nNum1 = " << sorted_list[i] << " Num2 = " << sorted_list[j] << "\n"; 
+			return;
+		}
 	}
+	std::cerr << "No valid pair found.\n";
 }
 void sort(std::vector<int>& v)
 {
@@ -73,6 +71,7 @@ void test()
 	std::vector<int> REZ =  {1,-4,1,1,18,9,0};
 	for(int i=0; i< v.size(); ++i)
 	{
+  sort(v);
 		find_sum_pair(REZ[i],v[i]);
 	}
 }
