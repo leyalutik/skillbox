@@ -65,7 +65,7 @@ void add_element_to_fix_sorted_massive(std::vector<int>& massive, const int elem
 	int index = 0;
 	//find index
 	
-	if(element >= massive[massive.size()-1])
+	if(element >= massive[N-1])
 	{//last element
 		if(N<5)
 		{
@@ -79,7 +79,7 @@ void add_element_to_fix_sorted_massive(std::vector<int>& massive, const int elem
 		index = 0;
 	}
 
-	while(element > massive[index] && index < 5)
+	while( index < 5 &&  element > massive[index] )
 	{
 		++index;
 	}
