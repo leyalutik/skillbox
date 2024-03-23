@@ -14,7 +14,7 @@ void test();
 
 int main()
 {
-	test();
+	//test();
 	std::vector<int> v = {1,2,3,4,5,6,7};
 	sort(v);
 	find_sum_pair(9,v);
@@ -71,7 +71,7 @@ void test()
 	std::vector<int> REZ =  {1,-4,1,1,18,9,0};
 	for(int i=0; i< v.size(); ++i)
 	{
-  sort(v);
+  sort(v[i]);
 		find_sum_pair(REZ[i],v[i]);
 	}
 }
