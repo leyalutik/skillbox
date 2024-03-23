@@ -1,77 +1,119 @@
 #include<iostream>
-#include<cassert>
-#include<string>
 #include<vector>
-#include<tuple>
-#include<exception>
 
 
+void add_element_to_fix_sorted_massive(std::vector<int>& massive, const int element);
 
-void find_sum_pair(const int REZ, const std::vector<int>& sorted_list);
-void sort(std::vector<int>& v);
-void test();
+void output(const std::vector<int>& massive);
+
+void run();
+
+
 
 
 int main()
 {
-	//test();
-	std::vector<int> v = {1,2,3,4,5,6,7};
-	sort(v);
-	find_sum_pair(9,v);
+	run();
 
 	return 0;
 }
 
 
 
-void find_sum_pair(const int REZ, const std::vector<int>& sorted_list)
+void run()
 {
-	if(sorted_list.size() < 2)
+
+	int number;
+	std::vector<int> massive;
+	while(( std::cout << "Input number:\n") &&
+  std::cin >> number)
 	{
-		std::cerr << "Incorrect number of elements in sequence.\n";
-		return;
-	}
-	
-	int i = 0, j = sorted_list.size() - 1;
-	while(i < j)
-	{
-		int sum = sorted_list[i] + sorted_list[j];
-		if(sum < REZ)
+		if(number == -2)
 		{
-			++i;
+			return;
 		}
-		else if(sum > REZ)
+		if(number == -1)
 		{
-			--j;
+			output(massive);
 		}
 		else
 		{
-			std::cout << "\nThe given number = " << REZ << "\nNum1 = " << sorted_list[i] << " Num2 = " << sorted_list[j] << "\n"; 
-			return;
+			add_element_to_fix_sorted_massive(massive,number);
 		}
-	}
-	std::cerr << "No valid pair found.\n";
-}
-void sort(std::vector<int>& v)
-{
-	std::sort(v.begin(), v.end());
+			}
+
+	std::cout << "Incorrect input.\n";
+
 }
 
-void test()
+
+void add_element_to_fix_sorted_massive(std::vector<int>& massive, const int element)
 {
-	std::vector<std::vector<int>> v = {
-		{0},
-		{-1,-2,-3,-4,5,6,7},//-4
-		{0,5,6,2,3,6,1,-1},//1
-		{6,7,-1,8,2}, //1
-		{4,3,6,2,4,8,1,10},//18
-		{3,8,2,3,9,-1,0}, //9
-		{0,-1,-2,-3,1,2,3} //0
-	};
-	std::vector<int> REZ =  {1,-4,1,1,18,9,0};
-	for(int i=0; i< v.size(); ++i)
+	int N = massive.size();
+	
+	if(N>5)
 	{
-  sort(v[i]);
-		find_sum_pair(REZ[i],v[i]);
+		std::cout << "Incorrect size of massive.\n";
+		return;
 	}
+	if(N==0)
+	{
+		massive.push_back(element);
+		return;
+	}
+
+	int index = 0;
+	//find index
+	
+	if(element >= massive[massive.size()-1])
+	{//last element
+		if(N<5)
+		{
+			massive.push_back(element);
+		}
+		return;
+	}
+
+	if(element < massive[0])
+	{//first element
+		index = 0;
+	}
+
+	while(element > massive[index] && index < 5)
+	{
+		++index;
+	}
+
+	//insert element
+
+	if(N<5)
+	{
+		++N;
+	}
+
+	for(int i=N-1; i>index; --i)
+	{
+		massive[i] = massive[i-1];
+	}
+
+	massive[index] = element;
+
 }
+
+void output(const std::vector<int>& v)
+{
+	bool isFirst = true;
+	std::cout << "{ ";
+	for(int i=0; i<v.size(); ++i)
+	{
+
+		if(!isFirst)
+		{
+			std::cout << ",";
+		}
+		isFirst = false;
+		std::cout << v[i];
+	}
+	std::cout << " }\n";
+}
+
