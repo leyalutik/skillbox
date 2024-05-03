@@ -4,29 +4,37 @@
 #include<string>
 #include<cmath>
 #include <cassert>
-//void input(int& integer, int& fractional);
+#include<sstream>
 
 
-void add_delta_to_speed(float& speed, float& delta);
-void speedometr();
-void input(float& value);
-
+void input(double& value);
 
 
 //-----------------------------------------
 int main()
 {
 
-	speedometr();
 
+	
+	double integer_part;
+	double fractional_part;
 
+	std::cout << "Input integer part of a number:\n";
+	input(integer_part);
+	std::cout << "Input fractional  part of a number:\n";
+	input(fractional_part);
+
+	std::stringstream stream;
+	stream << integer_part << '.' << fractional_part;
+	double result = std::stod(stream.str());
+
+	std::cout <<  result << ":\n";
 
 	return 0;
 }
 
 //-----------------------------------------
-
-void input(float& value)
+void input(double& value)
 {
 
 	std::cin >> value;
@@ -61,53 +69,3 @@ void input(float& value)
 
 	}
 }
-void speedometr()
-{
-
-	const int OPERATIONS_COUNT_LIMIT = 100000;
-	const float EPS = 0.01;
-	float speed = 0.0;
-	float delta = 0.0;
-	char str[100];
-	int i=0; 
-	do
-	{
-		++i;
-		
-		std::cout << "Speed delta:\n";
-		input(delta);
-		add_delta_to_speed(speed,delta);
-
-		if(i%10 == 0)
-		{
-			speed = (std::round(100*speed))/100; // clear from the last digits of the number
-		}
-		std::cout << "Speed:";
-		std::sprintf(str,"%.1f",speed);
-		std::cout << str << "\n";
-	}	
-	while(speed > EPS && i< OPERATIONS_COUNT_LIMIT);
-	std::cout << "\n\nThe End.\n";
-
-
-}
-
-void add_delta_to_speed(float& speed, float& delta)
-{
-
-		speed += delta;
-		
-		if(speed > 150.0)
-		{
-			speed = 150.0;
-		}
-		if(speed < 0)
-		{
-			speed = 0;
-		}
-
-}
-
-
-
-
