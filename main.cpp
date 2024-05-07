@@ -5,19 +5,41 @@
 #include<cmath>
 #include <cassert>
 #include<sstream>
+#include<exception>
 
 
-void input(double& value);
-
+void input(long long int& value);
+void task2();
 
 //-----------------------------------------
 int main()
 {
 
-
+	try
+	{
+		task2();
+	}
+	catch(std::exception& e)
+	{
+		std::cout << "Number is too big. Try again.\n";
+		task2();
+	}
+	catch(std::invalid_argument& e)
+	{
+		std::cout << "Inctorrect number. Try again.\n";
+		task2();
+	}
 	
-	double integer_part;
-	double fractional_part;
+	return 0;
+}
+
+//-----------------------------------------
+
+
+void task2()
+{
+	long long int integer_part;
+	long long int fractional_part;
 
 	std::cout << "Input integer part of a number:\n";
 	input(integer_part);
@@ -28,18 +50,17 @@ int main()
 	stream << integer_part << '.' << fractional_part;
 	double result = std::stod(stream.str());
 
-	std::cout <<  result << ":\n";
+	std::cout << "The result" <<   result << ":\n";
 
-	return 0;
+
+
 }
 
-//-----------------------------------------
-void input(double& value)
+void input(long long int& value)
 {
 
-	std::cin >> value;
 
-	while(!std::cin)
+	while(!(std::cin >> value))
 	{
 
 		if(std::cin.bad()) //stream is corrupted	
@@ -51,20 +72,20 @@ void input(double& value)
 
 		}
 
-		if(std::cin.eof())
+		else if(std::cin.eof())
 		{
 
 			std::cout << "The input stream is overloaded.\n";
 			std::getchar();
 			exit(1);
 		}
-		if(std::cin.fail())
+		else if(std::cin.fail())
 		{
 
 			std::cout << "Incorrect value. Please, try again.\n";
 			std::cin.clear();
 			std::cin.ignore(32767, '\n');
-			std::cin >> value;
+			
 		}
 
 	}
