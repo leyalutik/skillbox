@@ -1,24 +1,27 @@
 #include<iostream>
-#include<iomanip>
-#include<cstdio>
 #include<string>
-#include<cmath>
-#include <cassert>
-//void input(int& integer, int& fractional);
+#include<sstream>
 
+template<typename Value_type , typename Stream_type>
+bool input(Value_type& value, Stream_type& s )
+{
+	
+	if(s >> value)
+	{
+		return true;
+	}
+	return false;
 
-void add_delta_to_speed(float& speed, float& delta);
-void speedometr();
-void input(float& value);
-
+}
+bool parse_expression(const std::string& line, double& x1, char& operation, double& x2);
+void task3();
 
 
 //-----------------------------------------
 int main()
 {
 
-	speedometr();
-
+	task3();
 
 
 	return 0;
@@ -26,88 +29,67 @@ int main()
 
 //-----------------------------------------
 
-void input(float& value)
+
+void task3()
 {
 
-	std::cin >> value;
+		double x1,x2;
+		char operation;
 
-	while(!std::cin)
+	while(true)
 	{
+		std::cout << "Input expression for evaluating:\n";
 
-		if(std::cin.bad()) //stream is corrupted	
+		std::string line;
+		std::getline(std::cin, line, '\n');
+
+		if(parse_expression(line,x1,operation,x2))
 		{
+			if( operation == '-' 
+				|| operation == '+'
+				|| operation == '*'
+				|| operation == '/'	
+			  )
+			{
+				break;
+			}
 
-			std::cout << "The stream cin was corrupted.\n";
-			std::getchar();
-			exit(1);
-
+			std::cout << "Incorrect symbol of operation.";
 		}
-
-		if(std::cin.eof())
-		{
-
-			std::cout << "The input stream is overloaded.\n";
-			std::getchar();
-			exit(1);
-		}
-		if(std::cin.fail())
-		{
-
-			std::cout << "Incorrect value. Please, try again.\n";
-			std::cin.clear();
-			std::cin.ignore(32767, '\n');
-			std::cin >> value;
-		}
-
+		std::cout << "Incorrect expression. Try again.\n";
 	}
-}
-void speedometr()
-{
 
-	const int OPERATIONS_COUNT_LIMIT = 100000;
-	const float EPS = 0.01;
-	float speed = 0.0;
-	float delta = 0.0;
-	char str[100];
-	int i=0; 
-	do
+
+	double result = 0.0;
+
+	switch(operation)
 	{
-		++i;
-		
-		std::cout << "Speed delta:\n";
-		input(delta);
-		add_delta_to_speed(speed,delta);
-
-		if(i%10 == 0)
-		{
-			speed = (std::round(100*speed))/100; // clear from the last digits of the number
-		}
-		std::cout << "Speed:";
-		std::sprintf(str,"%.1f",speed);
-		std::cout << str << "\n";
-	}	
-	while(speed > EPS && i< OPERATIONS_COUNT_LIMIT);
-	std::cout << "\n\nThe End.\n";
-
+		case '+' : result = x1+x2;
+			   break;
+		case '-' : result = x1-x2;
+			   break;
+		case '*' : result = x1*x2;
+			   break;
+		case '/' : result = x1/x2;
+			   break;
+		default : std::cout << "Unknown symbol of operation.\n";
+	}
+	std::cout << result << "\n";
 
 }
 
-void add_delta_to_speed(float& speed, float& delta)
+bool parse_expression(const std::string& line, double& x1, char& operation, double& x2)
 {
 
-		speed += delta;
-		
-		if(speed > 150.0)
-		{
-			speed = 150.0;
-		}
-		if(speed < 0)
-		{
-			speed = 0;
-		}
+	std::stringstream s(line);
+
+
+	if(input(x1,s) && input(operation,s) && input(x2,s) && s.eof())
+	{
+		return true;
+	}
+
+	return false;
 
 }
-
-
-
 
