@@ -3,6 +3,7 @@
 #include<cstdio>
 #include<string>
 #include<cmath>
+#include<sstream>
 #include <cassert>
 //void input(int& integer, int& fractional);
 
@@ -25,42 +26,28 @@ int main()
 }
 
 //-----------------------------------------
-
 void input(float& value)
 {
 
-	std::cin >> value;
-
-	while(!std::cin)
+	std::string line;
+	while(true)
 	{
+		std::getline(std::cin, line, '\n');
 
-		if(std::cin.bad()) //stream is corrupted	
+		std::stringstream s(line);
+		if(s >> value && s.eof())
 		{
-
-			std::cout << "The stream cin was corrupted.\n";
-			std::getchar();
-			exit(1);
-
+			break;
 		}
 
-		if(std::cin.eof())
+		else
 		{
-
-			std::cout << "The input stream is overloaded.\n";
-			std::getchar();
-			exit(1);
+			std::cout << "It's incorrect value or number is too big. Please, try again.\n";
 		}
-		if(std::cin.fail())
-		{
-
-			std::cout << "Incorrect value. Please, try again.\n";
-			std::cin.clear();
-			std::cin.ignore(32767, '\n');
-			std::cin >> value;
-		}
-
 	}
+	
 }
+
 void speedometr()
 {
 
