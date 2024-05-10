@@ -1,118 +1,31 @@
 #include<iostream>
-#include<iomanip>
-#include<cstdio>
 #include<string>
-#include<cmath>
 #include<sstream>
-#include <cassert>
-//void input(int& integer, int& fractional);
-
-template<typename Value_type , typename Stream_type>
-bool input(Value_type& value, Stream_type& s )
-{
-	
-	if(s >> value)
-	{
-		return true;
-	}
-	return false;
-
-}
-void test_cases();
-void evaluate();
-void task3();
-
-bool parse_expression(const std::string& line, double& x1, char& operation, double& x2);
-
-//-----------------------------------------
-int main()
-{
-
-	test_cases();
-	task3();
-
-
-
-	return 0;
-}
-
-//-----------------------------------------
-
-bool parse_expression(const std::string& line, double& x1, char& operation, double& x2)
-{
-
-	std::stringstream s(line);
-
-
-	if(input(x1,s) && input(operation,s) && input(x2,s) && s.eof())
-	{
-		return true;
-	}
-
-	return false;
-
-}
-void task3()
-{
-
-		double x1,x2;
-		char operation;
-
-	while(true)
-	{
-		std::cout << "Input expression for evaluating:\n";
-
-		std::string line;
-		std::getline(std::cin, line, '\n');
-
-		if(parse_expression(line,x1,operation,x2))
-		{
-			if( operation == '-' 
-				|| operation == '+'
-				|| operation == '*'
-				|| operation == '/'	
-			  )
-			{
-				break;
-			}
-
-			std::cout << "Incorrect symbol of operation.";
-		}
-		std::cout << "Incorrect expression. Try again.\n";
-	}
-
-
-	double result = 0.0;
-
-	switch(operation)
-	{
-		case '+' : result = x1+x2;
-			   break;
-		case '-' : result = x1-x2;
-			   break;
-		case '*' : result = x1*x2;
-			   break;
-		case '/' : result = x1/x2;
-			   break;
-		default : std::cout << "Unknown symbol of operation.\n";
-	}
-	std::cout << result << "\n";
-
-}
-
-
-
-
-void test_cases()
-{
 
 /*
  *
- * Пробелы
- * 
- * Символы в начале, символы в середине, символы в конце
- * СЛишком длинные числа
- * После второго числа не конец
+ *Ввод больше 7 символов
+ Ввод ровно 7 символов
+ Ввод 0 символов
+
+ Ввод повторяющихся символов
+ в начале
+ в середине 
+ конце
+
+ Ввод нулей
+
+ Ввод других символов
+
+ Ввод 1234567
+
+ Ввод 1
+
+ Ввод 0
+
+ Ввод 77
+
+ Ввод ыавыа*
  *
  *
  *
@@ -120,6 +33,145 @@ void test_cases()
  */
 
 
+enum  NOTE
+{
+
+	DO = 1,
+	   RE = 2,
+	   MI = 4,
+	   FA = 8,
+	   SOL = 16,
+	   LA = 32,
+	   SI = 64
+
+};
+
+
+void input_line(std::string& line);
+bool valid_input(const std::string& line);
+void task4();
+void create_bitmask(const std::string& line, int& bitmask);
+void output_chord( const int bitmask);
+
+
+
+//-----------------------------------------
+int main()
+{
+
+	task4();
+
+
+	return 0;
+}
+
+//-----------------------------------------
+
+
+void task4()
+{
+
+
+	std::string line;
+	std::cout << "Input chord:\n";
+
+	input_line(line);
+
+	int bitmask = 0;
+	create_bitmask(line,bitmask);
+
+	output_chord(bitmask);
+
+}
+
+void input_line(std::string& line)
+{
+	while(true)
+	{
+
+		std::getline(std::cin, line, '\n');
+		if(valid_input(line))
+		{
+			break;
+		}
+		std::cout << "The chord is not valid. Try again.\n";
+	}
+	
+
+}
+void output_chord(const int bitmask)
+{
+
+
+	if(bitmask & NOTE::DO)
+	{
+		std::cout << "DO";
+	}
+	if(bitmask & NOTE::RE)
+	{
+		std::cout << "RE";
+	}
+	if(bitmask & NOTE::MI)
+	{
+		std::cout << "MI";
+	}
+	if(bitmask & NOTE::FA)
+	{
+		std::cout << "FA";
+	}
+	if(bitmask & NOTE::SOL)
+	{
+		std::cout << "SOL";
+	}
+	if(bitmask & NOTE::LA)
+	{
+		std::cout << "LA";
+	}
+	if(bitmask & NOTE::SI)
+	{
+		std::cout << "SI";
+	}
+}
+
+void create_bitmask(const std::string& line, int& bitmask)
+{
+
+	bitmask = 0;
+	for(size_t i=0; i<line.size(); ++i)
+	{
+	
+		bitmask +=  (1 << int(line[i]));
+	}
 }
 
 
+bool valid_input(const std::string& line)
+{
+
+
+	if(line.size() < 1 || line.size() > 7)
+	{
+		return false;
+	}
+	
+
+
+
+	for(size_t i=0; i<line.size(); ++i)
+	{
+
+		//has not digits
+		if(!isdigit(line[i]))
+		{
+			return false;
+		}
+
+		if(line[i] == '0')
+		{
+			return false;
+		}
+
+
+	}
+	return true;
+}
