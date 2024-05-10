@@ -3,35 +3,6 @@
 #include<sstream>
 #include<bitset>
 
-/*
- *
- *Ввод больше 7 символов
- Ввод ровно 7 символов
- Ввод 0 символов
-
- Ввод повторяющихся символов
- в начале
- в середине 
- конце
-
- Ввод нулей
-
- Ввод других символов
-
- Ввод 1234567
-
- Ввод 1
-
- Ввод 0
-
- Ввод 77
-
- Ввод ыавыа*
- *
- *
- *
- *
- */
 
 
 enum  NOTE
@@ -77,11 +48,9 @@ void task4()
 	std::cout << "Input chord:\n";
 
 	input_line(line);
-	std::cout << "line = " << line << "\n";
 
 	int bitmask = 0;
 	create_bitmask(line,bitmask);
-	std::cout << "bitmask = " << bitmask << "\n";
 
 	output_chord(bitmask);
 
