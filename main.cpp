@@ -112,11 +112,8 @@ void create_bitmask(const std::string& line, int& bitmask)
 	for(size_t i=0; i<line.size(); ++i)
 	{
 
-	int index = +(line[i]-'1');
-	if(! (bitmask & 1<<index))  // if don't add this flag
-	{
-		bitmask += (1 << index);
-	}
+		int index = +(line[i]-'1');
+		bitmask |= (1 << index);  //Add flag
 	}
 }
 
