@@ -5,7 +5,7 @@
 
 
 
-enum  NOTE
+enum  class NOTE
 {
 
 	DO = 1,
@@ -75,31 +75,31 @@ void output_chord(const int bitmask)
 {
 
 
-	if(bitmask & NOTE::DO)
+	if(bitmask & static_cast<int>(NOTE::DO))
 	{
 		std::cout << "DO ";
 	}
-	if(bitmask & NOTE::RE)
+	if(bitmask & static_cast<int>(NOTE::RE))
 	{
 		std::cout << "RE ";
 	}
-	if(bitmask & NOTE::MI)
+	if(bitmask & static_cast<int>(NOTE::MI))
 	{
 		std::cout << "MI ";
 	}
-	if(bitmask & NOTE::FA)
+	if(bitmask & static_cast<int>(NOTE::FA))
 	{
 		std::cout << "FA ";
 	}
-	if(bitmask & NOTE::SOL)
+	if(bitmask & static_cast<int>(NOTE::SOL))
 	{
 		std::cout << "SOL ";
 	}
-	if(bitmask & NOTE::LA)
+	if(bitmask & static_cast<int>(NOTE::LA))
 	{
 		std::cout << "LA ";
 	}
-	if(bitmask & NOTE::SI)
+	if(bitmask & static_cast<int>(NOTE::SI))
 	{
 		std::cout << "SI ";
 	}
