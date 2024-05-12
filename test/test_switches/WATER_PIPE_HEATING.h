@@ -1,10 +1,7 @@
 #include<iostream>
 #include<string>
 #include<sstream>
-#include<tuple>
 
-#define COUT(x) \
-	std::cout << #x << " = " << x << "\n";
 struct HEATING_PIPE_WATER 
 {
 
@@ -80,62 +77,4 @@ struct HEATING_PIPE_WATER
 
 
 };
-
-void test_cases()
-{
-	{
-		HEATING_PIPE_WATER pipe_water;
-
-		for(int temp = -1; temp <=6; temp +=1)
-		{
-			COUT(temp);
-			pipe_water.set(float(temp));
-			pipe_water.display();
-		}
-
-	}
-
-	{
-
-		HEATING_PIPE_WATER pipe_water;
-		for(int temp = 6; temp >= -1; --temp)
-		{
-			COUT(temp);
-			pipe_water.set(float(temp));
-			pipe_water.display();
-		}
-	}
-	{
-		HEATING_PIPE_WATER pipe_water;
-
-		for(int temp = 0; temp <=6; temp +=1)
-		{
-			COUT(temp);
-			pipe_water.set(float(temp));
-			pipe_water.display();
-		}
-
-	}
-
-	{
-
-		HEATING_PIPE_WATER pipe_water;
-		for(int temp = 5; temp >= -1; --temp)
-		{
-			COUT(temp);
-			pipe_water.set(float(temp));
-			pipe_water.display();
-		}
-	}
-
-
-
-}
-
-int main()
-{
-
-	test_cases();
-	return 0;
-}
 

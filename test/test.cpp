@@ -1,12 +1,15 @@
 #include<iostream>
 #include<string>
 #include<sstream>
-#include<tuple>
+#include "header/LIGHTS_OUTSIDE.h"
+#include "header/HEATERS.h"
+#include "header/WATER_PIPE_HEATING.h"
+#include "header/COLORFUL_TEMPERATURE.h"
+#include "header/CONDITIONER.h"
 
 
 const int TIME_START = 0;
 const int TIME_END = 24;
-
 
 
 
@@ -24,125 +27,44 @@ enum class SWITCHES
 
 struct INPUT_PARAMETERS
 {
-	INPUT_PARAMETERS(const int hour_new)
+
+	INPUT_PARAMETERS()
+	{
+	}
+	
+	void set (const int hour_new)
 	{
 		hour = hour_new;
 	}
-	
-	set(const float temp_inside_new, 
+	void set(const float temp_inside_new, 
 		const float temp_outside_new,
 		const MOVEMENT move_new, 
-		const light_is_on)
+		const LIGHT light_new)
 	{
 		TEMPERATURE_OUTSIDE = temp_inside_new;
 		TEMPERATURE_OUTSIDE = temp_outside_new;
 		move = move_new;
-		LIGHT_IS_ON = light_is_on;
+		light = light_new;
 	}
 
+	private:
 
-	int hour = 0;
+	int hour=0;
 
-	float TEMPERATURE_OUTSIDE;
-	float TEMPERATURE_INSIDE;
-	bool LIGHT_IS_ON = false;
+	float TEMPERATURE_OUTSIDE=0;
+	float TEMPERATURE_INSIDE=0;
+	LIGHT light{false};
 	MOVEMENT move{false};
 
 };
 
-
-struct LIMITS
-{
-	float TEMPERATURE_OUTSIDE_PIPE_LOWER_BOUNDARY = 0; //Celsius
-	float TEMPERATURE_OUTSIDE_PIPE_UPPER_BOUNDARY = 5;
-
-	float TEMPERATURE_INSIDE_HEAT_LOWER_BOUNDARY  = 22;
-	float TEMPERATURE_INSIDE_HEAT_UPPER__BOUNDARY  = 25;
-
-	float TEMPERATURE_INSIDE_CONDITIONER_LOWER_BOUNDARY  = 30;
-	float TEMPERATURE_INSIDE_HEAT_UPPER_BOUNDARY  = 25;
-
-	int TIME_MOVEMENT_LOWER_BOUNDARY = 16;//hours
-	int TIME_MOVEMENT_UPPER_BOUNDARY = 5;//hours
-
-};
-
-
-struct COLOR_TEMPERATURE
-{
-	COLOR_TEMPERATURE()
-	{
-	`	light_turn_on = false;
-		current_hour = TIME_RESET;
-		 evaluate();
-	}
-	COLOR_TEMPERATURE(const int hour, const bool light_is_on)
-	{
-
-	`	light_ON = light_is_on;
-		current_hour = hour;
-		current_temperature = evaluate();
-	}
-
-	bool is_display()
-	{
-		return light_ON;
-	}
-	const int TIME_LOWER_BOUNDARY = 16;
-	const int TIME_UPPER_BOUNDARY = 20;
-	
-	const int TIME_RESET = 0; //all
-	const int TIME_RESET_24 = 24;
-
-	bool light_ON = false;
-	int current_hour;
-	int current_temperature;
-
-	const float max_value = 5000;//K
-	const float min_value = 2700;		       
-
-	void  evaluate()
-	{
-		if(current_hour<=TIME_UPPER_BOUNDARY && 
-				current_hour >= TIME_LOWER_BOUNDARY)
-		{
-			current_temperature = (max_value - (current_hour-TIME_LOWER_BOUNDARY)*((max_value-min_value)/(TIME_UPPER_BOUNDARY-TIME_LOWER_BOUNDARY)));
-			return current_temperature;
-		}
-
-		if(current_hour > TIME_LOWER_BOUNDARY && 
-				current_hour < TIME_RESET_24)
-		{
-			return current_temperature;
-		}
-		if(current_hour >= TIME_RESET && current_hour < TIME_LOWER_BOUNDARY)
-		{
-			current_temperature = max_value;
-			return current_temperature;
-		}
-	}
-
-	void display()
-	{
-		if(is_display())
-		{
-			std::cout << "Colorful Temperature: " << current_temperature << "\n";
-		}
-
-
-	}
-
-};
+void read(INPUT_PARAMETERS& input_parameters); 
+bool parse_line (const std::string& line,INPUT_PARAMETERS& input_parameters);
 
 void turn_on(const SWITCHES& sw, int& bitmask);
 void turn_off(const SWITCHES& sw, int& bitmask);
 bool switch_state(const SWITCHES& sw, int& bitmask);
 void turn_all_off(int& bitmask);
-void input_line(std::tuple<float,float,MOVEMENT,LIGHT>& input_parameters); 
-
-
-
-bool parse_line (const std::string& line, std::tuple<float,float,MOVEMENT,LIGHT>& input_parameters);
 
 void adjust_switches(const std::tuple<float,float,MOVEMENT,LIGHT>& input_parameters, const int hour, int& bitmask); 
 void display_all_switches(const int bitmask);
@@ -161,10 +83,9 @@ void task5();
 //-----------------------------------------
 int main()
 {
-	LIGHTS_OUTSIDE lights_outside(0,MOVEMENT{1});
-	lights_outside.display();
+	task5();
 
-		return 0;
+	return 0;
 
 }
 
@@ -172,15 +93,34 @@ int main()
 
 void task5()
 {
-	int COLOR_TEMPERATURE = 0;
 
-	int bitmask = 0;
+	LIGHTS_OUTSIDE lights_outside;
+	HEATERS heaters;
+	WATER_PIPE_HEATING water_pipe;
+	CONDITIONER conditioner;
+	COLORFUL_TEMPERATURE colorful_temperature;
+
+	INPUT_PARAMETERS input_parameters;
+
 	for(int day = 0; day < 2; ++day)
 	{
 		for(int hour=TIME_START; hour < TIME_END; ++hour)
 		{
-			INPUT_PARAMETERS input_parameters(hour);
-			input_line(input_parameters);
+			input_parameters.set(hour);
+			read(input_parameters);
+
+			lights_outside.set(hour,input_parameters.move.yes);
+				heaters.set(input_parameters.TEMPERATURE_INSIDE);
+				conditioner.set(input_parameters.TEMPERATURE_INSIDE);
+				water_pipe.set(input_parameters.TEMPERATURE_OUTSIDE);
+				colorful_temperature.set(hour,input_parameters.light.ON);
+
+				lights_outside.display();
+				heaters.display();
+				conditioner.display();
+				water_pipe.display();
+				colorful_temperature.dislpay();
+
 
 			//	adjust(input_parameters,hour,COLOR_TEMPERATURE, bitmask);
 
@@ -366,7 +306,7 @@ void input_line(INPUT_PARAMETERS& input_parameters)
 
 
 
-bool parse_line (INPUT_PARAMETERS& input_parameters)
+bool parse_line(const std::string& line, INPUT_PARAMETERS& input_parameters)
 {
 	std::stringstream s(line);
 	
