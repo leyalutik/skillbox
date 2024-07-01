@@ -5,7 +5,7 @@ git commit -m $COMMIT
 echo {LIST of BRANCHES}
 git branch
 echo 
-echo enter the key ...
+echo Enter the key ...
 read p
 echo Input the BRANCH name for pushing to this branch
 read BRANCH
