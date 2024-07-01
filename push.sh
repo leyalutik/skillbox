@@ -2,6 +2,9 @@ echo Input the description of COMMIT
 read COMMIT
 git add .
 git commit -m $COMMIT
-echo Input the BRANCH name
-read BRUNCH
-git push -u origin $BRUNCH
+echo {LIST of BRANCHES}
+git branch
+read p
+echo Input the BRANCH name for pushing to this branch
+read BRANCH
+git push -u origin $BRANCH
