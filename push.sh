@@ -9,4 +9,4 @@ echo Enter the key ...
 read p
 echo Input the BRANCH name for pushing to this branch
 read BRANCH
-git push -u origin $BRANCH
+git push -u origin_skillbox $BRANCH
