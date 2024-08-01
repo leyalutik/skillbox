@@ -1,4 +1,4 @@
 echo Input the description of COMMIT
-read COMMIT
+read answer
 git add .
-git commit -m $COMMIT
+git commit -m "$(answer)"
