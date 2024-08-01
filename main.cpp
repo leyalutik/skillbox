@@ -1,22 +1,44 @@
 #include<iostream>
 
 
-void swap(int& a, int& b)
-{
-	int temp = a;
-	a = b;
-	b = temp;
 
+void swap(int& i, int& j)
+{
+	int temp = i;
+	i = j;
+	j = temp;
 }
 
-int main()
-
+void reverse_massive(const int& N, int* p)
 {
-	int a = 10;
-	int b = 5;
-	swap(a,b);
+	int i=0, j=9;
+	while(i<j)
+	{
+		swap(*(p+i),*(p+j));
+		++i;
+		--j;
+	}
+}
 
-	std::cout << "a = " << a << " b = " << b << "\n";
+
+void print(const int& N, int* p)
+{
+
+	std::cout << std::endl;
+	for(size_t i=0; i<N; ++i)
+	{
+		std::cout << *(p+i);
+	}
+	std::cout << std::endl;
+}
+
+
+int main()
+{
+
+	int a[10] = {0,1,2,3,4,5,6,7,8,9};
+	reverse_massive(10,a);
+	print(10,a);
 
 	return 0;
 
