@@ -1,47 +1,46 @@
-#include<iostream>
-#include<vector>
+#include <iostream>
 
 
 
 
-void swapvec(std::vector<int>& a, int* b);
+int rabbit(int n, int k=3);
 
 
 
 int main()
 {
+	int n=0, k=0;
 
-	std::vector<int> a = {1,2,3,4};
+	std::cout << "Enter n, k :\n";
+	std::cin >> n >> k;
 
-	int b[] = {2,4,6,8};
+	std::cout << (n != 0 ?  rabbit(n,k) : 0);
 
-	swapvec(a,b);
-
-	
-	for(int i = 0; i < 4; ++i)
-
-		std::cout << a[i];
-
-	std::cout << std::endl;
-
-	for(int i = 0; i < 4; ++i)
-
-		std::cout << b[i];
 	return 0;
-
 }
 
 
-void swapvec(std::vector<int>& a, int* b)
+
+
+
+
+
+int rabbit(int n, int k)
 {
-	for(std::size_t i=0; i<a.size(); ++i)
+	if(n < 0 ||  k<= 0)
 	{
-		int temp = a[i];
-		a[i] = b[i];
-		b[i] = temp;
-
+		return 0;
 	}
-	
+	if(n == 0)
+	{
+		return 1;
+	}
+	int sum = 0;
+	for(int i=1; i<= k; ++i)
+	{
+
+		sum += rabbit(n-i,k);
+	}
+
+	return sum;
 }
-
-
