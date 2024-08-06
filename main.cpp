@@ -1,192 +1,47 @@
-#include<cstdio>
-#include<cstring>
-#include<cassert>
+#include<iostream>
+#include<vector>
 
-bool is_line2_in_line1(const char* line1, const char* line2);
 
-void test();
+
+
+void swapvec(std::vector<int>& a, int* b);
+
+
 
 int main()
 {
-	char a[] = "sdf";
-	char b[] = "adf";
 
-	printf ("\n%d\n",is_line2_in_line1(a,b));
+	std::vector<int> a = {1,2,3,4};
 
+	int b[] = {2,4,6,8};
+
+	swapvec(a,b);
+
+	
+	for(int i = 0; i < 4; ++i)
+
+		std::cout << a[i];
+
+	std::cout << std::endl;
+
+	for(int i = 0; i < 4; ++i)
+
+		std::cout << b[i];
 	return 0;
 
 }
 
-bool is_line2_in_line1(const char* line1, const char* line2)
-{
-	if(std::strlen(line1) == 0 || std::strlen(line2) == 0 
-			|| std::strlen(line2) > std::strlen(line1)
-			|| line2[std::strlen(line2)] != '\0' || line1[std::strlen(line1)] != '\0'
-	  )
-	{
-		return false;
-	}
 
-	int k=0;
-	for(size_t i=0; i<std::strlen(line1); ++i)
+void swapvec(std::vector<int>& a, int* b)
+{
+	for(std::size_t i=0; i<a.size(); ++i)
 	{
-		if(line1[i] == line2[k++])
-		{
-			if(k == std::strlen(line2))
-			{
-				return true;
-			}
-		}
-		else
-		{
-			if(i > (std::strlen(line1)-std::strlen(line2)))
-			{
-				return false;
-			}
-			k = 0;
-			
-		}
+		int temp = a[i];
+		a[i] = b[i];
+		b[i] = temp;
+
+	}
 	
-	}
-	return false;
-
-}
-
-void test()
-{
-	{
-	const char s1[] = "\0";
-	const char s2[] = "\0";
-
-	assert(is_line2_in_line1(s1,s2) == false);
-	}
-	{
-	const char s1[] = "f\0";
-	const char s2[] = "\0";
-
-	assert(is_line2_in_line1(s1,s2) ==  false);
-	}
-
-	{
-	const char s1[] = "\0";
-	const char s2[] = "f\0";
-
-	assert(is_line2_in_line1(s1,s2) == false);
-	}
-	{
-	const char s1[] = "sdf\0";
-	const char s2[] = "s\0";
-
-	assert(is_line2_in_line1(s1,s2) == true);
-	}
-
-	{
-	const char s1[] = "sdf\0";
-	const char s2[] = "d\0";
-
-	assert(is_line2_in_line1(s1,s2) == true);
-	}
-	{
-	const char s1[] = "sdf\0";
-	const char s2[] = "f\0";
-
-	assert(is_line2_in_line1(s1,s2) ==  true);
-	}
-
-	{
-	const char s1[] = "sdf\0";
-	const char s2[] = "sdfs\0";
-
-	assert(is_line2_in_line1(s1,s2) == false);
-	}
-
-	{
-	const char s1[] = "sdf\0";
-	const char s2[] = "sd\0";
-
-	assert(is_line2_in_line1(s1,s2) ==  true);
-	}
-
-	{
-	const char s1[] = "sdf\0";
-	const char s2[] = "df\0";
-
-	assert(is_line2_in_line1(s1,s2) ==  true);
-	}
-
-	{
-	const char s1[] = "sdf\0";
-	const char s2[] = "sf\0";
-
-	assert(is_line2_in_line1(s1,s2) ==  false);
-	}
-
-	{
-	const char s1[] = "sdf\0";
-	const char s2[] = "fa\0";
-
-	assert(is_line2_in_line1(s1,s2) ==  false);
-	}
-
-	{
-	const char s1[] = "sdf\0";
-	const char s2[] = "as\0";
-
-	assert(is_line2_in_line1(s1,s2) == false);
-	}
-
-	{
-	const char s1[] = "sdfsd\0";
-	const char s2[] = "fsd\0";
-
-	assert(is_line2_in_line1(s1,s2) == true);
-	}
-	{
-	const char s1[] = "sdfsdf\0";
-	const char s2[] = "sdf\0";
-
-	assert(is_line2_in_line1(s1,s2) ==  true);
-	}
-
-	{
-	const char s1[] = "sdfsdf\0";
-	const char s2[] = "dfs\0";
-
-	assert(is_line2_in_line1(s1,s2) ==  true);
-	}
-
-	{
-	const char s1[] = "sdfsdf\0";
-	const char s2[] = "sdfsdf\0";
-
-	assert(is_line2_in_line1(s1,s2) == true);
-	}
-
-	{
-	const char s1[] = "sdrfsdf\0";
-	const char s2[] = "sdf\0";
-
-	assert(is_line2_in_line1(s1,s2) ==  true);
-	}
-
-{
-	const char s1[] = "sdf";
-	const char s2[] = "as\0";
-
-	assert(is_line2_in_line1(s1,s2) == false);
-	}
-
-{
-	const char s1[] = "sdf\0";
-	const char s2[] = "as\0";
-
-	assert(is_line2_in_line1(s1,s2) == false);
-	}
-
-
-
-
-
 }
 
 
