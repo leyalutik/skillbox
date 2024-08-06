@@ -1,46 +1,47 @@
 #include <iostream>
+const int64_t MAX_LONG = 9223372036854775807;
+const int64_t MAX_LONG_NEG  =  -9223372036854775808;
 
 
+void evendigits(int64_t& number, int16_t& ans);
 
-
-int rabbit(int n, int k=3);
-
-
-
+int64_t max_int64_t();
 int main()
 {
-	int n=0, k=0;
 
-	std::cout << "Enter n, k :\n";
-	std::cin >> n >> k;
-
-	std::cout << (n != 0 ?  rabbit(n,k) : 0);
-
+	int64_t number;
+	int16_t ans = 0;
+	std::cout << "Enter number in [" << MAX_LONG_NEG << ", " << MAX_LONG << "]\n:";
+	std::cin >> number;
+	evendigits(number,ans);
+	std::cout << "ans = " << ans << "\n";
 	return 0;
 }
 
 
 
-
-
-
-
-int rabbit(int n, int k)
+void evendigits(int64_t& number, int16_t& ans)
 {
-	if(n < 0 ||  k<= 0)
+	if(number == 0)
 	{
-		return 0;
+		return;
 	}
-	if(n == 0)
-	{
-		return 1;
-	}
-	int sum = 0;
-	for(int i=1; i<= k; ++i)
-	{
-
-		sum += rabbit(n-i,k);
-	}
-
-	return sum;
+	ans =( ((number % 10) % 2) == 0 ? ++ans : ans );
+	number /= 10;
+	evendigits(number,ans);
 }
+
+
+int64_t max_int64_t()
+{
+	int64_t max = 0;
+	int64_t stepen = 1;
+
+	for(int i=0; i<63; ++i)
+	{
+		max += stepen;
+		stepen *= 2;
+	}
+	return max;
+}
+
