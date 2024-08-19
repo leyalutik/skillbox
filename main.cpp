@@ -1,47 +1,154 @@
-#include <iostream>
-const int64_t MAX_LONG = 9223372036854775807;
-const int64_t MAX_LONG_NEG  =  -9223372036854775808;
+#include<iostream>
+#include<fstream>
+#include<string>
+#include<cassert>
 
 
-void evendigits(int64_t& number, int16_t& ans);
 
-int64_t max_int64_t();
+int32_t find(const std::string& filename, const std::string& word_to_find);
+void test();
+
+
 int main()
 {
+	//	test();
 
-	int64_t number;
-	int16_t ans = 0;
-	std::cout << "Enter number in [" << MAX_LONG_NEG << ", " << MAX_LONG << "]\n:";
-	std::cin >> number;
-	evendigits(number,ans);
-	std::cout << "ans = " << ans << "\n";
+	const std::string filename = "words.txt";
+
+	std::cout << "Enter the word:\n";
+	std::string word;
+	std::cin >> word;
+
+	std::cout << "\nFinding the word \"" << word << "\" in the file.\n";
+	std::cout << "The number of repetitions of \"" << word << "\" - " << find(filename,word) << ".\n";;
+
 	return 0;
 }
 
 
 
-void evendigits(int64_t& number, int16_t& ans)
+
+
+//---------------------------------------------------------------------
+int32_t find(const std::string& filename, const std::string& word_to_find)
 {
-	if(number == 0)
+
+	int counter = 0;
+	std::string word;
+	std::ifstream inf(filename.c_str(), std::ios::in);
+
+	while(inf >> word)
 	{
-		return;
+		if(word_to_find == word)
+		{
+			++counter;
+		}
 	}
-	ans =( ((number % 10) % 2) == 0 ? ++ans : ans );
-	number /= 10;
-	evendigits(number,ans);
+	inf.close();
+
+	return counter;
 }
-
-
-int64_t max_int64_t()
+void test()
 {
-	int64_t max = 0;
-	int64_t stepen = 1;
+	std::string testname = "testfile.txt";
 
-	for(int i=0; i<63; ++i)
 	{
-		max += stepen;
-		stepen *= 2;
+		std::fstream f(testname.c_str(), std::ios::out | std::ios::trunc);
+		assert(f.is_open());
+		std::string word = "word";
+
+		f << "word";
+		f.close();
+		f.open(testname, std::ios::in);
+		assert(f.is_open());
+		assert(1 == find(testname,"word"));
+		f.close();
+		f.open(testname.c_str(),std::ios::out | std::ios::trunc);
+		assert(f.is_open());
+		f.close();
 	}
-	return max;
+
+	{
+		std::fstream f(testname.c_str(), std::ios::out | std::ios::trunc);
+		assert(f.is_open());
+		std::string word = "word";
+
+		f << "word ";
+		f << "word";
+		f.close();
+		f.open(testname, std::ios::in);
+		assert(f.is_open());
+		assert(2 == find(testname,"word"));
+		f.close();
+		f.open(testname.c_str(),std::ios::out | std::ios::trunc);
+		assert(f.is_open());
+		f.close();
+	}
+	{
+		std::fstream f(testname.c_str(), std::ios::out | std::ios::trunc);
+		assert(f.is_open());
+		std::string word = "word";
+
+		f.close();
+		f.open(testname, std::ios::in);
+		assert(f.is_open());
+		assert(0 == find(testname,"word"));
+		f.close();
+		f.open(testname.c_str(),std::ios::out | std::ios::trunc);
+		assert(f.is_open());
+		f.close();
+	}
+
+	{
+		std::fstream f(testname.c_str(), std::ios::out | std::ios::trunc);
+		assert(f.is_open());
+		std::string word = "word";
+
+		f << '\n';
+		f.close();
+		f.open(testname, std::ios::in);
+		assert(f.is_open());
+		assert(0 == find(testname,"word"));
+		f.close();
+		f.open(testname.c_str(),std::ios::out | std::ios::trunc);
+		assert(f.is_open());
+		f.close();
+	}
+
+
+	{
+		std::fstream f(testname.c_str(), std::ios::out | std::ios::trunc);
+		assert(f.is_open());
+		std::string word = "word";
+
+		f << "word1";
+		f.close();
+		f.open(testname, std::ios::in);
+		assert(f.is_open());
+		assert(0 == find(testname,"word"));
+		f.close();
+		f.open(testname.c_str(),std::ios::out | std::ios::trunc);
+		assert(f.is_open());
+		f.close();
+	}
+
+
+	{
+		std::fstream f(testname.c_str(), std::ios::out | std::ios::trunc);
+		assert(f.is_open());
+		std::string word = "word";
+
+		f << "word";
+		f << '\n';
+		f.close();
+		f.open(testname, std::ios::in);
+		assert(f.is_open());
+		assert(1 == find(testname,"word"));
+		f.close();
+		f.open(testname.c_str(),std::ios::out | std::ios::trunc);
+		assert(f.is_open());
+		f.close();
+	}
+
 }
 
