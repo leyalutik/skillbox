@@ -1,20 +1,20 @@
 #include<iostream>
 #include<fstream>
 #include<string>
+#include<sstream>
 
 
-explicit struct Date
+struct Date
 {
-	Date();
-	Date(const int32_t day1, const int32_t month1,
-			const int32_t year1)
-		: day(day1), month(month1), year(year1) {}
-	void set(const int32_t day1, const int32_t month1,
-			const int32_t year1)
-		: day(day1), month(month1), year(year1) {}
+	void set(const Date& d)
+		{
+		 day = d.day;
+		 month = d.month;
+		 year = d.year;
+	}
 	bool is_valid() 
 	{
-		return (day >0 && 
+		return (is_valid_date_format && day >0 && 
 			( (month == 2 && is_leap_year() && day <= 29) 
 			  || (month != 2 && day <= list_year[month-1])
 			)  
@@ -28,38 +28,44 @@ explicit struct Date
 		       );
 	}
 
-	void display_date()
+
+
+	void parse(const std::string& line)
+	{
+		std::stringstream stream(line);
+		char ch1,ch2;
+		stream >> day >> ch1 >> month >> ch2 >> year;
+		is_valid_date_format = (ch1 == ch2 && ch1 == '1' && stream.eof() ? true : false );
+			
+			
+			
+		
+
+	}
+	
+	void display()
 	{
 		std::cout << day << "." << month << "." << year ;
 	}
 	int list_year[12] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31}; 
 	
+	bool is_valid_date_format;
 	int32_t day = 1;
 	int32_t month = 1;
 	int32_t year = 2000;
 	
 };
 
-explicit struct Person
+struct Person
 {
-	Person();
-	Person(const std::string& name1,
-		const std::string& surname1,
-		const std::int32_t money_amount1, 
-		const Date& date1)) 
-		: name(name1), surname(surname1),
-		money_amount(amount1), date(date1){} 
 
-	void set(const std::string& name1,
-		const std::string& surname1,
-		const std::int32_t money_amount1, 
-		const Date& date1)) 
-		: name(name1), surname(surname1),
-		money_amount(amount1), date(date1){} 
-
-
-	void set(const Person& p): name(p.name), surname(p.surname), money_amount(p.money_amount), date(p.date) []
-	istream& >> ( istream& stream, Person& data);
+	void set(const Person& p)
+	{
+		name = p.name;
+		surname = p.surname;
+		money_amount =p.money_amount;
+		date.set(p.date);
+	}
 	
 	bool is_valid() 
 	{
@@ -67,10 +73,19 @@ explicit struct Person
 				&& (money_amount >= 0) && date.is_valid() ); 
 	}
 
+	void parse(const std::string& line)
+	{
+		std::stringstream stream(line);
+		stream >> name >> surname >> money_amount;
+		std::string line1;
+		stream >> line1;
+		date.parse(line1);
+	}
 	void display_information()
 	{
 		std::cout << name << " " << surname << " " 
-			<< money_amount << " " << date.display();
+			<< money_amount << " ";
+		date.display();
 	}
 	std::string name;
 	std::string surname;
@@ -81,58 +96,56 @@ explicit struct Person
 };
 
 
-struct Payment
-{
-
-Payment(const std::string& filename)
-{
-	
-
-
-}
-
-void read_line();
-void ErrorHadler();
-bool is_data_valid();
-
-
-
-Person current;
-
-int64_t N_line=0; // input current line  
-bool end_file = 0;
-
-
-
-};
-
-
 
 
 
 
 int main()
 {
-const std::string filename;
-Payment person(filename);
-int32_t sum = 0;
-inr32_t max_money = 0;
-bool first_apperance = 1;
-Person person_max_money;
-while (!person.end_file)
-{
+const std::string filename("payment.txt");
 
-	int32_t money =  person.current.money_amount;
-	person.read_line();
-	if(first_apperance)
+int32_t sum = 0;
+int32_t max_money = 0;
+Person person_current;
+Person person_max_money;
+
+bool first_apperance = true;
+int32_t number_line = 0;
+
+std::ifstream inf(filename.c_str(), std::ios::in);
+if(!inf.is_open())
+{
+	std::cout << "The file \"" << filename << "\" was not opened.\n";
+	return 1;
+}
+while (!inf.eof())
+{
+	std::string line;
+	std::getline(inf, line, '\n');
+	person_current.parse(line);
+	++ number_line;
+
+	if(person_current.is_valid())
 	{
-		max_money = money;
-		first_apperance = 0;
+
+		int32_t money =  person_current.money_amount;
+		if(first_apperance)
+		{
+			max_money = money;
+			first_apperance = 0;
+		}
+		sum += money;
+		if( money > max_money)
+		{
+			person_max_money.set(person_current);
+		}
 	}
-	sum += money;
-	if( money > max_money)
+	else
 	{
-		person_max_money.set(person.current);
+		std::cout << "In the file \"" <<  filename 
+			<< "\"\nThe line \""; 
+		person_current.display_information(); 
+		std::cout <<  "\" is not valid.\n";
 	}
 
 }
