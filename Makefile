@@ -1,11 +1,22 @@
+CXX = g++
+CXXFLAGS = -ggdb -Wall -pthread -std=c++17
 SOURCE=main.cpp
-EXE=main
+MODULES=test_framework.cpp main_functions.cpp tic_tac_toe.cpp tests.cpp
+OBJMODULES=$(MODULES:.cpp=.o)
+	
+GOAL=$(SOURCE:.cpp=$*)
 
+all: run 
 
-run:	$(EXE)
-	./$(EXE)
+run : $(GOAL)
+	./$(GOAL)
 
-compile:	$(SOURCE)
-	g++ -Wall $(SOURCE) -o $(EXE)
+.o:.cpp .h
+	$(CXX) $(CXXFLAGS) -c $<  
 
+$(GOAL) : $(SOURCE) $(OBJMODULES)
+	$(CXX) $(CXXFLAGS) $^ -o $@
+
+clean : 
+	rm -f *.o
 
