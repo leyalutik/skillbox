@@ -1,0 +1,74 @@
+#!/bin/bash
+
+KEYWORD="$1"
+CONTENT_LINES="$2"
+SOURCEDIR="$3"
+OUTPUT_FILE="search_results.txt"
+
+if [ -z "$KEYWORD" ] ; then
+echo Command structure: sbook \<keyword\> \[number pf content lines\] \[source derectory\]
+fi
+
+if [ -z "$CONTENTLINES" ] ; then
+CONTENTLINES=10
+fi
+
+if [ -z "$SOURCEDIR" ] ; then
+SOURCEDIR=.
+fi
+
+
+if [ -f "$OUTPUT_FILE" ] ; then 
+rm "$OUTPUT_FILE"
+fi
+
+process_book_pdf()
+{
+	if [ -z "$1" ] ; then
+	return 1
+	fi
+
+	local pdf_file="$1"
+	local txt_file="${pdf_file%.pdf}.txt"
+
+	pdftotext "$pdf_file" "$txt_file"
+
+
+	grep -HinC "$CONTENT_LINES" "$KEYWORD" "$txt_file" | read -r line
+	
+	if [ -n "$line" ] ; then
+
+	echo "Find in a book : "$pdf_file", >> "$OUTPUT_FILE" "
+	echo "$line" >> "$OUTPUT_FILE"
+	echo "===================================================" >> "$OUTPUT_FILE"
+
+	fi
+	rm "$txt_file"
+}
+
+process_book_no_pdf()
+{
+	txt_file="$1"
+	
+
+	 grep -HinC "$CONTENT_LINES" "$KEYWORD" "$txt_file" | read -r line
+if [ -n "$line" ] ; then
+ 
+         echo "Find in a book : "$txt_file", >> "$OUTPUT_FILE" "
+         echo "$line" >> "$OUTPUT_FILE"
+         echo "===================================================" >> "$OUTPUT_FILE"
+ 
+         fi
+
+
+}
+
+for pdf_file in "$(find "$SOURCEDIR" -name "*.pdf")" ; do
+process_book_pdf "$pdf_file"
+done
+
+for txt_file in "$(find "$SOURCEDIR" -not  -name  "*.pdf")" ; do
+process_book_no_pdf "$txt_file"
+done
+
+echo "$OUTPUT_FILE"
