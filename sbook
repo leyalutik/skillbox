@@ -1,15 +1,15 @@
 #!/bin/bash
 
-KEYWORD="$1"
-CONTENT_LINES="$2"
-SOURCEDIR="$3"
+KEYWORD=$1
+CONTENT_LINES=$2
+SOURCEDIR=$3
 OUTPUT_FILE="search_results.txt"
 
 if [ -z "$KEYWORD" ] ; then
 echo Command structure: sbook \<keyword\> \[number pf content lines\] \[source derectory\]
 fi
 
-if [ -z "$CONTENTLINES" ] ; then
+if [   -z "$CONTENTLINES"  ] ; then
 CONTENTLINES=10
 fi
 
@@ -21,6 +21,8 @@ fi
 if [ -f "$OUTPUT_FILE" ] ; then 
 rm "$OUTPUT_FILE"
 fi
+
+echo $CONTENT_LINES
 
 process_book_pdf()
 {
@@ -48,8 +50,11 @@ process_book_pdf()
 
 process_book_no_pdf()
 {
+	if [ -z "$1" ] ; then
+		return 1
+	fi
 	txt_file="$1"
-	
+
 
 	 grep -HinC "$CONTENT_LINES" "$KEYWORD" "$txt_file" | read -r line
 if [ -n "$line" ] ; then
@@ -67,8 +72,7 @@ for pdf_file in "$(find "$SOURCEDIR" -name "*.pdf")" ; do
 process_book_pdf "$pdf_file"
 done
 
-for txt_file in "$(find "$SOURCEDIR" -not  -name  "*.pdf")" ; do
+for txt_file in "$(find "$SOURCEDIR" -type f !  -name  "*.pdf")" ; do
 process_book_no_pdf "$txt_file"
 done
-
 echo "$OUTPUT_FILE"

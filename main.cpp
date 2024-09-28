@@ -119,14 +119,14 @@ int main()
 		std::cout << "The file \"" << filename << "\" was not opened.\n";
 		return 1;
 	}
-	while (!inf.eof())
+	while (!inf.eof() && number_line < 3000000)
 	{
 		Person person_current;
 		std::string line;
 		std::getline(inf, line, '\n');
 
 		person_current.parse(line);
-		++ number_line;
+		++number_line;
 
 		if(person_current.is_valid())
 		{
