@@ -12,7 +12,7 @@ run : $(GOAL)
 	./$(GOAL)
 
 #.o:.cpp .h
-	$(CXX) $(CXXFLAGS) -c $<  
+#	$(CXX) $(CXXFLAGS) -c $<  
 
 $(GOAL) : $(SOURCE) #$(OBJMODULES)
 	$(CXX) $(CXXFLAGS) $^ -o $@

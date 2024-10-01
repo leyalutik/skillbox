@@ -128,6 +128,7 @@ int main()
 		person_current.parse(line);
 		++number_line;
 
+		std::cout << "\n";
 		if(person_current.is_valid())
 		{
 
@@ -137,12 +138,15 @@ int main()
 				max_money = money;
 				first_apperance = 0;
 			}
-			sum += money;
 			if( money > max_money)
 			{
+				max_money = money;
 				person_max_money.set(person_current);
 			}
+
+			sum += money;
 		}
+		/*
 		else
 		{
 			std::cout << "In the file \"" <<  filename 
@@ -150,7 +154,7 @@ int main()
 			person_current.display_information(); 
 			std::cout <<  "\" is not valid.\n";
 		}
-
+*/
 	}
 
 	std::cout << "Total sum : " << sum << "\n";
