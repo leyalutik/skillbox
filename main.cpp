@@ -15,6 +15,7 @@ bool  is_PNG_filecontent(const std::string& path_to_file);
 int main()
 {
 	std::string path_to_file;
+	std::cout << "Is it PNG file ?\n";
 	std::cout << "Input path to file:\n";
 	std::getline(std::cin,path_to_file);
 	std::cout << (is_PNG_filename(path_to_file) && is_PNG_filecontent(path_to_file) ? "YES" : "NO") << "\n";
