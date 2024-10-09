@@ -1,6 +1,90 @@
 #include "functions.h"
+#include <cassert>
 // current functions
 //----------------------------------------------
+
+
+
+
+
+int32_t create_number(const int32_t sector, std::vector<bool>&  picked_sectors)
+{
+	int32_t current_sector = sector;
+	int counter = 0;
+	while(picked_sectors[current_sector])
+	{//find unpicked sector number
+		++current_sector;
+		++counter;
+		if(counter > picked_sectors.size())
+		{
+			throw std::runtime_error("No unused sectors.\n");
+		}
+		current_sector = current_sector % picked_sectors.size();
+	}
+	picked_sectors[current_sector] = 1;
+
+	return current_sector;
+}
+
+
+
+//create_number(current_sector);
+
+// is_right_answer(const string right_answer, string user_answer);
+//"user_answer" must be part of the "right_answer"
+//used functions right_answer.find(user_answer) ???
+
+
+
+
+
+
+
+
+
+
+
+
+//--------------------------------------------
+//UNUSED FUNCTIONS
+
+void get_data(const std::string& input_file, const int32_t size,  std::vector<std::string>& v)
+{//size = 13
+ //file both must have only 13 not empty lines
+ 
+	if(v.size() != 0)
+	{
+		v.clear();
+	}
+
+
+	std::ifstream ifs(input_file.c_str(),std::ios_base::in);
+	if(!ifs.is_open())
+	{
+		std::cout << "Input file " << input_file << " for installing game questions can't be opened.\n";
+		return ;
+	}
+
+	size_t counter = 0;
+	std::string line;
+	while(getline(ifs,line) && counter <= size)
+	{
+		assert(!line.empty());
+		++counter;
+		v.push_back(line);
+	}
+
+	assert(counter == size);
+
+}
+
+
+
+
+
+
+
+
 
 bool is_PNG_filename(const std::string& path_to_file)
 {
@@ -53,8 +137,6 @@ bool  is_PNG_filecontent(const std::string& path_to_file)
 
 
 
-//--------------------------------------------
-//UNUSED FUNCTIONS
 void insert_sort(std::string& line)
 {
 

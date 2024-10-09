@@ -32,27 +32,40 @@ int main(int32_t argc, char* argv[])
 
 		std::string line;
 		//std::function<void(std::string&)> f =  get_function(std::string(argv[1]));
-		std::function<bool(const std::string&)> f = get_bool_function(std::string(argv[1]));
+		//std::function<bool(const std::string&)> f = get_bool_function(std::string(argv[1]));
+//std::function<void(const std::string&, const int32_t,std::vector< std::string>&)> f =  get_void_const_string_int_vector_function(argv[1]);
 
-		while(std::getline(ifs,line, '\n'))
-		{
-			display(line);
-			std::cout << "\n";
-			std::cout << (f(line) ? "YES" : "NO" )<< "\n";
-			std::cout << "\n----------------\n";
-			line.clear();
+		std::function<int32_t(const int32_t, std::vector<bool>&)> f = get_int_vector(argv[1]);
 
-
-
-		}
-
-	}
-	catch(std::runtime_error& e)
-	{
+std::vector<bool> v={0,0,0,0,0,0,0,0,0,0,0,0,0};
+while(std::getline(ifs,line, '\n'))
+{
+	display(line);
+	std::stringstream ss(line);
+	int32_t n;
+	ss >> n;
+	std::cout << "\n";
 
 
-		std::cout << e.what() << " \n";
-	}
-	return 0;
+	f(n,v);
+
+std::cout << "n = " << n << "\n";
+	display(v);
+
+	std::cout << "\n----------------\n";
+	line.clear();
+
+
+
+}
+
+}
+catch(std::runtime_error& e)
+{
+
+
+	std::cout << e.what() << " \n";
+}
+return 0;
 
 }

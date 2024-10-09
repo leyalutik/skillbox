@@ -11,10 +11,8 @@
 //current functions
 //------------------------------------------
 
-
-
-bool is_PNG_filename(const std::string& path_to_file);
-bool  is_PNG_filecontent(const std::string& path_to_file);
+int32_t create_number(const int32_t sector, std::vector<bool>&  picked_sectors);
+void get_data(const std::string& input_file, const int32_t size,  std::vector<std::string>& v);
 
 
 
@@ -78,5 +76,8 @@ void insert_sort(std::string& line);
 
 
 
+bool  is_PNG_filecontent(const std::string& path_to_file);
+
+bool is_PNG_filename(const std::string& path_to_file);
 #endif
 

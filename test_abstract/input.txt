@@ -1,8 +1,7 @@
-/data/data/com.termux/files/home/git/skillbox/test_abstract/file.png
-/data/data/com.termux/files/home/git/skillbox/test_abstract/i.png
-file.png
-i.png
-input1.txt
-~/git/skillbox/test_abstract/file.png
-~/git/skillbox/file.png
-~/xcv/xcv.png
+2
+2
+2
+2
+2
+2
+

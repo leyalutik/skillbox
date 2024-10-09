@@ -1,7 +1,31 @@
 
 #include "test_framework.h"
+std::function<int32_t (const int32_t , std::vector<bool>&)> get_int_vector(const std::string& function_name)
+{
+	if(function_name == "create_number")
+	{
+	std::function<int32_t (const int32_t , std::vector<bool>&)> f = create_number;
+	return f;
+	}
+	else
+	{
+		throw std::runtime_error ("No valid function.\n");
+	}
+}
 
 
+	std::function<void(const std::string&, const int32_t,std::vector< std::string>&)> get_void_const_string_int_vector_function(const std::string& function_name)
+{
+	if(function_name == "get_data")
+	{
+	std::function<void(const std::string&, const int32_t,std::vector< std::string>&)> f = get_data;
+	return f;
+	}
+	else
+	{
+		throw std::runtime_error ("No valid function.\n");
+	}
+}
 std::function<bool(const std::string&)> get_bool_function(const std::string& function_name)
 {
 	if(function_name == "is_PNG_filename")
@@ -39,22 +63,3 @@ std::function<void(std::string&)> get_function(const std::string function_name)
 	}
 }
 
-void display(const std::string& line)
-{
-	bool first = true;
-	std::stringstream istream(line);
-	std::string element;
-	while(istream >> element)
-	{
-		if(!first)
-		{
-			std::cout << "," ;
-		}
-		else
-		{
-			first = false;
-		}
-			std::cout << element;
-	}
-
-}

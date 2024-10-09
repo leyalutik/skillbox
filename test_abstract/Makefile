@@ -3,7 +3,7 @@ CXXFLAGS = -ggdb -Wall -pthread -std=c++17
 
 SOURCE=test.cpp
 MODULE=test_framework.cpp 
-FUNCTION=is_PNG_filename
+FUNCTION=create_number
 FUNCTION_FILE=functions.cpp
 INPUT=input.txt
 
