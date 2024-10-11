@@ -1,52 +1,80 @@
-#include<iostream>
 #include<fstream>
 #include<string>
 #include<sstream>
-#include<ctime>
+#include<set>
+#include<map>
 #include<cstdlib>
-
-
-
+#include<vector>
+#include <iostream>
 int main()
 {
 
-	std::cout << "Enter the height and the width:\n";
-	int32_t height=0, width=0;
-	while(!(std::cin >> height) || !(std::cin >>  width) || (height <= 0) || (width <= 0))
+	std::string input_file = "river.txt";
+	std::string output_file = "basket.txt";
 
+	std::set<std::string> FISHES = {"sunfish","shad","carp","bass", "bullhead", "walleye", "catfish"};
+
+	std::map<std::string, int32_t> recorder ;
+
+	std::ofstream to_basket(output_file.c_str(), std::ios_base::app);
+	if(!to_basket.is_open())
 	{
-		std::cout << "Invalid data.Try again.\n";
+		std::cout << "There is no basket.\n";
+		return 1;
+	}
+
+	int32_t exit = 1;
+	while(exit != 2)
+	{
+		std::cout << "Input the fish:\n";
+		std::string user_goal_fish;
+		std::cin >> user_goal_fish;
+
+		std::cout << "Caught fish in this cycle:\n----------------\n";
+		if(FISHES.count(user_goal_fish))
+		{
+
+			std::ifstream from_river(input_file.c_str(), std::ios_base::in);
+			if(!from_river.is_open())
+			{
+				std::cout << "There is no access to the river.\n";
+				return 1;
+			}
+
+			std::string rod;
+			while(from_river >> rod)
+			{
+				if(rod == user_goal_fish)
+				{
+					++recorder[rod];
+					to_basket << rod << '\n';
+				}
+			}
+			from_river.close();
+
+
+		std::cout << user_goal_fish  << ": " << recorder[user_goal_fish]<< "\n"; 
+		}
+		else
+		{
+			std::cout << "No fish.\n";
+		}
+		std::cout << "Continue fishing? Yes(1)/No(2)\n";
+		std::cin >> exit;
 		std::cin.ignore(1000,'\n');
 		std::cin.good();
 	}
-	
-//	std::cout << "height = " << height << "\nwidth = " << width << "\n";
 
-	const std::string filename("pic.txt");
+	to_basket.close();
 
-	std::ofstream ofs(filename.c_str(), std::ios_base::binary | std::ios_base::out);
-	if(!ofs.is_open())
+	std::cout << "Caught fish:\n----------------\n";
+	for(const auto& [fish,number]: recorder)
 	{
-		std::cout << "Can't be opened the file for record.\n";
+		std::cout << fish  << ": " << number << "\n"; 
 	}
-
-std::srand(std::time(nullptr));
-for(size_t i=0; i<height; ++i)
-{
-	for(size_t j=0; j<width; ++j)
+	if(recorder.empty())
 	{
-		ofs << std::rand()%2;
-		if(j == width-1)
-		{
-			ofs << '\n';
-		}
+		std::cout << "No fish.\n";
 	}
-}
-	ofs.close();
-
-
-
-
-
 	return 0;
 }
