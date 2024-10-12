@@ -1,0 +1,45 @@
+Основные свойства
+
+Выводит состояние банкомата
+
+void display_state(const Bankomat& b);
+
+Пополнение банкомата
+void refill(const Bankomat& current, Bankomat& result);
+
+Снятие денег с банкомата
+
+void withdraw(cpnst Bamkomat& current, Bankomat& result);
+
+void take_money(const Bankomat b, int int32_t amount, Bankomat& result);
+
+Дополнительные функции
+
+bool is_full (const Bamkomat& b); //total_number == 1000 b_100 != 0 or some else
+bool is_valid (const Bankomat& b) //total_number <0 or >1000
+
+
+void read_file(const filename, Bankomat& b)
+void write_file(const filename, Bankomat& b)
+
+
+struct Bankomat
+{
+	Bankomat(vector<int> {n_100,n_200};
+	Bankomat();
+	
+	void set(vector<int>)// number of nominals
+	if(v.size() == 0) "Bankomat is empty" no_file = 1;
+	void update() // evaluate sum_total number_total
+	bool is_full() return total_number == 1000
+	bool is_valid  return total_number < 0 or >1000 no_file -?
+	or n_100 or n_5000 < 0 or > 1000
+
+	void display_state() // if no_file == 1 Bankomat is empty throw runtime_error 
+bool no_file = 0;
+std::vector<std::string> banknotes={"100","200","500","1000","2000","5000"};
+std::vector<int32_t> numbers={0,0,0,0,0,0};
+int32_t total_number = 0;
+int32_t total_sum = 0;
+
+};
