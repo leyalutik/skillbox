@@ -164,6 +164,7 @@ void refill(CashPoint& b)
 
 
 }
+
 void withdraw(CashPoint& b)
 {
 	if(!b.is_valid())
@@ -180,27 +181,47 @@ void withdraw(CashPoint& b)
 		std::cout << "Incorrent number.\n";
 		return;
 	}
-	
-	int32_t current_index = 5;//5000
-	int32_t current_banknote = banknote[current_index];
-	if(user_amount >= current_banknote)
+
+	std::vector<int32_t> numbers_modified;
+	for(size_t i=0; i<6; ++i)
 	{
-		if(numbers[current_index] > 0)
+		numbers_modified.push_back(b.numbers[i]);
+				}
+
+	int32_t current_index = 5;
+	while(user_amount > 0 &&  current_index > -1 )
+	{
+		if(user_amount >= b.banknotes[current_index])
 		{
-			user_amount -=current_banknote;
-			--numbers[current_banknote];
+			if(numbers_modified[current_index] >0)
+			{
+				--numbers_modified[current_index];
+				user_amount -=b.banknotes[current_index];
+			}
+			else
+			{
+				--current_index;
+			}
 		}
 		else
 		{
-			--current_index;
-			current_banknote = banknote[current_index];
-		}
-		}
 
+			--current_index;
+
+		}
+	}
+	if(current_index == -1)
+	{
+		std::cout << "No banknotes.\n";
+
+		return;
 	}
 
-
-	std::cout << "No banknotes.\n";
+	for(size_t i=0; i<6; ++i)
+	{
+		b.numbers[i] = numbers_modified[i];
+	}
+	b.evaluate();
 }
 
 void CashPoint::reset_to_zero()
