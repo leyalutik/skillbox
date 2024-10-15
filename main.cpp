@@ -28,12 +28,12 @@ struct Room
 	void write_data();
 	bool check_data();
 	void print_data();
-	void evaluate_area();
+	double  evaluate_area();
 
 
 	std::vector<std::string> room_names = {"Bedroom", "Kitchen", "Bathroom", "Children\'s room","Dining room" };
-int32_t type_room = 0;
-	int32_t S=0;
+int32_t room_type = 0;
+	double  S=0;
 
 	
 };
@@ -44,14 +44,17 @@ struct Floor
 	void write_data();
 	bool check_data();
 	void print_data();
-	void evaluate_area();
+	double evaluate_area();
 
-	int32_t number_rooms=0;
-	int32_t height=0;
-	int32_t S=0;
 	std::vector<Room> rooms;
-	
-	};
+
+//	int32_t floor_number = 1;
+	int32_t number_rooms=0;
+	double  height=0;
+	double S=0;
+
+};
+
 
 struct House
 {
@@ -135,7 +138,7 @@ int main()
 {
 	while(true)
 	{
-Building b;
+Floor b;
 b.write_data();
 b.print_data();
 	}
@@ -150,29 +153,175 @@ b.print_data();
 
 //---------------------MAIN END------------------
 
-//-----ROOM------------------------
-/*struct Room
+//----FLOOR---------------------------
+
+void Floor::print_data()
 {
-	void write_data();
-	bool check_data();
-	void print_data();
-	void evaluate_area();};
-
-
-	char* room_names = {"Bedroom", "Kitchen", "Bathroom", "Children\'s room","Dining room" };
-int32_t type_room = 0;
-	int32_t S=0;
-
 	
-};
-*/
+//	std::cout << std::setw(20) << std::left << "Floor : " << this->floor_number << "\n";
+	std::cout << std::setw(20) << std::left << "\tNumber of rooms: " << this->number_rooms << "\n";
+	for(size_t i=0; i<this->number_rooms; ++i)
+		{
+			std::cout << "Room " << (i+1) << "\n";
+			rooms[i].print_data();
+		}
+
+
+	std::cout << std::setw(20) << std::left << "\tHeight: " << this->height << "\n";
+
+	std::cout << "\tArea: " << this->S << "\n";
+}
+
+
+bool Floor::check_data()
+{
+
+	if (this->number_rooms <  0) 
+	{
+		return 0;
+
+	}
+	if (this->height <  0) 
+	{
+		return 0;
+
+	}
+
+
+	if (this->S < 0)
+	{
+		return 0;
+	}
+	return 1;
+}
+
+void Floor::write_data()
+{
+	while(true)
+	{
+		std::cout << "In a floor input number of rooms:\n";
+		
+
+		std::cin >> this->number_rooms;
+		rooms.reserve(this->number_rooms);
+		for(size_t i=0; i<this->number_rooms; ++i)
+		{
+			std::cout << "Room " << (i+1) << "\n";
+			rooms[i].write_data();
+		}
+
+	std::cout << "In a floor input the height:\n";
+		
+
+		std::cin >> this->height;
+
+
+
+		if(this->check_data() && std:: cin)
+		{
+
+			break;
+		}
+		else
+		{
+			std::cout << "Invalid data. Try again.\n";
+			std::cin.clear();
+				
+			std::cin.ignore(1000,'\n');
+		}
+	}
+}
+double Floor:: evaluate_area()
+{
+
+	this->S=0;
+	for(size_t i=0; i<this->number_rooms; ++i)
+		{
+			this->S +=rooms[i].evaluate_area();
+		}
+
+return this->S;
+}
+
+
+
+
+
+
+
+//-----ROOM------------------------
+
+void Room::print_data()
+{
+	std::cout << std::setw(10) << std::left << "Room: " << this->room_names[this->room_type] << "\n";
+
+	std::cout << "Area: " << this->S << "\n";
+}
+
+
+bool Room::check_data()
+{
+	if (this->room_type <0  ||  this->room_type > 4) 
+	{
+		return 0;
+
+	}
+	if (this->S < 0)
+	{
+		return 0;
+	}
+	return 1;
+}
+
+void Room::write_data()
+{
+	while(true)
+	{
+		std::cout << "Input room type number:\n";
+		for(size_t i=0; i<this->room_names.size(); ++i)
+		{
+		std::cout << std::setw(15) << std::left << this->room_names[i];
+		
+		std::cout << std::setw(10) << std::right << i;
+		std::cout << std::endl;
+		}
+
+		std::cin >> this->room_type;
+		std::cout << "Input the size of the area:\n";
+		std::cin >> this->S;
+
+		if(this->check_data() && std:: cin)
+		{
+
+			break;
+		}
+		else
+		{
+			std::cout << "Invalid data. Try again.\n";
+			std::cin.clear();
+				
+			std::cin.ignore(1000,'\n');
+		}
+	}
+}
+double  Room:: evaluate_area()
+{
+return this->S;
+}
+
+
+
+
+
+
+
 //--------------BUILDING---------------
 
 
 
 void Building::print_data()
 {
-	std::cout << std::setw(10) << "Additional building: " << this->building_names[this->building_type] << " with ";
+	std::cout << std::setw(10) << "Building: " << this->building_names[this->building_type] << " with ";
 
 	std::cout << (this->has_pipe_furnace ? "a " : "no ") << "furnace and a pipe.\n";
 	std::cout << "Area: " << this->S << "\n";
@@ -201,7 +350,7 @@ void Building::write_data()
 {
 	while(true)
 	{
-		std::cout << "Input buiding type number:\n";
+		std::cout << "Input building type number:\n";
 		for(size_t i=0; i<this->building_names.size(); ++i)
 		{
 		std::cout << std::setw(10) << std::left << this->building_names[i];
@@ -224,8 +373,9 @@ void Building::write_data()
 		else
 		{
 			std::cout << "Invalid data. Try again.\n";
+			std::cin.clear();
+				
 			std::cin.ignore(1000,'\n');
-			std::cin.good();
 		}
 	}
 }
