@@ -1,187 +1,223 @@
+#include<string>
 #include<iostream>
-#include <iomanip>
-#include <cstdlib>
+#include<vector>
+#include<ctime>
+#include<cstdlib>
 
 struct Vector
 {
-	double x=0;
- 	double y=0;
-	
-	bool check_data(){return x>= 0 && y >= 0;}
-	void write_data();
-	void print_data();
+	int32_t x=0;
+	int32_t y=0;
+
+	void display() { // in QT in map display in special color coordinate
+	}
+};
+
+
+
+struct GAME
+{
+	const int32_t	VITALITY_MAX = 150;
+	const int32_t	VITALITY_MIN = 50;
+
+	const int32_t	ARMOR_MAX = 50;
+	const int32_t	ARMOR_MIN = 0;
+
+	const int32_t	DAMAGE_MIN = 0;
+	const int32_t	DAMAGE_MAX = 30;
+
+	std::string save_file = "init.bin";
+
+	Vector MAP_SIZE{20,20};
+
+	const int32_t ENEMY_NUMBER = 5;
+
 
 };
 
-Vector add(const Vector& a, const Vector& b);
-
-Vector substract(const Vector& a, const Vector& b);
-Vector scale(const Vector& a, const double c);
-double length(const Vector& a);
-Vector normalize(const Vector& a);
-
-
-int main()
+struct Move
 {
-	bool exit = 1;
-	while(exit)
+	Vector current{0,0};
+	Vector next{0,0};
+
+	Vector LIMIT{0,0};
+
+	void right(){if( (next.x+1) <= LIMIT.x)
+		{
+			next.x = current.x+1;
+			next.y = current.y;
+		}
+		else
+		{
+			next.x = current.x;
+			next.y = current.y;
+
+		}
+
+	}
+
+	void left(){ //to fill
+	}
+
+	void up() { //to fill
+	}
+
+	void down() { //to fill
+	}
+};
+
+struct Person
+{
+	int32_t	armor = 0;
+	int32_t	health = 0;
+	int32_t	damage = 0;
+	std::string name = "";
+
+	bool check_data(){return 1; //check the Person atributes in boundarires DAMAGE_MIN and so on
+	}
+	bool is_dead(){return health == 0;}
+	void display()
 	{
+		std::cout << name << ":\n";
+		std::cout << "\thealth = " << health << "\n";
+		std::cout << "\tarmor = " << armor << "\n";
+		std::cout << "\tdamage = " << damage << "\n";
+	}
 
-		std::cout << std::endl;
-		std::cout << std::setw(30) << std::right <<  "Operations of vectors";
-		std::cout << std::endl;
-		std::cout << std::setw(32) << std::right << "--------------------------------------" << "\n";
-		std::cout << std::left << std::setw(35) << "Add 2 vectors:" << std::right << std::setw(15) << "add\n";
-		std::cout << std::setw(35) <<  std::left << "Substract 2 vectors" << std::right << std::setw(15) << "substract\n";
-		std::cout << std::setw(35) <<  std::left << "Multiply vector and scalar value" << std::right << std::setw(15) << "scale\n";
-		std::cout << std::setw(35) <<  std::left << "Evaluate the length of vector:" << std::right << std::setw(15) << "length\n";
-		std::cout << std::setw(35) <<  std::left << "Normalization of vector:" << std::right << std::setw(15) << "normalize\n";
+	void write_data()
+	{
+		int32_t LIMIT = 0;
+		while(LIMIT <1000)
+		{
+			++LIMIT;
+			std::cout << "name:\n";
+			std::cin >> name;
 
-		std::cout << std::setw(32) << std::right << "--------------------------------------" << "\n";
-			
-		std::cout << "\n\nInput the command:\n";
-		std::string line;
-		std::getline(std::cin, line, '\n');
-		if(line.find("add") != std::string::npos)
-		{
-			Vector a, b,c;
-			a.write_data();
-			b.write_data();
-			std::cout << "Result\n";
-			c = add(a,b);
-			c.print_data();
-		}
-		else if(line.find("substract") != std::string::npos)
-		{
-			Vector a, b,c;
-			a.write_data();
-			b.write_data();
-			c = substract(a,b);
-			std::cout << "Result\n";
-			c.print_data();
-		}
+			std::cout << "health:\n";
+			std::cin >> health;
 
-		else if(line.find("scale") != std::string::npos)
-		{
-			Vector a;
-			a.write_data();
-			double r;
-			std::cout << "Input float number:\n";
-			while(!(std::cin >> r))
+			std::cout << "armor:\n";
+			std::cin >> armor;
+
+			std::cout << "damage:\n";
+			std::cin >> damage;
+
+			if(check_data() && std::cin)
 			{
-				std::cout << "Invalid data";
+				break;
+			}
+			else
+			{
+				std::cout << "Invalid data. Try again.\n";
 				std::cin.clear();
 				std::cin.ignore(1000,'\n');
 			}
-			std::cout << "Result:\n";
-			
-			Vector c{scale(a,r)};
-			c.print_data();
 		}
-
-		else if(line.find("length") != std::string::npos)
+		if(LIMIT == 1000)
 		{
-			Vector a;
-			a.write_data();
+			std::cout << "Error input.\n";
+			exit(1);
+		}
+	}
+};
 
-			std::cout << "Result: " << length(a) << "\n";
+//for QT
+/*
+ * create class
+ with Map with size [0,MAP_SIZE.x]x[0,MAP_SIZE.y]
+
+ this Map has  font with loaded  given picture
+
+ also Brushed_XY (Vector xy, COLOR color){ the coordinate brush(Vector xy, color)
+
+
+ void display() {display map with given font and on map brush the coordinate xy with color 
+ */
+
+struct Ceil
+{
+	//	Color color=blue;
+	int32_t color=0; //1 - Hero 2 - Enemy
+			 //	brush(Color color1){color = color1;}
+};
+
+
+
+struct MAP
+{
+	Vector SIZE{20,20};
+
+	std::string path_to_picture;
+	void display();/* { load the picture as font for map;
+			  for(int i=0; i<size.x; ++i)
+			  {
+			  ceils.display();
+			  }
+			  }
+			  */
+//ceils[][] = 0 //no persons
+//ceils[][] = 1 // is hero
+//ceils[][] = 2 // is enemy
+	std::vector<std::vector<int32_t>> ceils(this->SIZE.x, std::vector<int32_t>(SIZE.y,0));
+
+};
+
+int main()
+{
+
+	std::srand(std::time(nullptr));
+	GAME game;
+	std::vector<Person> enemies(game.ENEMY_NUMBER);
+	MAP Map{.SIZE{game.MAP_SIZE}};
+
+
+	for(size_t i=0; i< enemies.size(); ++i)
+	{
+		enemies[i].health = game.VITALITY_MIN + rand()%( game.VITALITY_MAX-game.VITALITY_MIN)+1;
+		enemies[i].damage = game.DAMAGE_MIN + rand()%(game.DAMAGE_MAX-game.DAMAGE_MIN) + 1;
+		enemies[i].armor = game.ARMOR_MIN + rand()%(game.ARMOR_MAX-game.ARMOR_MIN) +1;
+		enemies[i].name = "Enemy #"+std::to_string(i);
+		enemies[i].display();
+	}
+
+	Person hero;
+	hero.write_data();
+
+	std::vector<Move> enemy_moves(enemies.size());
+
+	Move hero_move (.LIMIT.x=game.MAP_SIZE.x, .LIMIT.y=game.MAP_SIZE.y);;
+	//create distincts coordinates for enemies adn hero
+	for(size_t i=0; i<enemies.size()+1; ++i)
+	{
+		while(true)
+		{
+			int32_t x = std::rand()%game.MAP_SIZE.x;
+			int32_t y = std::rand()%game.MAP_SIZE.y;
+
+			if(!Map.ceils[x][y])
+			{
+				if( i != enemies.size() )
+				{
+					Map.ceils[x][y] = 2;//enemy color	
+					enemy_moves[i].current.x=x;
+					enemy_moves[i].current.y=y;
 				}
-			else if(line.find("normalize") != std::string::npos)
-		{
-			Vector a;
-			a.write_data();
-			Vector c;
-			c = normalize(a);
-			std::cout << "Result\n";
-			c.print_data();
-		}
+				else
+				{
 
-
-		else
-		{
-			std::cout << "Unknown command\n";
-		}
-		std::cout << "Continue the program ? Yes(1)/ No(0):\n";
-		std::cin >> exit;
-		std::cin.ignore(1000,'\n');
-		std::cin.good();
-	}
-
-return 0;
-
-}
-
-//--------------
-
-void Vector::write_data()
-{
-	int32_t LIMIT = 0;
-	while(LIMIT < 10)
-	{
-		++LIMIT;
-		std::cout << "For vector:\n";
-		std::cout << "Input x:\n";
-		std::cin >> x;
-
-		std::cout << "Input y:\n";
-		std::cin >> y;
-
-		if(check_data() && std::cin)
-		{
-			break;
-		}
-		else
-		{
-			std::cout << "Invalid data.Try again.\n";
-			std::cin.clear();
-			std::cin.ignore(1000,'\n');
-
+					Map.ceils[x][y] = 1;//hero color	
+					hero_move.current.x = x;
+					hero_move.current.y = y;
+				}
+				break;
+			}
 		}
 	}
-	if(LIMIT == 10)
-	{
-		std::cout << "Multiply wrong input. Program termitates.\n";
-		exit(1);
-	}
+
+
+
+
+
+
+	return 0;
 }
-
-void Vector::print_data()
-{
-	std::cout << "{" << x << ", " << y <<"}\n";
-}
-
-
-
-
-Vector add(const Vector& a, const Vector& b)
-{
-	Vector c{(a.x+b.x),(a.y+b.y)};
-	return c;
-
-}
-
-Vector substract(const Vector& a, const Vector& b)
-{
-	
-	Vector c{(a.x-b.x),(a.y-b.y)};
-	return c;
-
-}
-Vector scale(const Vector& a, const double c)
-{
-
-	Vector b{(a.x*c),(a.y*c)};
-	return b;
-}
-double length(const Vector& a)
-{
-	return sqrt(a.x*a.x+a.y*a.y);
-}
-Vector normalize(const Vector& a)
-{
-	double l = length(a);
-	return {(a.x/l),(a.y/l)};
-	
-}
-
-
