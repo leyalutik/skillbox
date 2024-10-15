@@ -92,65 +92,175 @@ struct Section
 	void write_data(); //number_add_buildings and resize capacity for vector
 	bool check_data();
 	void print_data();
-	void evaluate_area();
+	double  evaluate_area();
 
 	int32_t number_add_buildings;
 	std::vector<Building> additional_buildings;
 	House house;
 
-	int32_t S = 0;
+	double  S = 0;
 
 };
 
 
 struct Village
 {
-	/*void write_data()
-	  {
-	  while(true)
-	  {
-
-
-
-	  if(check())
-	  {
-	  sections.resize(number_sections);
-	  for(size_t i=0; i<number_sections; ++i)
-	  {
-	  sections[i].write_data();
-	  }
-	  }
-	  }
-	  }*/
+	void write_data();
 	bool check_data();
 	void print_data();
-	void evaluate_area();
+	double evaluate_area();
 
 	int32_t number_sections=0;
 	std::vector<Section> sections;
-	int32_t S = 0;
+	double  S = 0;
 };
 
 
 //----------------------MAIN START---------------
 int main()
 {
-	while(true)
-	{
-		House b;
-		b.write_data();
-		b.print_data();
-	}
-	//	Village village;
-	//	village.write_data();
-	//	village.evaluate_area();
-	//	village.print_data();
 
+		Village village;
+		village.write_data();
+		village.evaluate_area();
+		village.print_data();
 	return 0;
 }
 
 
 //---------------------MAIN END------------------
+// --------------VILLAGE------------------------
+
+bool Village::check_data()
+{
+ if (this->number_sections < 0)
+ {
+  return false;
+ }
+ if (this->S < 0)
+ {
+  return false;
+ }
+ return true;
+}
+
+void Village::print_data()
+{
+ std::cout << "Village with " << this->number_sections << " sections:\n";
+ for (size_t i = 0; i < sections.size(); ++i)
+ {
+  std::cout << "Section " << (i + 1) << ":\n";
+  sections[i].print_data();
+ }
+ std::cout << "Total village area: " << this->S << "\n";
+}
+
+double  Village::evaluate_area()
+{
+ this->S = 0;
+ for (size_t i = 0; i < sections.size(); ++i)
+ {
+  sections[i].evaluate_area();
+  this->S += sections[i].S;
+ }
+ return this-> S;
+}
+
+void Village::write_data()
+{
+ while (true)
+ {
+  std::cout << "Input number of sections:\n";
+  std::cin >> this->number_sections;
+  if (this->check_data())
+  {
+   sections.resize(this->number_sections);
+   for (size_t i = 0; i < this->number_sections; ++i)
+   {
+    std::cout << "Section  " << (i + 1) << ":\n";
+    sections[i].write_data();
+   }
+   break;
+  }
+  else
+  {
+   std::cout << "Invalid data. Try again.\n";
+   std::cin.clear();
+   std::cin.ignore(1000, '\n');
+  }
+ }
+}
+
+
+
+
+//-----SECTION------------
+
+// --------------SECTION------------------------
+
+void Section::print_data()
+{
+ std::cout << "House details:\n";
+ house.print_data();
+ std::cout << "Additional buildings:\n";
+ for (size_t i = 0; i < additional_buildings.size(); ++i)
+ {
+  std::cout << "Building " << (i + 1) << ":\n";
+  additional_buildings[i].print_data();
+ }
+}
+
+bool Section::check_data()
+{
+ if (this->number_add_buildings < 0)
+ {
+  return false;
+ }
+ if (this->S < 0)
+ {
+  return false;
+ }
+ return true;
+}
+
+void Section::write_data()
+{
+ while (true)
+ {
+  std::cout << "Input number of additional buildings:\n";
+  std::cin >> this->number_add_buildings;
+  if (this->check_data())
+  {
+   additional_buildings.resize(this->number_add_buildings);
+   for (size_t i = 0; i < this->number_add_buildings; ++i)
+   {
+    std::cout << "Building " << (i + 1) << ":\n";
+    additional_buildings[i].write_data();
+   }
+   house.write_data();
+   break;
+  }
+  else
+  {
+   std::cout << "Invalid data. Try again.\n";
+   std::cin.clear();
+   std::cin.ignore(1000, '\n');
+  }
+ }
+}
+
+double  Section::evaluate_area()
+{
+ this->S = house.evaluate_area();
+ for (size_t i = 0; i < additional_buildings.size(); ++i)
+ {
+  this->S += additional_buildings[i].evaluate_area();
+ }
+
+ return this->S;
+}
+
+
 //-----HOUSE--------------------------
 
 
@@ -458,7 +568,7 @@ void Building::write_data()
 		}
 
 		std::cin >> this->building_type;
-		std::cout << "Input whether the house hase furnace with a pipe. Yes(1) / No(0)\n";
+		std::cout << "Has the building a furnace with a pipe? Yes(1) / No(0)\n";
 		std::cin >> this->has_pipe_furnace;
 		std::cout << "Input the size of the area:\n";
 		std::cin >> this->S;
