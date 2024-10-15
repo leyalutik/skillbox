@@ -3,484 +3,245 @@
 #include<iomanip>
 #include<vector>
 #include<string>
-/*
-   enum class  RoomType
-   {
-   bedroom = 1,
-   kitchen = 2,
-   bathromm = 3,
-   children_room = 4,
-   dining_room = 5
-   };
+#include<fstream>
+#include<sstream>
 
-   enum class BuildingType
-   {
-   garage = 1;
-   shed = 2;
-   sauna = 3;
-   };
-
-*/
-
-
-struct Room
+const std::string filename = "register";
+struct Date
 {
-	void write_data();
-	bool check_data();
-	void print_data();
-	double  evaluate_area();
+	bool is_valid();
+	bool is_leap_year() ;
 
+	void parse(const std::string& line);
+	std::string  display();
 
-	std::vector<std::string> room_names = {"Bedroom", "Kitchen", "Bathroom", "Children\'s room","Dining room" };
-	int32_t room_type = 0;
-	double  S=0;
+	int list_year[12] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31}; 
 
-
+	bool is_valid_date_format;
+	int32_t day = 0;
+	int32_t month = 0;
+	int32_t year = 0;
 };
 
-struct Floor
+struct Person
 {
-
-	void write_data();
-	bool check_data();
-	void print_data();
-	double evaluate_area();
-
-	std::vector<Room> rooms;
-
-	//	int32_t floor_number = 1;
-	int32_t number_rooms=0;
-	double  height=0;
-	double S=0;
-
-};
-
-struct House
-{
-	void write_data();
-	bool check_data();
-	void print_data();
-	double  evaluate_area();
+	std::string name;
+	std::string surname;
+	double  money_amount = 0;
 
 
-	int32_t number_floors=0;
-	bool has_pipe_furnace=0;
-	std::vector<Floor> floors;
+	bool is_valid() ;
+	void parse(const std::string& line);
+	void display_information();
 
-
-	double  S = 0;
-
-};
-
-struct Building
-{
-
-	void print_data();
-	bool check_data();
-	void write_data();
-
-	double  evaluate_area();
-
-	std::vector<std::string> building_names = {"Garage", "Shed", "Sauna"};
-	int32_t building_type = 0;
-	double S = 0.0;
-	bool has_pipe_furnace = 0;
-
-};
-struct Section
-{
-	void write_data(); //number_add_buildings and resize capacity for vector
-	bool check_data();
-	void print_data();
-	void evaluate_area();
-
-	int32_t number_add_buildings;
-	std::vector<Building> additional_buildings;
-	House house;
-
-	int32_t S = 0;
-
+		Date date;
 };
 
 
-struct Village
-{
-	/*void write_data()
-	  {
-	  while(true)
-	  {
 
 
 
-	  if(check())
-	  {
-	  sections.resize(number_sections);
-	  for(size_t i=0; i<number_sections; ++i)
-	  {
-	  sections[i].write_data();
-	  }
-	  }
-	  }
-	  }*/
-	bool check_data();
-	void print_data();
-	void evaluate_area();
 
-	int32_t number_sections=0;
-	std::vector<Section> sections;
-	int32_t S = 0;
-};
+void add();
+void list();
 
 
-//----------------------MAIN START---------------
 int main()
 {
-	while(true)
+
+bool exit = 1;
+	while(exit)
 	{
-		House b;
-		b.write_data();
-		b.print_data();
+
+		std::cout << "Input a command:\n";
+
+		std::string line;
+		std::getline(std::cin,line,'\n');
+
+	
+	if(line.find("add") != std::string::npos)
+	{
+		add();
 	}
-	//	Village village;
-	//	village.write_data();
-	//	village.evaluate_area();
-	//	village.print_data();
+	else if (line.find("list") != std::string::npos)
+	{
+		list();
+	}
+	else
+	{
+		std::cout << "Uknown command.\n";
+	}
+		std::cout << "Continue the program ? Yes(1)/ No(0):\n";
+		std::cin >> exit;
+		std::cin.clear();
+		std::cin.ignore(1000,'\n');
+	}
+
+
+
+
 
 	return 0;
 }
 
 
-//---------------------MAIN END------------------
-//-----HOUSE--------------------------
-
-
-void House::print_data()
+void add()
 {
 
-	//	std::cout << std::setw(20) << std::left << "Floor : " << this->floor_number << "\n";
-	std::cout << std::setw(20) << std::left << "\tNumber of floors: " << this->number_floors << "\n";
-	std::cout << (this->has_pipe_furnace ? "a " : "no ") << "furnace and a pipe.\n";
 
-	std::cout << std::setw(20) << std::left <<  "House area: " << this->S << "\n";
 
-	for(size_t i=0; i<this->number_floors; ++i)
+	std::ofstream ofs(filename.c_str(), std::ios_base::app);
+	if(!ofs.is_open())
 	{
-		std::cout << "Floor " << (i+1) << "\n";
-		floors[i].print_data();
+		std::cout << "Can't be opened the file for record.\n";
 	}
 
-
-}
-
-
-bool House::check_data()
-{
-
-	if (this->number_floors <  0) 
+	int32_t exit = 1;
+	while (exit != 2)
 	{
-		return 0;
-	}
+		std::cout << "Input the name, the surname, payment amount, date and press the key \'Enter\'.\n";
+		std::string input_line;
+		int32_t LIMIT = 0;
+		Person person;
 
-	if(this->has_pipe_furnace != 1 && this->has_pipe_furnace != 0)
-	{
-		return 0;
-	}
-
-	if (this->S < 0)
-	{
-		return 0;
-	}
-	return 1;
-}
-
-void House::write_data()
-{
-	while(true)
-	{
-
-		std::cout << "In a house input number of floors:\n";
-
-
-		std::cin >> this->number_floors;
-		if(this-> check_data())
+		while(LIMIT < 1000)
 		{
-			floors.resize(this->number_floors);
-			for(size_t i=0; i<this->number_floors; ++i)
+
+			++LIMIT;
+			std::getline(std::cin,input_line);	
+			person.parse(input_line);
+			if(person.is_valid())
 			{
-				std::cout << "Floor " << (i+1) << "\n";
-				floors[i].write_data();
+				break;
+
 			}
+
+			std::cout << "Incorrect data. Try again.\n";
+
 		}
-
-		std::cout << "Input the size of the house  area:\n";
-		std::cin >> this->S;
-
-
-
-
-
-		if(this->check_data() && std:: cin)
+		if(LIMIT == 1000)
 		{
-
-			break;
+			std::cout << "Many invalid inputs.The program will be terminated.\n";
+			return ;
 		}
-		else
-		{
-			std::cout << "Invalid data. Try again.\n";
-			std::cin.clear();
 
-			std::cin.ignore(1000,'\n');
-		}
+		ofs.setf(std::ios::left);
+		ofs.width(13);
+		ofs << person.name;
+		ofs.width(13);
+		ofs << person.surname ;
+		ofs.width(13);
+		ofs.setf(std::ios::fixed);
+		ofs.precision(2);
+		ofs <<  person.money_amount ;
+
+		ofs.width(10);
+		ofs << person.date.display() << '\n';
+		std::cout << "Continue to add 1(yes)/2(no). \n";
+		std::cin >> exit;
+		std::cin.ignore(1000,'\n');
+		std::cin.good();
 	}
-}
-double House:: evaluate_area()
-{
 
-	return this->S;
+	ofs.close();
 
 }
 
-
-
-
-
-
-
-
-
-//----FLOOR---------------------------
-
-void Floor::print_data()
+void list()
 {
+
 	
-//	std::cout << std::setw(20) << std::left << "Floor : " << this->floor_number << "\n";
-	std::cout << std::setw(20) << std::left << "\tNumber of rooms: " << this->number_rooms << "\n";
-	std::cout << std::setw(20) << std::left << "Floor height: " << this->height << "\n";
-	std::cout << std::setw(20) << std::left <<  "Floor area: " << this->S << "\n";
-	for(size_t i=0; i<this->number_rooms; ++i)
-		{
-			std::cout << "Room " << (i+1) << "\n";
-			rooms[i].print_data();
-		}
 
+	Person person_max_money;
 
+	bool first_apperance = true;
+	int32_t number_line = 0;
 
-}
-
-
-bool Floor::check_data()
-{
-
-	if (this->number_rooms <  0) 
+	std::ifstream inf(filename.c_str(), std::ios::in);
+	if(!inf.is_open())
 	{
-		return 0;
-
+		std::cout << "The file \"" << filename << "\" was not opened.\n";
+		return ;
 	}
-	if (this->height <  0) 
+		std::string line;
+	while (std::getline(inf,line,'\n'))
 	{
-		return 0;
+		Person person_current;
 
-	}
-
-
-	if (this->S < 0)
-	{
-		return 0;
-	}
-	return 1;
-}
-
-void Floor::write_data()
-{
-	while(true)
-	{
-		std::cout << "In a floor input number of rooms:\n";
-		
-
-		std::cin >> this->number_rooms;
-		if(this->check_data())
-		{
-		rooms.resize(this->number_rooms);
-		for(size_t i=0; i<this->number_rooms; ++i)
-		{
-			std::cout << "Room " << (i+1) << "\n";
-			rooms[i].write_data();
-		}
-		
-		evaluate_area();
-		}
-	std::cout << "In a floor input the height:\n";
-		
-
-		std::cin >> this->height;
-
-
-		if(this->check_data() && std:: cin)
-		{
-
-			break;
-		}
-		else
-		{
-			std::cout << "Invalid data. Try again.\n";
-			std::cin.clear();
-				
-			std::cin.ignore(1000,'\n');
-		}
+		person_current.parse(line);
+		person_current.display_information();
+		line.clear();
+		std::cout << "\n";
 	}
 }
-double Floor:: evaluate_area()
+
+//--------------------------------------------
+bool Date::is_valid() 
 {
-
-	this->S=0;
-	for(size_t i=0; i<this->number_rooms; ++i)
-		{
-			this->S +=rooms[i].evaluate_area();
-		}
-
-return this->S;
-}
-
-
-
-
-
-
-
-//-----ROOM------------------------
-
-void Room::print_data()
-{
-	std::cout << std::setw(10) << std::left << "Room: " << this->room_names[this->room_type] << "\n";
-
-	std::cout << "Area: " << this->S << "\n";
-}
-
-
-bool Room::check_data()
-{
-	if (this->room_type <0  ||  this->room_type > 4) 
+	return (is_valid_date_format && day >0  
+			&&  month >= 1 && month <= 12 
+			&& (( (month == 2) && 
+					((day < 29) || (is_leap_year() && day == 29)))
+				|| ( (month != 2 && day <= list_year[month-1])))  
+			);
+	}
+	bool Date::is_leap_year()
 	{
-		return 0;
+		return (!(year%400) 
+				|| (!(year%4) && (year%100))
+		       );
+	}
+
+
+
+	void Date::parse(const std::string& line)
+	{
+		std::stringstream stream(line);
+		char ch1,ch2;
+		stream >> day >> ch1 >> month >> ch2 >> year;
+
+		is_valid_date_format = 	(ch1 == ch2 && ch1 == '.' && stream.eof() == true  ? true : false );
+
+
+
+
 
 	}
-	if (this->S < 0)
+
+	std::string  Date::display()
 	{
-		return 0;
+		std::stringstream ss;
+		ss << std::right << std::setw(2) <<  std::setfill('0') << day << ".";
+		ss << std::right << std::setw(2) <<  std::setfill('0') << month << ".";
+	ss << std::setw(4) << year;
+		return ss.str();
 	}
-	return 1;
-}
+	int list_year[12] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31}; 
 
-void Room::write_data()
-{
-	while(true)
+
+
+
+
+	bool Person::is_valid() 
 	{
-		std::cout << "Input room type number:\n";
-		for(size_t i=0; i<this->room_names.size(); ++i)
-		{
-		std::cout << std::setw(15) << std::left << this->room_names[i];
-		
-		std::cout << std::setw(10) << std::right << i;
-		std::cout << std::endl;
-		}
-
-		std::cin >> this->room_type;
-		std::cout << "Input the size of the area:\n";
-		std::cin >> this->S;
-
-		if(this->check_data() && std:: cin)
-		{
-
-			break;
-		}
-		else
-		{
-			std::cout << "Invalid data. Try again.\n";
-			std::cin.clear();
-				
-			std::cin.ignore(1000,'\n');
-		}
+		return ( !name.empty() && !surname.empty() 
+				&& (money_amount >= 0) 
+				&& date.is_valid() ); 
 	}
-}
-double  Room:: evaluate_area()
-{
-return this->S;
-}
 
-
-
-
-
-
-
-//--------------BUILDING---------------
-
-
-
-void Building::print_data()
-{
-	std::cout << std::setw(10) << "Building: " << this->building_names[this->building_type] << " with ";
-
-	std::cout << (this->has_pipe_furnace ? "a " : "no ") << "furnace and a pipe.\n";
-	std::cout << "Area: " << this->S << "\n";
-}
-
-
-bool Building::check_data()
-{
-	if (this->building_type != 0 &&  this->building_type != 1 && this->building_type != 2) 
+	void Person::parse(const std::string& line)
 	{
-		return 0;
-
+		std::stringstream stream(line);
+		stream >> name >> surname >> money_amount;
+		std::string line1;
+		stream >> line1;
+		date.parse(line1);
 	}
-	if (this->S < 0)
+
+void Person::display_information()
 	{
-		return 0;
+		std::cout << name << " " << surname << " " 
+			<< money_amount << " ";
+		std::cout << date.display();
 	}
-	if(this->has_pipe_furnace != 1 && this->has_pipe_furnace != 0)
-	{
-		return 0;
-	}
-	return 1;
-}
-
-void Building::write_data()
-{
-	while(true)
-	{
-		std::cout << "Input building type number:\n";
-		for(size_t i=0; i<this->building_names.size(); ++i)
-		{
-		std::cout << std::setw(10) << std::left << this->building_names[i];
-		
-		std::cout << std::setw(10) << std::right << i;
-		std::cout << std::endl;
-		}
-
-		std::cin >> this->building_type;
-		std::cout << "Input whether the house hase furnace with a pipe. Yes(1) / No(0)\n";
-		std::cin >> this->has_pipe_furnace;
-		std::cout << "Input the size of the area:\n";
-		std::cin >> this->S;
-
-		if(this->check_data() && std:: cin)
-		{
-
-			break;
-		}
-		else
-		{
-			std::cout << "Invalid data. Try again.\n";
-			std::cin.clear();
-				
-			std::cin.ignore(1000,'\n');
-		}
-	}
-}
-double  Building:: evaluate_area()
-{
-return this->S;
-}
-
-
 
