@@ -90,7 +90,7 @@ bool has_pipe_furnace = 0;
 };
 struct Section
 {
-	void write_data(); //number_add_buildings and reserve capacity for vector
+	void write_data(); //number_add_buildings and resize capacity for vector
 	bool check_data();
 	void print_data();
 	void evaluate_area();
@@ -115,7 +115,7 @@ struct Village
 
 			if(check())
 			{
-				sections.reserve(number_sections);
+				sections.resize(number_sections);
 				for(size_t i=0; i<number_sections; ++i)
 				{
 					sections[i].write_data();
@@ -167,9 +167,9 @@ void Floor::print_data()
 		}
 
 
-	std::cout << std::setw(20) << std::left << "\tHeight: " << this->height << "\n";
+	std::cout << std::setw(20) << std::left << "Floor height: " << this->height << "\n";
 
-	std::cout << "\tArea: " << this->S << "\n";
+	std::cout << std::setw(20) << std::left <<  "Floor area: " << this->S << "\n";
 }
 
 
@@ -203,7 +203,7 @@ void Floor::write_data()
 		
 
 		std::cin >> this->number_rooms;
-		rooms.reserve(this->number_rooms);
+		rooms.resize(this->number_rooms);
 		for(size_t i=0; i<this->number_rooms; ++i)
 		{
 			std::cout << "Room " << (i+1) << "\n";
@@ -215,7 +215,7 @@ void Floor::write_data()
 
 		std::cin >> this->height;
 
-
+		evaluate_area();
 
 		if(this->check_data() && std:: cin)
 		{
