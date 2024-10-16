@@ -151,22 +151,46 @@ struct MAP
 	Vector SIZE{20,20};
 
 	std::string path_to_picture;
-	void display(){}/* { load the picture as font for map;
+	void display(){}/* 
+OUTPUT in QT  a map with colored ceal with coordinates x y created in QT
+			   { load the picture as font for map;
 			   for(int i=0; i<size.x; ++i)
-			   {
-			   ceils.display();
+	for(int j=0;j<SIZE.y;++j)		   {
+			   display(ceils[i][j]) ; QT function 
+			   
 			   }
 			   }
 			   */
-	//ceils[][] = 0 //no persons
-	//ceils[][] = 1 // is hero
-	//ceils[][] = 2 // is enemy
+	//ceils[][] = 0 //no persons bleu
+	//ceils[][] = 1 // is hero green
+	//ceils[][] = 2 // is enemy red
+	//ceils[][] = 3 // is dead  black
 	std::vector<std::vector<int32_t>> ceils;
 	MAP(): ceils(SIZE.x, std::vector<int32_t>(SIZE.y,0)) {}
 
 };
 
 bool is_equal(const Vector& v1, const Vector& v2) {return (v1.x==v2.x && v1.y == v2.y);}
+bool fight(Person& p1,Person& p2)
+{
+	std::cout << p1.name << " took a damage: - " << p1.damage << std::endl;
+	p1.armor -=p2.damage;
+	if(p1.armor <0)
+	{
+		p1.health += p1.armor;
+		p1.armor = 0;
+	}
+
+	std::cout << p2.name << " took a damage: - " << p2.damage << std::endl;
+	p2.armor -=p1.damage;
+	if(p2.armor <0)
+	{
+		p2.health += p2.armor;
+		p2.armor = 0;
+	}
+
+
+}
 //-----------------------------------
 
 int main()
@@ -372,6 +396,17 @@ int main()
 	};
 
 
+Map.display();
+hero.display();
+for(size_t i=0; i<enemies.size();++i)
+{
+	if(!enemies[i].is_dead())
+	{
+	enemies[i].display();
+	}
+}
+
+
 	int32_t LIMIT = -1000000000;
 	while(LIMIT < 1000000000)
 	{
@@ -417,10 +452,22 @@ int main()
 			if(!enemies[i].is_dead())
 			{ if(is_equal(hero_move.next, enemy_moves[i].current))
 				{
-					//fight(hero,enemies[i]);
+					fight(hero,enemies[i]);
+Map.display();
+hero.display();
+for(size_t i=0; i<enemies.size();++i)
+{
+	if(!enemies[i].is_dead())
+	{
+	enemies[i].display();
+	}
+}
 
+
+	Map.ceils[hero_move.current.x][hero_move.current.y] = 0;//return to blue color
 					hero_move.current.x=hero_move.next.x;
 					hero_move.current.y=hero_move.next.y;
+	Map.ceils[hero_move.current.x][hero_move.current.y] = 1; //create a green
 				}
 
 
@@ -428,7 +475,18 @@ int main()
 				if(hero.is_dead())
 				{
 					std::cout << "You lose.\n";
-					hero.reset_data_to_zero();
+	Map.ceils[hero_move.current.x][hero_move.current.y] = 3;
+Map.display();
+hero.display();
+for(size_t i=0; i<enemies.size();++i)
+{
+	if(!enemies[i].is_dead())
+	{
+	enemies[i].display();
+	}
+}
+
+				hero.reset_data_to_zero();
 					for(size_t i=0; i<enemies.size(); ++i)
 					{
 						enemies[i].reset_data_to_zero();
@@ -440,7 +498,20 @@ int main()
 				if(enemies[i].is_dead())
 				{
 					++COUNTER_DEAD_ENEMIES;
-					if(COUNTER_DEAD_ENEMIES == enemies.size())
+Map.ceils[enemy_moves[i].current.x][enemy_moves[i].current.y] = 3;
+Map.display();
+hero.display();
+for(size_t i=0; i<enemies.size();++i)
+{
+	if(!enemies[i].is_dead())
+	{
+	enemies[i].display();
+	}
+}
+
+
+
+if(COUNTER_DEAD_ENEMIES == enemies.size())
 					{
 						std::cout << "You win.\n";
 						hero.reset_data_to_zero();
@@ -498,10 +569,23 @@ stop=1;
 }
 if(!stop)
 {
+
+Map.ceils[enemy_moves[i].current.x][enemy_moves[i].current.y] = 0;//return to blue, ceil is empty
 	enemy_moves[i].current.x=enemy_moves[i].next.x;
 	enemy_moves[i].current.y=enemy_moves[i].next.y;
+Map.ceils[enemy_moves[i].current.x][enemy_moves[i].current.y] = 2;//create a red ceil, hear a enemy
 }
 	}
+
+Map.display();
+hero.display();
+for(size_t i=0; i<enemies.size();++i)
+{
+	if(!enemies[i].is_dead())
+	{
+	enemies[i].display();
+	}
+}
 
 
 }
