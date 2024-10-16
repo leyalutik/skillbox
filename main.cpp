@@ -112,8 +112,8 @@ struct Person
 	void reset_data_to_zero(){armor=0;health=0;damage=0;name="";}
 	bool check_data(){return 1; //check the Person atributes in boundarires DAMAGE_MIN and so on
 	}
-	bool is_dead(){return health == 0;}
-	void display()
+	bool is_dead() const {return health == 0;}
+	void display() const
 	{
 		std::cout << name << ":\n";
 		std::cout << "\thealth = " << health << "\n";
@@ -185,13 +185,13 @@ struct MAP
 	Vector SIZE{20,20};
 
 	std::string path_to_picture;
-	void display(){}/* 
-OUTPUT in QT  a map with colored ceal with coordinates x y created in QT
+	void display() const {}/* 
+			   OUTPUT in QT  a map with colored ceal with coordinates x y created in QT
 			   { load the picture as font for map;
 			   for(int i=0; i<size.x; ++i)
-	for(int j=0;j<SIZE.y;++j)		   {
+			   for(int j=0;j<SIZE.y;++j)		   {
 			   display(ceils[i][j]) ; QT function 
-			   
+
 			   }
 			   }
 			   */
@@ -225,6 +225,22 @@ bool fight(Person& p1,Person& p2)
 
 
 }
+
+void display_game(const MAP& Map, const Person& hero, const std::vector<Person> enemies)
+{
+	Map.display();
+	hero.display();
+	for(size_t i=0; i<enemies.size();++i)
+	{
+		if(!enemies[i].is_dead())
+		{
+			enemies[i].display();
+		}
+	}
+
+
+}
+
 //-----------------------------------
 
 int main()
@@ -315,7 +331,7 @@ int main()
 			ifs.read(buffer,length);
 			enemies[i].name.assign(buffer,length);
 			delete[] buffer;
-			ifs.read(reinterpret_cast<char*>(&hero.armor),sizeof(enemies[i].armor));
+			ifs.read(reinterpret_cast<char*>(&enemies[i].armor),sizeof(enemies[i].armor));
 			ifs.read(reinterpret_cast<char*>(&enemies[i].health),sizeof(enemies[i].health));
 
 			ifs.read(reinterpret_cast<char*>(&enemies[i].damage),sizeof(enemies[i].damage));
@@ -386,7 +402,7 @@ int main()
 			ofs.write(reinterpret_cast<char*>(&length),sizeof(length));
 			ofs.write(enemies[i].name.c_str(),length);
 
-			ofs.write(reinterpret_cast<char*>(&hero.armor),sizeof(enemies[i].armor));
+			ofs.write(reinterpret_cast<char*>(&enemies[i].armor),sizeof(enemies[i].armor));
 			ofs.write(reinterpret_cast<char*>(&enemies[i].health),sizeof(enemies[i].health));
 
 			ofs.write(reinterpret_cast<char*>(&enemies[i].damage),sizeof(enemies[i].damage));
@@ -429,17 +445,7 @@ int main()
 		return 1;	
 	};
 
-
-Map.display();
-hero.display();
-for(size_t i=0; i<enemies.size();++i)
-{
-	if(!enemies[i].is_dead())
-	{
-	enemies[i].display();
-	}
-}
-
+	display_game(Map,hero,enemies);
 
 	int32_t LIMIT = -1000000000;
 	while(LIMIT < 1000000000)
@@ -478,8 +484,18 @@ for(size_t i=0; i<enemies.size();++i)
 			std::cout << "Unknown command.\n";
 			std::cin.clear();
 			std::cin.ignore(1000,'\n');
-
+continue;
 		}
+
+		Map.ceils[hero_move.current.x][hero_move.current.y] = 0;//return to blue color
+					hero_move.current.x=hero_move.next.x;
+					hero_move.current.y=hero_move.next.y;
+					Map.ceils[hero_move.current.x][hero_move.current.y] = 1; //create a green
+
+					display_game(Map,hero,enemies);
+
+
+
 
 		for(size_t i=0; i<enemies.size(); ++i)
 		{
@@ -487,65 +503,34 @@ for(size_t i=0; i<enemies.size();++i)
 			{ if(is_equal(hero_move.next, enemy_moves[i].current))
 				{
 					fight(hero,enemies[i]);
-Map.display();
-hero.display();
-for(size_t i=0; i<enemies.size();++i)
-{
-	if(!enemies[i].is_dead())
-	{
-	enemies[i].display();
-	}
-}
 
+					display_game(Map,hero,enemies);
 
-	Map.ceils[hero_move.current.x][hero_move.current.y] = 0;//return to blue color
-					hero_move.current.x=hero_move.next.x;
-					hero_move.current.y=hero_move.next.y;
-	Map.ceils[hero_move.current.x][hero_move.current.y] = 1; //create a green
-				}
-
-
-
-				if(hero.is_dead())
-				{
-					std::cout << "You lose.\n";
-	Map.ceils[hero_move.current.x][hero_move.current.y] = 3;
-Map.display();
-hero.display();
-for(size_t i=0; i<enemies.size();++i)
-{
-	if(!enemies[i].is_dead())
-	{
-	enemies[i].display();
-	}
-}
-
-				hero.reset_data_to_zero();
-					for(size_t i=0; i<enemies.size(); ++i)
+					
+					if(hero.is_dead())
 					{
-						enemies[i].reset_data_to_zero();
-					}
+						std::cout << "You lose.\n";
+						Map.ceils[hero_move.current.x][hero_move.current.y] = 3;
 
-					auto p = save();
-					return 1;
+						display_game(Map,hero,enemies);
+						hero.reset_data_to_zero();
+						for(size_t i=0; i<enemies.size(); ++i)
+						{
+							enemies[i].reset_data_to_zero();
+						}
+
+						auto p = save();
+						return 1;
+					}
 				}
 				if(enemies[i].is_dead())
 				{
 					++COUNTER_DEAD_ENEMIES;
-Map.ceils[enemy_moves[i].current.x][enemy_moves[i].current.y] = 3;
-Map.display();
-hero.display();
-for(size_t i=0; i<enemies.size();++i)
-{
-	if(!enemies[i].is_dead())
-	{
-	enemies[i].display();
-	}
-}
+					Map.ceils[enemy_moves[i].current.x][enemy_moves[i].current.y] = 3;
+						display_game(Map,hero,enemies);
+	
 
-
-
-if(COUNTER_DEAD_ENEMIES == enemies.size())
+					if(COUNTER_DEAD_ENEMIES == enemies.size())
 					{
 						std::cout << "You win.\n";
 						hero.reset_data_to_zero();
@@ -563,68 +548,63 @@ if(COUNTER_DEAD_ENEMIES == enemies.size())
 			}
 		}
 
-// create enemy direction
+		// create enemy direction
 
 
 		for(size_t i=0; i<enemies.size(); ++i)
 		{
 
-if(!enemies[i].is_dead())
-{
-	int32_t number;
-	number = std::rand()%4;
+			if(!enemies[i].is_dead())
+			{
+				int32_t number;
+				number = std::rand()%4;
 
-	switch(number)
-	{
-		case 0: enemy_moves[i].left();
-			break;
-		case 1: enemy_moves[i].right();
-			break;
-		case 2: enemy_moves[i].up();
-			break;
-		case 3: enemy_moves[i].down();
-			break;
-		default:
-			break;
-	}
-
-bool stop = 0;
-for(size_t j=0; j<enemies.size(); ++j)
-{
-	if(j != i  && !enemies[j].is_dead())
-	{
-		if(is_equal(enemy_moves[i].next,enemy_moves[j].current))
+				switch(number)
 				{
-stop=1;
+					case 0: enemy_moves[i].left();
+						break;
+					case 1: enemy_moves[i].right();
+						break;
+					case 2: enemy_moves[i].up();
+						break;
+					case 3: enemy_moves[i].down();
+						break;
+					default:
+						break;
 				}
 
-	}
+				bool stop = 0;
+				for(size_t j=0; j<enemies.size(); ++j)
+				{
+					if(j != i  && !enemies[j].is_dead())
+					{
+						if(is_equal(enemy_moves[i].next,enemy_moves[j].current))
+						{
+							stop=1;
+						}
 
-}
-if(!stop)
-{
+					}
 
-Map.ceils[enemy_moves[i].current.x][enemy_moves[i].current.y] = 0;//return to blue, ceil is empty
-	enemy_moves[i].current.x=enemy_moves[i].next.x;
-	enemy_moves[i].current.y=enemy_moves[i].next.y;
-Map.ceils[enemy_moves[i].current.x][enemy_moves[i].current.y] = 2;//create a red ceil, hear a enemy
-}
-	}
+				}
+				if(!stop)
+				{
 
-Map.display();
-hero.display();
-for(size_t i=0; i<enemies.size();++i)
-{
-	if(!enemies[i].is_dead())
-	{
-	enemies[i].display();
-	}
-}
+					Map.ceils[enemy_moves[i].current.x][enemy_moves[i].current.y] = 0;//return to blue, ceil is empty
+						display_game(Map,hero,enemies);
+	
 
+					enemy_moves[i].current.x=enemy_moves[i].next.x;
+					enemy_moves[i].current.y=enemy_moves[i].next.y;
+					Map.ceils[enemy_moves[i].current.x][enemy_moves[i].current.y] = 2;//create a red ceil, hear a enemy
+						display_game(Map,hero,enemies);
+	
+				}
+			}
 
-}
 
 		}
+
+	}
 
 
 
