@@ -3,11 +3,13 @@
 #include<vector>
 #include<ctime>
 #include<cstdlib>
+#include<fstream>
 
 struct Vector
 {
 	int32_t x=0;
 	int32_t y=0;
+
 
 	void display() { // in QT in map display in special color coordinate
 	}
@@ -73,6 +75,7 @@ struct Person
 	int32_t	damage = 0;
 	std::string name = "";
 
+	void reset_data_to_zero(){armor=0;health=0;damage=0;name="";}
 	bool check_data(){return 1; //check the Person atributes in boundarires DAMAGE_MIN and so on
 	}
 	bool is_dead(){return health == 0;}
@@ -91,7 +94,7 @@ struct Person
 		{
 			++LIMIT;
 			std::cout << "name:\n";
-			std::cin >> name;
+			std::getline(std::cin, name, '\n');
 
 			std::cout << "health:\n";
 			std::cin >> health;
@@ -148,28 +151,33 @@ struct MAP
 	Vector SIZE{20,20};
 
 	std::string path_to_picture;
-	void display();/* { load the picture as font for map;
-			  for(int i=0; i<size.x; ++i)
-			  {
-			  ceils.display();
-			  }
-			  }
-			  */
-//ceils[][] = 0 //no persons
-//ceils[][] = 1 // is hero
-//ceils[][] = 2 // is enemy
-	std::vector<std::vector<int32_t>> ceils(this->SIZE.x, std::vector<int32_t>(SIZE.y,0));
+	void display(){}/* { load the picture as font for map;
+			   for(int i=0; i<size.x; ++i)
+			   {
+			   ceils.display();
+			   }
+			   }
+			   */
+	//ceils[][] = 0 //no persons
+	//ceils[][] = 1 // is hero
+	//ceils[][] = 2 // is enemy
+	std::vector<std::vector<int32_t>> ceils;
+	MAP(): ceils(SIZE.x, std::vector<int32_t>(SIZE.y,0)) {}
 
 };
 
+bool is_equal(const Vector& v1, const Vector& v2) {return (v1.x==v2.x && v1.y == v2.y);}
+//-----------------------------------
+
 int main()
 {
-
 	std::srand(std::time(nullptr));
 	GAME game;
 	std::vector<Person> enemies(game.ENEMY_NUMBER);
-	MAP Map{.SIZE{game.MAP_SIZE}};
+	MAP Map;
+	Map.SIZE = game.MAP_SIZE;
 
+	int32_t COUNTER_DEAD_ENEMIES = 0;
 
 	for(size_t i=0; i< enemies.size(); ++i)
 	{
@@ -185,7 +193,9 @@ int main()
 
 	std::vector<Move> enemy_moves(enemies.size());
 
-	Move hero_move (.LIMIT.x=game.MAP_SIZE.x, .LIMIT.y=game.MAP_SIZE.y);;
+	Move hero_move ;
+	hero_move.LIMIT.x=game.MAP_SIZE.x;
+	hero_move.LIMIT.y=game.MAP_SIZE.y;
 	//create distincts coordinates for enemies adn hero
 	for(size_t i=0; i<enemies.size()+1; ++i)
 	{
@@ -214,7 +224,289 @@ int main()
 		}
 	}
 
+	Map.display();
+	auto load = [&]()
+	{
+		std::ifstream ifs(game.save_file.c_str(), std::ios_base::binary | std::ios_base::in);
 
+		if(!ifs.is_open())
+		{
+			std::cout <<"Can't be opened.'n";
+		}
+
+
+		ifs.read(reinterpret_cast<char*>(&COUNTER_DEAD_ENEMIES),sizeof(COUNTER_DEAD_ENEMIES));
+		int32_t length = hero.name.size();
+		ifs.read(reinterpret_cast<char*>(&length),sizeof(length));
+		char * buffer = new char[length];
+		ifs.read(buffer,length);
+		hero.name.assign(buffer,length);
+		delete[] buffer;
+		ifs.read(reinterpret_cast<char*>(&hero.armor),sizeof(hero.armor));
+		ifs.read(reinterpret_cast<char*>(&hero.health),sizeof(hero.health));
+
+		ifs.read(reinterpret_cast<char*>(&hero.damage),sizeof(hero.damage));
+
+		for(size_t i=0; i<game.ENEMY_NUMBER; ++i)
+		{
+
+			int32_t length;
+			ifs.read(reinterpret_cast<char*>(&length),sizeof(length));
+
+			char * buffer = new char[length];
+			ifs.read(buffer,length);
+			enemies[i].name.assign(buffer,length);
+			delete[] buffer;
+			ifs.read(reinterpret_cast<char*>(&hero.armor),sizeof(enemies[i].armor));
+			ifs.read(reinterpret_cast<char*>(&enemies[i].health),sizeof(enemies[i].health));
+
+			ifs.read(reinterpret_cast<char*>(&enemies[i].damage),sizeof(enemies[i].damage));
+
+
+		}
+
+
+		ifs.read(reinterpret_cast<char*>(&hero_move.current.x),sizeof(hero_move.current.x));
+		ifs.read(reinterpret_cast<char*>(&hero_move.current.y),sizeof(hero_move.current.y));
+
+		ifs.read(reinterpret_cast<char*>(&hero_move.LIMIT.x),sizeof(hero_move.LIMIT.x));
+		ifs.read(reinterpret_cast<char*>(&hero_move.LIMIT.y),sizeof(hero_move.LIMIT.y));
+
+
+		for(size_t i=0; i<game.ENEMY_NUMBER; ++i)
+		{
+
+			ifs.read(reinterpret_cast<char*>(&enemy_moves[i].current.x),sizeof(enemy_moves[i].current.x));
+			ifs.read(reinterpret_cast<char*>(&enemy_moves[i].current.y),sizeof(enemy_moves[i].current.y));
+
+			ifs.read(reinterpret_cast<char*>(&enemy_moves[i].LIMIT.x),sizeof(enemy_moves[i].LIMIT.x));
+			ifs.read(reinterpret_cast<char*>(&enemy_moves[i].LIMIT.y),sizeof(enemy_moves[i].LIMIT.y));
+
+		}
+
+		for(size_t i=0 ; i<Map.ceils.size();++i)
+		{
+			for(size_t j=0; j<Map.ceils[i].size(); ++j)
+			{
+
+				ifs.read(reinterpret_cast<char*>(&Map.ceils[i][j]),sizeof(Map.ceils[i][j]));
+			}
+
+
+		}
+
+
+		ifs.close();
+		return 1;	
+	};
+
+
+	auto save = [&]()
+	{
+		std::ofstream ofs(game.save_file.c_str(), std::ios_base::binary | std::ios_base::out);
+
+		if(!ofs.is_open())
+		{
+			std::cout <<"Can't be opened.'n";
+		}
+
+
+		ofs.write(reinterpret_cast<char*>(&COUNTER_DEAD_ENEMIES),sizeof(COUNTER_DEAD_ENEMIES));
+		int32_t length = hero.name.size();
+		ofs.write(reinterpret_cast<char*>(&length),sizeof(length));
+		ofs.write(hero.name.c_str(),length);
+
+		ofs.write(reinterpret_cast<char*>(&hero.armor),sizeof(hero.armor));
+		ofs.write(reinterpret_cast<char*>(&hero.health),sizeof(hero.health));
+
+		ofs.write(reinterpret_cast<char*>(&hero.damage),sizeof(hero.damage));
+
+		for(size_t i=0; i<game.ENEMY_NUMBER; ++i)
+		{
+
+			int32_t length = enemies[i].name.size();
+			ofs.write(reinterpret_cast<char*>(&length),sizeof(length));
+			ofs.write(enemies[i].name.c_str(),length);
+
+			ofs.write(reinterpret_cast<char*>(&hero.armor),sizeof(enemies[i].armor));
+			ofs.write(reinterpret_cast<char*>(&enemies[i].health),sizeof(enemies[i].health));
+
+			ofs.write(reinterpret_cast<char*>(&enemies[i].damage),sizeof(enemies[i].damage));
+
+
+		}
+
+
+		ofs.write(reinterpret_cast<char*>(&hero_move.current.x),sizeof(hero_move.current.x));
+		ofs.write(reinterpret_cast<char*>(&hero_move.current.y),sizeof(hero_move.current.y));
+
+		ofs.write(reinterpret_cast<char*>(&hero_move.LIMIT.x),sizeof(hero_move.LIMIT.x));
+		ofs.write(reinterpret_cast<char*>(&hero_move.LIMIT.y),sizeof(hero_move.LIMIT.y));
+
+
+		for(size_t i=0; i<game.ENEMY_NUMBER; ++i)
+		{
+
+			ofs.write(reinterpret_cast<char*>(&enemy_moves[i].current.x),sizeof(enemy_moves[i].current.x));
+			ofs.write(reinterpret_cast<char*>(&enemy_moves[i].current.y),sizeof(enemy_moves[i].current.y));
+
+			ofs.write(reinterpret_cast<char*>(&enemy_moves[i].LIMIT.x),sizeof(enemy_moves[i].LIMIT.x));
+			ofs.write(reinterpret_cast<char*>(&enemy_moves[i].LIMIT.y),sizeof(enemy_moves[i].LIMIT.y));
+
+		}
+
+		for(size_t i=0 ; i<Map.ceils.size();++i)
+		{
+			for(size_t j=0; j<Map.ceils[i].size(); ++j)
+			{
+
+				ofs.write(reinterpret_cast<char*>(&Map.ceils[i][j]),sizeof(Map.ceils[i][j]));
+			}
+
+
+		}
+
+
+		ofs.close();
+		return 1;	
+	};
+
+
+	int32_t LIMIT = -1000000000;
+	while(LIMIT < 1000000000)
+	{
+		++LIMIT;
+
+		std::string command;
+		std::cout << "command:\n";
+		std::cin >> command;
+		if(command=="save")
+		{
+			auto p = save();
+		}
+		else if (command == "load")
+		{
+			auto p = load();
+		}
+		else if(command == "L")
+		{
+			hero_move.left();
+		}
+		else if(command == "R")
+		{
+			hero_move.right();
+		}
+		else if(command == "U")
+		{
+			hero_move.up();
+		}
+		else if(command == "D")
+		{
+			hero_move.down();
+		}
+		else
+		{
+			std::cout << "Unknown command.\n";
+			std::cin.clear();
+			std::cin.ignore(1000,'\n');
+
+		}
+
+		for(size_t i=0; i<enemies.size(); ++i)
+		{
+			if(!enemies[i].is_dead())
+			{ if(is_equal(hero_move.next, enemy_moves[i].current))
+				{
+					//fight(hero,enemies[i]);
+
+					hero_move.current.x=hero_move.next.x;
+					hero_move.current.y=hero_move.next.y;
+				}
+
+
+
+				if(hero.is_dead())
+				{
+					std::cout << "You lose.\n";
+					hero.reset_data_to_zero();
+					for(size_t i=0; i<enemies.size(); ++i)
+					{
+						enemies[i].reset_data_to_zero();
+					}
+
+					auto p = save();
+					return 1;
+				}
+				if(enemies[i].is_dead())
+				{
+					++COUNTER_DEAD_ENEMIES;
+					if(COUNTER_DEAD_ENEMIES == enemies.size())
+					{
+						std::cout << "You win.\n";
+						hero.reset_data_to_zero();
+
+
+						for(size_t i=0; i<enemies.size(); ++i)
+						{
+							enemies[i].reset_data_to_zero();
+							return 1;
+						}
+
+						auto p = save();
+					}
+				}
+			}
+		}
+
+// create enemy direction
+
+
+		for(size_t i=0; i<enemies.size(); ++i)
+		{
+
+if(!enemies[i].is_dead())
+{
+	int32_t number;
+	number = std::rand()%4;
+
+	switch(number)
+	{
+		case 0: enemy_moves[i].left();
+			break;
+		case 1: enemy_moves[i].right();
+			break;
+		case 2: enemy_moves[i].up();
+			break;
+		case 3: enemy_moves[i].down();
+			break;
+		default:
+			break;
+	}
+
+bool stop = 0;
+for(size_t j=0; j<enemies.size(); ++j)
+{
+	if(j != i  && !enemies[j].is_dead())
+	{
+		if(is_equal(enemy_moves[i].next,enemy_moves[j].current))
+				{
+stop=1;
+				}
+
+	}
+
+}
+if(!stop)
+{
+	enemy_moves[i].current.x=enemy_moves[i].next.x;
+	enemy_moves[i].current.y=enemy_moves[i].next.y;
+}
+	}
+
+
+}
+
+		}
 
 
 
