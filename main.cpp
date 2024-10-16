@@ -44,7 +44,7 @@ struct Move
 
 	Vector LIMIT{0,0};
 
-	void right(){if( (next.x+1) <= LIMIT.x)
+	void right(){if( (next.x+1) < LIMIT.x)
 		{
 			next.x = current.x+1;
 			next.y = current.y;
@@ -58,13 +58,47 @@ struct Move
 
 	}
 
-	void left(){ //to fill
+	void left(){if( (next.x-1) >= 0)
+		{
+			next.x = current.x-1;
+			next.y = current.y;
+		}
+		else
+		{
+			next.x = current.x;
+			next.y = current.y;
+
+		}
+
+	}
+	void up() {if( (next.y+1) < LIMIT.y)
+		{
+			next.x = current.x;
+			next.y = current.y+1;
+		}
+		else
+		{
+			next.x = current.x;
+			next.y = current.y;
+
+		}
+
 	}
 
-	void up() { //to fill
-	}
 
-	void down() { //to fill
+
+	void down() {if( (next.y-1) >= 0 )
+		{
+			next.x = current.x;
+			next.y = current.y-1;
+		}
+		else
+		{
+			next.x = current.x;
+			next.y = current.y;
+
+		}
+
 	}
 };
 
