@@ -10,24 +10,12 @@ struct Vector
 	int32_t x=0;
 	int32_t y=0;
 
-
-	void display() { // in QT in map display in special color coordinate
-	}
 };
 
 
 
 struct GAME
 {
-	const int32_t	VITALITY_MAX = 150;
-	const int32_t	VITALITY_MIN = 50;
-
-	const int32_t	ARMOR_MAX = 50;
-	const int32_t	ARMOR_MIN = 0;
-
-	const int32_t	DAMAGE_MIN = 0;
-	const int32_t	DAMAGE_MAX = 30;
-
 	std::string save_file = "init.bin";
 
 	Vector MAP_SIZE{20,20};
@@ -43,6 +31,7 @@ struct Move
 	Vector next{0,0};
 
 	Vector LIMIT{0,0};
+
 
 	void right(){if( (next.x+1) < LIMIT.x)
 		{
@@ -100,18 +89,53 @@ struct Move
 		}
 
 	}
+
+	void display() const
+	{
+	std::cout << "x = " << current.x << "\n";
+	std::cout << "y = " << current.y << "\n";
+
+	}
 };
 
 struct Person
 {
+	const int32_t	VITALITY_MAX = 150;
+	const int32_t	VITALITY_MIN = 50;
+
+	const int32_t	ARMOR_MAX = 50;
+	const int32_t	ARMOR_MIN = 0;
+
+	const int32_t	DAMAGE_MIN = 0;
+	const int32_t	DAMAGE_MAX = 30;
+
 	int32_t	armor = 0;
 	int32_t	health = 0;
 	int32_t	damage = 0;
 	std::string name = "";
 
 	void reset_data_to_zero(){armor=0;health=0;damage=0;name="";}
-	bool check_data(){return 1; //check the Person atributes in boundarires DAMAGE_MIN and so on
+	bool check_data(){
+		if(health > VITALITY_MAX || health < VITALITY_MIN)
+		{
+			return 0;
+		}
+		if(armor > ARMOR_MAX || armor < ARMOR_MIN)
+		{
+			return 0;
+		}
+
+		if(damage > DAMAGE_MAX || damage < DAMAGE_MIN )
+		{
+			return 0;
+		}
+		if(name.size() == 0)
+		{
+			return 0;
+		}
+		return 1;
 	}
+
 	bool is_dead() const {return health == 0;}
 	void display() const
 	{
@@ -130,13 +154,15 @@ struct Person
 			std::cout << "name:\n";
 			std::getline(std::cin, name, '\n');
 
-			std::cout << "health:\n";
+			std::cout << "health [" << VITALITY_MIN << "," << VITALITY_MAX << "]:\n";
 			std::cin >> health;
 
-			std::cout << "armor:\n";
+			
+			std::cout << "armor [" << ARMOR_MIN << "," << ARMOR_MAX << "]:\n";
 			std::cin >> armor;
 
-			std::cout << "damage:\n";
+	
+			std::cout << "damage [" << DAMAGE_MIN << "," << DAMAGE_MAX << "]:\n";
 			std::cin >> damage;
 
 			if(check_data() && std::cin)
@@ -226,15 +252,17 @@ bool fight(Person& p1,Person& p2)
 
 }
 
-void display_game(const MAP& Map, const Person& hero, const std::vector<Person> enemies)
+void display_game(const MAP& Map, const Person& hero, const std::vector<Person> enemies,const Move& hero_move, const std::vector<Move> enemy_moves)
 {
 	Map.display();
 	hero.display();
+	hero_move.display();
 	for(size_t i=0; i<enemies.size();++i)
 	{
 		if(!enemies[i].is_dead())
 		{
 			enemies[i].display();
+			enemy_moves[i].display();
 		}
 	}
 
@@ -255,9 +283,9 @@ int main()
 
 	for(size_t i=0; i< enemies.size(); ++i)
 	{
-		enemies[i].health = game.VITALITY_MIN + rand()%( game.VITALITY_MAX-game.VITALITY_MIN)+1;
-		enemies[i].damage = game.DAMAGE_MIN + rand()%(game.DAMAGE_MAX-game.DAMAGE_MIN) + 1;
-		enemies[i].armor = game.ARMOR_MIN + rand()%(game.ARMOR_MAX-game.ARMOR_MIN) +1;
+		enemies[i].health = enemies[i].VITALITY_MIN + rand()%( enemies[i].VITALITY_MAX-enemies[i].VITALITY_MIN)+1;
+		enemies[i].damage = enemies[i].DAMAGE_MIN + rand()%(enemies[i].DAMAGE_MAX-enemies[i].DAMAGE_MIN) + 1;
+		enemies[i].armor = enemies[i].ARMOR_MIN + rand()%(enemies[i].ARMOR_MAX-enemies[i].ARMOR_MIN) +1;
 		enemies[i].name = "Enemy #"+std::to_string(i);
 		enemies[i].display();
 	}
@@ -445,7 +473,7 @@ int main()
 		return 1;	
 	};
 
-	display_game(Map,hero,enemies);
+	display_game(Map,hero,enemies,hero_move,enemy_moves);
 
 	int32_t LIMIT = -1000000000;
 	while(LIMIT < 1000000000)
@@ -492,7 +520,7 @@ continue;
 					hero_move.current.y=hero_move.next.y;
 					Map.ceils[hero_move.current.x][hero_move.current.y] = 1; //create a green
 
-					display_game(Map,hero,enemies);
+					display_game(Map,hero,enemies,hero_move,enemy_moves);
 
 
 
@@ -504,7 +532,7 @@ continue;
 				{
 					fight(hero,enemies[i]);
 
-					display_game(Map,hero,enemies);
+					display_game(Map,hero,enemies,hero_move,enemy_moves);
 
 					
 					if(hero.is_dead())
@@ -512,7 +540,7 @@ continue;
 						std::cout << "You lose.\n";
 						Map.ceils[hero_move.current.x][hero_move.current.y] = 3;
 
-						display_game(Map,hero,enemies);
+						display_game(Map,hero,enemies,hero_move,enemy_moves);
 						hero.reset_data_to_zero();
 						for(size_t i=0; i<enemies.size(); ++i)
 						{
@@ -527,7 +555,7 @@ continue;
 				{
 					++COUNTER_DEAD_ENEMIES;
 					Map.ceils[enemy_moves[i].current.x][enemy_moves[i].current.y] = 3;
-						display_game(Map,hero,enemies);
+						display_game(Map,hero,enemies,hero_move,enemy_moves);
 	
 
 					if(COUNTER_DEAD_ENEMIES == enemies.size())
@@ -590,13 +618,13 @@ continue;
 				{
 
 					Map.ceils[enemy_moves[i].current.x][enemy_moves[i].current.y] = 0;//return to blue, ceil is empty
-						display_game(Map,hero,enemies);
+						display_game(Map,hero,enemies,hero_move,enemy_moves);
 	
 
 					enemy_moves[i].current.x=enemy_moves[i].next.x;
 					enemy_moves[i].current.y=enemy_moves[i].next.y;
 					Map.ceils[enemy_moves[i].current.x][enemy_moves[i].current.y] = 2;//create a red ceil, hear a enemy
-						display_game(Map,hero,enemies);
+						display_game(Map,hero,enemies,hero_move,enemy_moves);
 	
 				}
 			}
