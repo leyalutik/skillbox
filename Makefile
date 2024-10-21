@@ -1,5 +1,5 @@
 CXX = g++
-CXXFLAGS = -ggdb -Wall -pthread -std=c++17
+CXXFLAGS = -ggdb -Wall -pthread -std=c++20
 SOURCE=main.cpp
 #MODULES=test_framework.cpp main_functions.cpp tic_tac_toe.cpp tests.cpp
 #OBJMODULES=$(MODULES:.cpp=.o)
@@ -17,7 +17,7 @@ run : $(GOAL)
 #	$(CXX) $(CXXFLAGS) -c $< 
 
 $(GOAL) : $(SOURCE) #$(OBJMODULES)
-	$(CXX) $(CXXFLAGS) $^ -o $@ 2>&1 error.log 
+	$(CXX) $(CXXFLAGS) $^ -o $@  
 
 clean : 
 	rm -f *.o
