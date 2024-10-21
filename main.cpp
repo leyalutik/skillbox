@@ -237,7 +237,7 @@ void Phone_book::run_command(COMMAND command)
 				std::cout << "Command:\nFind a surname\n";
 				if(surnames.count(this->surname))
 				{
-					for(auto it=numbers.begin(); it<numbers.end(); ++it)
+					for(auto it=numbers.begin(); it!=numbers.end(); ++it)
 					{
 						if(it->second == this->surname)
 						{
