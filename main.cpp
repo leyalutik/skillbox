@@ -39,6 +39,7 @@ struct  Phone_book
 
 int main()
 {
+		Phone_book phone_book;
 	while(true)
 	{
 
@@ -51,7 +52,6 @@ int main()
 
 		std::cout << std::setw(32) << std::left << "--------------------------------------" << std::endl;
 
-		Phone_book phone_book;
 		std::string line;
 		std::getline(std::cin,line);
 		phone_book.run_command(line);
@@ -136,22 +136,22 @@ bool Phone_book::is_surname(const std::string& word)
 
 bool Phone_book::is_valid_number(const std::string& word)
 {
-	if(this->number.size() == 0 || this->number.size() != 8)
+	if(word.size() != 8)
 	{
 		return 0;
 	}
-	for(size_t i=0; i<this->number.size(); ++i)
+	for(size_t i=0; i<word.size(); ++i)
 	{
 		if(i == 2 || i ==5)
 		{
-			if(this->number[i] != '-')
+			if(word[i] != '-')
 			{
 				return 0;
 			}
 		}
 		else
 		{
-			if(!std::isdigit(this->number[i]))
+			if(!std::isdigit(word[i]))
 			{
 				return 0;
 			}
@@ -164,11 +164,11 @@ bool Phone_book::is_valid_number(const std::string& word)
 
 bool Phone_book::is_valid_surname(const std::string& word)
 {
-	if(this->surname.size() == 0)
+	if(word.size() == 0)
 	{
 		return 0;
 	}
-	for(const auto& w : this->surname)
+	for(const auto& w : word)
 	{
 		if(!std::isalpha(w))
 		{
