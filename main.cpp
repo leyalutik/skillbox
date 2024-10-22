@@ -5,14 +5,14 @@
 
 bool is_anagram(const std::string& word1, const std::string& word2);
 
-int main(int32_t argc, char[] argv)
+int main(int32_t argc, char *argv[])
 {
 	std::cout << "Input 2 words:\n";
 	std::string word1, word2;
 
 	if(std::cin >> word1 >> word2)
 	{
-		std::cout << "Is " << (is_anagram(word1,word2) ? : "not ") << "a anagram.\n";
+		std::cout << "Is " << (is_anagram(word1,word2) ? "" : "not ") << "a anagram.\n";
 	}
 	else
 	{
