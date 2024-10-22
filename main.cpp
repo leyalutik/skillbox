@@ -78,11 +78,10 @@ void Register::run_command(const std::string& line)
 		++this->list[this->current_surname];
 
 		++this->number_is_used;
-		auto iterator = this->list.find(this->current_surname);
 
-		if(this->list.size() == 1 || this->current_iterator->first > iterator->first || this->current_iterator == this->list.end())
+		if(this->list.size() == 1 || this->current_iterator->first > this->current_surname || this->current_iterator == this->list.end())
 		{
-			current_iterator = iterator; //move up of list to display in lexigraphical order
+			current_iterator = this->list.find(this->current_surname);; //move up of list to display in lexigraphical order
 		}
 		}
 		break;
@@ -95,11 +94,15 @@ void Register::run_command(const std::string& line)
 			if(current_iterator == this->list.end())
 			{
 				std::cout << "The end of list.\n";
-				return;
+			
 			}
+			else
+			{
 			std::cout << current_iterator->first << "\n";
 			--current_iterator->second;//number of equal surnames
+			}
 		}
+
 		break;
 
 		default: 
