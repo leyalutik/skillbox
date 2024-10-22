@@ -28,7 +28,8 @@ struct  Phone_book
 	void run_command(const std::string& line);
 
 	COMMAND command;
-	std::map<std::string,std::vector<std::string>> book;
+	std::map<std::string,std::vector<std::string>> book_surname_number;
+	std::map<std::string,std::string> book_number_surname;
 
 	std::string number;
 	std::string surname;
@@ -84,16 +85,16 @@ bool  Phone_book::parse_query(const std::string& line)
 		return false;
 	}
 
-	if(this->is_number(word) && this->is_valid_number(word))
+	if( is_number(word) &&  is_valid_number(word))
 	{
-		this->number = word;
-		this->command = COMMAND::FIND_NUMBER;
+		 number = word;
+		 command = COMMAND::FIND_NUMBER;
 		if(ss >> word)
 		{
-			if(this->is_surname(word) && is_valid_surname(word))
+			if( is_surname(word) && is_valid_surname(word))
 			{
-				this->surname = word;
-				this->command = COMMAND::ADD_NUMBER_SURNAME;
+				 surname = word;
+				 command = COMMAND::ADD_NUMBER_SURNAME;
 				return (!(ss >> word));
 			}
 			
@@ -105,10 +106,10 @@ bool  Phone_book::parse_query(const std::string& line)
 
 
 	}
-	else if(this->is_surname(word) && this->is_valid_surname(word))
+	else if( is_surname(word) &&  is_valid_surname(word))
 	{
-		this->surname = word;
-		this->command = COMMAND::FIND_SURNAME;
+		 surname = word;
+		 command = COMMAND::FIND_SURNAME;
 		return (!(ss >> word));
 	}
 	return false;
@@ -183,26 +184,32 @@ bool Phone_book::is_valid_surname(const std::string& word)
 void Phone_book::run_command(const std::string& line)
 {
 
-	if(!(this->parse_query(line)))
+	if(!( parse_query(line)))
 	{
 		std::cout << "Invalid data.\n";
 		return;
 	}
 
-	switch(this->command)
+	switch( command)
 	{
 		case COMMAND::ADD_NUMBER_SURNAME :
 			{
 				std::cout << "Command:\nAdd a number and surname\n";
-				this->book[this->surname].push_back(this->number);
+
+				if(book_number_surname.count(number) == 0 || book_number_surname.at(number) != surname)
+				{
+					book_surname_number[surname].push_back(number); 
+				}
+				book_number_surname[number] = surname;
+
 			}
 			break;
 
 		case COMMAND::FIND_SURNAME :
 			{
 				std::cout << "Command:\nFind a surname\n";
-				auto it = book.find(this->surname);
-				if(it != book.end())
+				auto it = book_surname_number.find( surname);
+				if(it != book_surname_number.end())
 				{
 
 					for(size_t i=0; i<it->second.size(); ++i)
@@ -219,25 +226,20 @@ void Phone_book::run_command(const std::string& line)
 		case COMMAND::FIND_NUMBER :
 			{
 				std::cout << "Command:\nFind a number\n";
-				bool found = false;
-				for(auto it=book.begin(); it!=book.end(); ++it)
+				auto it = book_number_surname.find(number);
+				if(it != book_number_surname.end())
 				{
-					for(size_t i=0; i<it->second.size(); ++i)
-					{
-						if(it->second[i] == this->number)
-						{
-							std::cout << "{" << it->first << ", " << it->second[i] << "}\n";
-							found = true;
-						}
-					}
+						std::cout << "{" << it->second << ", " << it->first << "}\n"; 
 				}
-
-				if(!found)
+				else
 				{
+				
 					std::cout << "Telephone number's not found.\n";
+
 				}
 			}
 			break;
+
 		default: std::cout << "Unknown command.\n";
 			 break;
 	}
