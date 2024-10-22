@@ -13,10 +13,12 @@ NEXT = 1
 struct  Register
 {
 	Register();
-	void input(std::string& data); // call check_data and clear , define command
+	
+	bool parse_input(const std::string& data);
+// call check_data and clear , define command
 	bool is_surname(const std::string& data);
 	bool is_next(const std::string& data);
-	void run_command();//add // next (output
+	void run_command(const std::string& data);//add // next (output
 	bool check_data(const std::string& data)
 	{ return (is_surname(data) || is_next(data));}
 	std::map<std::string, int32_t> list;// surname, is_called (0 - all surnames are called, 1,2,3.. - surnames to be called)
@@ -33,20 +35,18 @@ int main()
 {
 
 	Register reg;
-	bool exit = false;
-	while(!exit)
+	int32_t exit = 1;
+	while(exit != 0)
 	{
 
 		//display prompt
 		std::cout << "Input <Surname> or command <Next>:\n";
 		std::string data;
+		std::cin >> data;
+		reg.run_command(data);
+		std::cout << "Continue the program. Yes(1) / No(0) \n";
+		std::cin >> exit;
 		
-		reg.input(data);
-		reg.run_command();
-		if(reg.current_iterator == reg.list.end())
-		{
-			exit = true;
-		}
 	}
 	return 0;
 }
@@ -58,29 +58,32 @@ Register::Register()
 {
 	this->current_iterator = this->list.begin();
 }
-void Register::run_command()
+
+
+void Register::run_command(const std::string& line)
 {
+
+	if(!(this->parse_input(line)))
+	{
+
+		std::cout << "Invalid data. Try again.\n";
+		return;
+	}
+	
 	switch(this->command)
 	{
 		case COMMAND::ADD : 
 		{
-				if(this->list.count(this->current_surname))
-				{
-					++this->list[this->current_surname];
-				}
-				else
-				{
 
-					this->list[this->current_surname] = 1;
-				}
+		++this->list[this->current_surname];
 
-				++this->number_is_used;
-				auto iterator = this->list.find(this->current_surname);
+		++this->number_is_used;
+		auto iterator = this->list.find(this->current_surname);
 
-				if(this->list.size() == 1 || current_iterator->first > iterator->first)
-					{
-						current_iterator = iterator; //move up of list to display in lexigraphical order
-					}
+		if(this->list.size() == 1 || this->current_iterator->first > iterator->first || this->current_iterator == this->list.end())
+		{
+			current_iterator = iterator; //move up of list to display in lexigraphical order
+		}
 		}
 		break;
 		case COMMAND::NEXT : 
@@ -105,7 +108,7 @@ void Register::run_command()
 		break;
 	}
 
-	if(this->number_is_used > this->list.size())
+	if(this->number_is_used > this->list.size()/2)
 {
 	std::erase_if(this->list,[](auto& list_elem)
 			{
@@ -120,27 +123,21 @@ void Register::run_command()
 }
 
 
-void Register::input(std::string& data)
+bool Register::parse_input(const std::string& data)
 {
-	std::cin >> data;
-	while(!check_data(data))
-	{
-		
-		std::cout << "Invalid data. Try again.\n";
-		data.clear();
-		std::cin.clear();
-		std::cin.ignore(1000,'\n');
-		std::cin >> data;
-	}
 	if(is_next(data))
 	{
 
 		command = COMMAND::NEXT;
-		return;
+		return true;
 	}
-	current_surname.clear();
-	current_surname = data;
-	command = COMMAND::ADD;
+	if(is_surname(data))
+	{
+		current_surname = data;
+		command = COMMAND::ADD;
+		return true;
+	}
+	return false;
 }
 bool Register::is_next(const std::string& data)
 {
