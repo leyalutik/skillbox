@@ -1,13 +1,21 @@
 #include <iostream>
 
+#define SPRING
 
+#define COUT(x) std::cout << #x << "\n";
 
-£define COUT(x) std::cout << £x << "\n";
+int main() {
+    #ifdef SPRING
+        COUT(SPRING)
+    #elif defined(SUMMER)
+        COUT(SUMMER)
+    #elif defined(AUTUMN)
+        COUT(AUTUMN)
+    #elif defined(WINTER)
+        COUT(WINTER)
+    #else
+        COUT(No_seasons)
+    #endif
 
-#ifdef  SPRING
-int main()
-{
-	COUT(SPRING)
-return 0;
+    return 0;
 }
-#endif
