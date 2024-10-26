@@ -1,34 +1,31 @@
-//#include <iostream>
+#include <iostream>
 
-#define COUT(x) std::cout << x <<  std::endl;
+#define DAY_1 "Monday"
+#define DAY_2 "Tuesday"
+#define DAY_3 "Wednesday"
+#define DAY_4 "Thursday"
+#define DAY_5 "Friday"
+#define DAY_6 "Saturday"
+#define DAY_7 "Sunday"
 
-#define CONCAT(x,y) x##_##y
-#define P_1 "Monday"
-#define P_2 "Tuesday"
+#define PRINT_DAY(day_num) std::cout << DAY_##day_num << std::endl;
 
+#define PRINT_WEEK_DAY(x) \
+    switch (x) {          \
+        case 1: PRINT_DAY(1); break; \
+        case 2: PRINT_DAY(2); break; \
+        case 3: PRINT_DAY(3); break; \
+        case 4: PRINT_DAY(4); break; \
+        case 5: PRINT_DAY(5); break; \
+        case 6: PRINT_DAY(6); break; \
+        case 7: PRINT_DAY(7); break; \
+        default: std::cout << "Unknown command" << std::endl; \
+    }
 
-#define INPUT(x) std::cin >> x;
-#define EVALUATE(x) x
-#define PRINT_WEEK_DAY(x) {\
-	switch(EVALUATE(x))		\
-	{				\
-	case (EVALUATE(x)):		\
-		COUT(CONCAT(P,EVALUATE(VALUATE(x)))) 	\
-		break;			\
-	default:			\
-		COUT("Unknown command")	\
-	}				 \
+int main() {
+    int x;
+    std::cin >> x;
+    PRINT_WEEK_DAY(x);
+    return 0;
 }
 
-
-
-
-
-int main()
-{
-int x;
-INPUT(x);
-PRINT_WEEK_DAY(x)
-
-	return 0;
-}
