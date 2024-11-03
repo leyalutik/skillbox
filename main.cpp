@@ -43,76 +43,18 @@ public:
     std::string name;
 };
 
-bool operator<(const Month_Date& b1, const Month_Date& b2) 
-{
-    return (b1.month < b2.month || 
-           (b1.month == b2.month && b1.day < b2.day));
-}
-bool operator==(const Month_Date& b1, const Month_Date& b2) {  // исправлено на ==
-    return (b1.month == b2.month && 
-            b1.day == b2.day );
-}
+// Compare for map<Month_date..?
+bool operator<(const Month_Date& b1, const Month_Date& b2);
+bool operator==(const Month_Date& b1, const Month_Date& b2);
 
 class Reminder 
 {
 public:
-	std::map<Month_Date,std::vector<Birthday>> birthdays;
-   void input() {
-        std::string word;
-        while (word != "end") {
-            Birthday birthday;
-            std::cin >> word;
-            if (word != "end") {
-                birthday.name = word;
-                std::cin >> word;
-                birthday.date.parse(word);
-                if (birthday.date.is_valid()) 
-		{
-		Month_Date md; 
-		md.month = birthday.date.month;
-		md.day = birthday.date.day;
-                    birthdays[md].push_back(birthday);
-                }
-            }
-        }
-    }
+   void input();
+   void display_nearest();
 
-    void display_nearest()
-    {
-        time_t now = std::time(nullptr);
-        struct tm* current_time = std::localtime(&now);
-
-
-        if (!current_time) {
-            std::cout << "Failed to get current time\n";
-            return;
-        }
-
-        
-        Month_Date current_month_day;
-	current_month_day.month = current_time->tm_mon+1;
-	current_month_day.day = current_time->tm_mday;
-        auto it = birthdays.lower_bound(current_month_day);
-        if (it == birthdays.end()) 
-	{
-            std::cout << "All birthdays passed\n";
-	    return;
-        } 
-	else if (it->first.month == current_month_day.month && it->first.day == current_month_day.day) 
-	{
-            std::cout << "Today!\n";
-	    
-        } else 
-	{
-
-            std::cout << "Nearest!\n";
-        }
-	for(size_t i=0; i< it->second.size(); ++i)
-	    {
-		
-            std::cout << it->second[i].name << " " << it->second[i].date.display() << "\n";
-	    }
-    }
+ private:       
+    std::map<Month_Date,std::vector<Birthday>> birthdays;
 
 };
 
@@ -155,4 +97,72 @@ std::string Date::display() const
     ss << std::setw(4) << year;
     return ss.str();
 }
+bool operator<(const Month_Date& b1, const Month_Date& b2) 
+{
+    return (b1.month < b2.month || 
+           (b1.month == b2.month && b1.day < b2.day));
+}
+bool operator==(const Month_Date& b1, const Month_Date& b2) {  // исправлено на ==
+    return (b1.month == b2.month && 
+            b1.day == b2.day );
+}
+
+   void Reminder::input() 
+   {
+        std::string word;
+        while (word != "end") {
+            Birthday birthday;
+            std::cin >> word;
+            if (word != "end") {
+                birthday.name = word;
+                std::cin >> word;
+                birthday.date.parse(word);
+                if (birthday.date.is_valid()) 
+		{
+		Month_Date md; 
+		md.month = birthday.date.month;
+		md.day = birthday.date.day;
+                    birthdays[md].push_back(birthday);
+                }
+            }
+        }
+    }
+
+    void Reminder::display_nearest()
+    {
+        time_t now = std::time(nullptr);
+        struct tm* current_time = std::localtime(&now);
+
+
+        if (!current_time) {
+            std::cout << "Failed to get current time\n";
+            return;
+        }
+
+        
+        Month_Date current_month_day;
+	current_month_day.month = current_time->tm_mon+1;
+	current_month_day.day = current_time->tm_mday;
+        auto it = birthdays.lower_bound(current_month_day);
+        if (it == birthdays.end()) 
+	{
+            std::cout << "All birthdays passed\n";
+	    return;
+        } 
+	else if (it->first.month == current_month_day.month && it->first.day == current_month_day.day) 
+	{
+            std::cout << "Today!\n";
+	    
+        } else 
+	{
+
+            std::cout << "Nearest!\n";
+        }
+	for(size_t i=0; i< it->second.size(); ++i)
+	    {
+		
+            std::cout << it->second[i].name << " " << it->second[i].date.display() << "\n";
+	    }
+    }
+
 
