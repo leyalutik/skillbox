@@ -1,0 +1,8 @@
+/home/leyalutik/Desktop/git/skillbox/build/CMakeFiles/Surgery.dir
+/home/leyalutik/Desktop/git/skillbox/build/CMakeFiles/my_tests.dir
+/home/leyalutik/Desktop/git/skillbox/build/CMakeFiles/edit_cache.dir
+/home/leyalutik/Desktop/git/skillbox/build/CMakeFiles/rebuild_cache.dir
+/home/leyalutik/Desktop/git/skillbox/build/googletest/CMakeFiles/gtest.dir
+/home/leyalutik/Desktop/git/skillbox/build/googletest/CMakeFiles/gtest_main.dir
+/home/leyalutik/Desktop/git/skillbox/build/googletest/CMakeFiles/edit_cache.dir
+/home/leyalutik/Desktop/git/skillbox/build/googletest/CMakeFiles/rebuild_cache.dir
