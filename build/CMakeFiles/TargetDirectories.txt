@@ -1,6 +1,0 @@
-/home/leyalutik/Desktop/git/skillbox/build/CMakeFiles/Computer.dir
-/home/leyalutik/Desktop/git/skillbox/build/CMakeFiles/edit_cache.dir
-/home/leyalutik/Desktop/git/skillbox/build/CMakeFiles/rebuild_cache.dir
-/home/leyalutik/Desktop/git/skillbox/build/SOURCE/CMakeFiles/lib_devices.dir
-/home/leyalutik/Desktop/git/skillbox/build/SOURCE/CMakeFiles/edit_cache.dir
-/home/leyalutik/Desktop/git/skillbox/build/SOURCE/CMakeFiles/rebuild_cache.dir

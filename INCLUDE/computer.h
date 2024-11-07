@@ -10,7 +10,6 @@
 #include "graphic_card.h"
 
 
-
 class Computer
 {
 public:
