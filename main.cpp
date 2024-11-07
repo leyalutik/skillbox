@@ -44,6 +44,29 @@ class Timer
 			}
 		}
 
+
+void run1() {
+    // Calculate the end time
+    time_t end = std::time(0) + time.minutes * 60 + time.seconds; // End time
+    time_t now = std::time(0); // Initialize now with current time
+
+    while (now < end) {
+        // Check if at least one second has passed
+        if (std::time(0) >= now + 1) {
+            int remaining_time = end - now;
+            time.minutes = remaining_time / 60;
+            time.seconds = remaining_time % 60;
+            time.display();
+            now = std::time(0); // Update now to current time after displaying
+        }
+    }
+
+    // Output sound signal and message
+    std::cout << "\a"; // Sound signal
+    std::cout << "DING DING DING\n";
+}
+
+
 		void run()
 		{
 			while (time.minutes > 0 || time.seconds > 0) {
