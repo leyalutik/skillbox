@@ -45,41 +45,18 @@ class Timer
 		}
 
 
-void run1() {
-    // Calculate the end time
-    time_t end = std::time(0) + time.minutes * 60 + time.seconds; // End time
-    time_t now = std::time(0); // Initialize now with current time
+		void run() {
+			time_t end = std::time(0) + time.minutes * 60 + time.seconds; // End time
+			time_t now = std::time(0); // Initialize now with current time
 
-    while (now < end) {
-        // Check if at least one second has passed
-        if (std::time(0) >= now + 1) {
-            int remaining_time = end - now;
-            time.minutes = remaining_time / 60;
-            time.seconds = remaining_time % 60;
-            time.display();
-            now = std::time(0); // Update now to current time after displaying
-        }
-    }
-
-    // Output sound signal and message
-    std::cout << "\a"; // Sound signal
-    std::cout << "DING DING DING\n";
-}
-
-
-		void run()
-		{
-			while (time.minutes > 0 || time.seconds > 0) {
-				time.display();
-
-				std::this_thread::sleep_for(std::chrono::seconds(1));
-				if (time.seconds > 0) 
-				{
-					time.seconds--;
-				}
-				else if (time.minutes > 0) {
-					time.minutes--;
-					time.seconds = 59; // Reset seconds to 59
+			while (now < end) {
+				// Check if at least one second has passed
+				if (std::time(0) >= now + 1) {
+					int remaining_time = end - now;
+					time.minutes = remaining_time / 60;
+					time.seconds = remaining_time % 60;
+					time.display();
+					now = std::time(0); // Update now to current time after displaying
 				}
 			}
 
@@ -87,6 +64,8 @@ void run1() {
 			std::cout << "\a"; // Sound signal
 			std::cout << "DING DING DING\n";
 		}
+
+
 };
 
 int main() 
