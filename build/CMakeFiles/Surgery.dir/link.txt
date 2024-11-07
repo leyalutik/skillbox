@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/Surgery.dir/main.cpp.o -o Surgery  SOURCE/libsurgery_lib.a 
