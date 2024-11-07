@@ -115,6 +115,7 @@ void Scalpel::input()
     std::cin >> boundary.start.x >> boundary.start.y >> boundary.end.x >> boundary.end.y;
     if (!std::cin)
     {
+    	std::cout << "Invalid value.\n";
         state = OPERATION_STATE::FAILED;
     }
 }
@@ -132,6 +133,7 @@ bool Hemostat::check()
     if (!boundary.is_on_span(action_point.x, action_point.y))
     {
         state = OPERATION_STATE::FAILED;
+	std::cout << "The hemostat is not positioned on the incision.\n";
     }
     return state != OPERATION_STATE::FAILED;
 }
@@ -142,6 +144,7 @@ void Hemostat::input()
     std::cin >> action_point.x >> action_point.y;
     if (!std::cin)
     {
+    	std::cout << "Invalid value.\n";
         state = OPERATION_STATE::FAILED;
     }
 }
@@ -159,6 +162,8 @@ bool Tweezers::check()
     if (!boundary.is_on_span(action_point.x, action_point.y))
     {
         state = OPERATION_STATE::FAILED;
+	std::cout << "The tweezers are not positioned within the incision.\n";
+
     }
     return state != OPERATION_STATE::FAILED;
 }
@@ -169,6 +174,7 @@ void Tweezers::input()
     std::cin >> action_point.x >> action_point.y;
     if (!std::cin)
     {
+    	std::cout << "Invalid value.\n";
         state = OPERATION_STATE::FAILED;
     }
 }
@@ -188,9 +194,11 @@ void Suture::set_boundary_surgery(const Span& surgery)
 
 bool Suture::check() 
 {
-    if (!(boundary_surgery == boundary))
+    if (!(boundary_surgery == boundary) 
+    &&  !(boundary_surgery == Span(Point(boundary.end), Point(boundary.start)))) // boundary sides are opposite the boundary incision (scalpel)
     {
         state = OPERATION_STATE::FAILED;
+	std::cout << "Boundary arguments of Suture don't match with boundary of the incision.\n";
     }
     return state != OPERATION_STATE::FAILED;
 }
@@ -201,6 +209,7 @@ std::cout << "Input start point(x1,y1) and end point(x2,y2) for command " << nam
     std::cin >> boundary_surgery.start.x >> boundary_surgery.start.y >> boundary_surgery.end.x >> boundary_surgery.end.y;
     if (!std::cin)
     {
+    	std::cout << "Invalid value.\n";
         state = OPERATION_STATE::FAILED;
     }
 
