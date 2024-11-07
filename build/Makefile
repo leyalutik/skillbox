@@ -117,37 +117,37 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named Surgery
+# Target rules for targets named Computer
 
 # Build rule for target.
-Surgery: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Surgery
-.PHONY : Surgery
+Computer: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Computer
+.PHONY : Computer
 
 # fast build rule for target.
-Surgery/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Surgery.dir/build.make CMakeFiles/Surgery.dir/build
-.PHONY : Surgery/fast
+Computer/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Computer.dir/build.make CMakeFiles/Computer.dir/build
+.PHONY : Computer/fast
 
 #=============================================================================
-# Target rules for targets named surgery_lib
+# Target rules for targets named lib_devices
 
 # Build rule for target.
-surgery_lib: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 surgery_lib
-.PHONY : surgery_lib
+lib_devices: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 lib_devices
+.PHONY : lib_devices
 
 # fast build rule for target.
-surgery_lib/fast:
-	$(MAKE) $(MAKESILENT) -f SOURCE/CMakeFiles/surgery_lib.dir/build.make SOURCE/CMakeFiles/surgery_lib.dir/build
-.PHONY : surgery_lib/fast
+lib_devices/fast:
+	$(MAKE) $(MAKESILENT) -f SOURCE/CMakeFiles/lib_devices.dir/build.make SOURCE/CMakeFiles/lib_devices.dir/build
+.PHONY : lib_devices/fast
 
 main.o: main.cpp.o
 .PHONY : main.o
 
 # target to build an object file
 main.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Surgery.dir/build.make CMakeFiles/Surgery.dir/main.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Computer.dir/build.make CMakeFiles/Computer.dir/main.cpp.o
 .PHONY : main.cpp.o
 
 main.i: main.cpp.i
@@ -155,7 +155,7 @@ main.i: main.cpp.i
 
 # target to preprocess a source file
 main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Surgery.dir/build.make CMakeFiles/Surgery.dir/main.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Computer.dir/build.make CMakeFiles/Computer.dir/main.cpp.i
 .PHONY : main.cpp.i
 
 main.s: main.cpp.s
@@ -163,7 +163,7 @@ main.s: main.cpp.s
 
 # target to generate assembly for a file
 main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Surgery.dir/build.make CMakeFiles/Surgery.dir/main.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Computer.dir/build.make CMakeFiles/Computer.dir/main.cpp.s
 .PHONY : main.cpp.s
 
 # Help Target
@@ -174,8 +174,8 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... Surgery"
-	@echo "... surgery_lib"
+	@echo "... Computer"
+	@echo "... lib_devices"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

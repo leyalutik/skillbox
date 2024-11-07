@@ -45,6 +45,6 @@ set(CMAKE_MAKEFILE_PRODUCTS
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
-  "CMakeFiles/Surgery.dir/DependInfo.cmake"
-  "SOURCE/CMakeFiles/surgery_lib.dir/DependInfo.cmake"
+  "CMakeFiles/Computer.dir/DependInfo.cmake"
+  "SOURCE/CMakeFiles/lib_devices.dir/DependInfo.cmake"
   )

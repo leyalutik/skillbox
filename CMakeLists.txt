@@ -1,21 +1,20 @@
 cmake_minimum_required(VERSION 3.10)
-project(Surgery VERSION 1.2 )
+project(Computer VERSION 1.2 )
 
 set(CMAKE_CXX_STANDARD 17)
 
 add_subdirectory(SOURCE)
 
 
-set(MY_INCLUDE ${CMAKE_SOURCE_DIR}/INCLUDE)
+set(MY_INCLUDE "${CMAKE_SOURCE_DIR}/INCLUDE")
 
+# filename for class Hard_Drive
 
+set(DEFAULT_SAVE_PATH "${CMAKE_SOURCE_DIR}/data.txt")
+add_executable(Computer main.cpp)
 
-add_executable(Surgery main.cpp)
-
-target_link_libraries(Surgery surgery_lib) 
-target_include_directories(Surgery PUBLIC ${MY_INCLUDE})
-
-
+target_link_libraries(Computer lib_devices) 
+target_include_directories(Computer  PUBLIC ${MY_INCLUDE})
 
 
 

@@ -1,2 +1,0 @@
-/usr/bin/ar qc libsurgery_lib.a CMakeFiles/surgery_lib.dir/surgery.cpp.o
-/usr/bin/ranlib libsurgery_lib.a

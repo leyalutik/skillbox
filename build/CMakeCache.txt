@@ -145,7 +145,7 @@ CMAKE_PROJECT_DESCRIPTION:STATIC=
 CMAKE_PROJECT_HOMEPAGE_URL:STATIC=
 
 //Value Computed by CMake
-CMAKE_PROJECT_NAME:STATIC=Surgery
+CMAKE_PROJECT_NAME:STATIC=Computer
 
 //Value Computed by CMake
 CMAKE_PROJECT_VERSION:STATIC=1.2
@@ -225,13 +225,13 @@ CMAKE_STRIP:FILEPATH=/usr/bin/strip
 CMAKE_VERBOSE_MAKEFILE:BOOL=FALSE
 
 //Value Computed by CMake
-Surgery_BINARY_DIR:STATIC=/home/leyalutik/Desktop/git/skillbox/build/SOURCE
+Computer_BINARY_DIR:STATIC=/home/leyalutik/Desktop/git/skillbox/build/SOURCE
 
 //Value Computed by CMake
-Surgery_IS_TOP_LEVEL:STATIC=OFF
+Computer_IS_TOP_LEVEL:STATIC=OFF
 
 //Value Computed by CMake
-Surgery_SOURCE_DIR:STATIC=/home/leyalutik/Desktop/git/skillbox/SOURCE
+Computer_SOURCE_DIR:STATIC=/home/leyalutik/Desktop/git/skillbox/SOURCE
 
 
 ########################

@@ -1,0 +1,2 @@
+/usr/bin/ar qc liblib_devices.a CMakeFiles/lib_devices.dir/computer.cpp.o CMakeFiles/lib_devices.dir/ram.cpp.o CMakeFiles/lib_devices.dir/keyboard.cpp.o CMakeFiles/lib_devices.dir/graphic_card.cpp.o CMakeFiles/lib_devices.dir/central_processor.cpp.o CMakeFiles/lib_devices.dir/hard_drive.cpp.o
+/usr/bin/ranlib liblib_devices.a

@@ -117,42 +117,162 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
-SOURCE/CMakeFiles/surgery_lib.dir/rule:
-	cd /home/leyalutik/Desktop/git/skillbox/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 SOURCE/CMakeFiles/surgery_lib.dir/rule
-.PHONY : SOURCE/CMakeFiles/surgery_lib.dir/rule
+SOURCE/CMakeFiles/lib_devices.dir/rule:
+	cd /home/leyalutik/Desktop/git/skillbox/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 SOURCE/CMakeFiles/lib_devices.dir/rule
+.PHONY : SOURCE/CMakeFiles/lib_devices.dir/rule
 
 # Convenience name for target.
-surgery_lib: SOURCE/CMakeFiles/surgery_lib.dir/rule
-.PHONY : surgery_lib
+lib_devices: SOURCE/CMakeFiles/lib_devices.dir/rule
+.PHONY : lib_devices
 
 # fast build rule for target.
-surgery_lib/fast:
-	cd /home/leyalutik/Desktop/git/skillbox/build && $(MAKE) $(MAKESILENT) -f SOURCE/CMakeFiles/surgery_lib.dir/build.make SOURCE/CMakeFiles/surgery_lib.dir/build
-.PHONY : surgery_lib/fast
+lib_devices/fast:
+	cd /home/leyalutik/Desktop/git/skillbox/build && $(MAKE) $(MAKESILENT) -f SOURCE/CMakeFiles/lib_devices.dir/build.make SOURCE/CMakeFiles/lib_devices.dir/build
+.PHONY : lib_devices/fast
 
-surgery.o: surgery.cpp.o
-.PHONY : surgery.o
+central_processor.o: central_processor.cpp.o
+.PHONY : central_processor.o
 
 # target to build an object file
-surgery.cpp.o:
-	cd /home/leyalutik/Desktop/git/skillbox/build && $(MAKE) $(MAKESILENT) -f SOURCE/CMakeFiles/surgery_lib.dir/build.make SOURCE/CMakeFiles/surgery_lib.dir/surgery.cpp.o
-.PHONY : surgery.cpp.o
+central_processor.cpp.o:
+	cd /home/leyalutik/Desktop/git/skillbox/build && $(MAKE) $(MAKESILENT) -f SOURCE/CMakeFiles/lib_devices.dir/build.make SOURCE/CMakeFiles/lib_devices.dir/central_processor.cpp.o
+.PHONY : central_processor.cpp.o
 
-surgery.i: surgery.cpp.i
-.PHONY : surgery.i
+central_processor.i: central_processor.cpp.i
+.PHONY : central_processor.i
 
 # target to preprocess a source file
-surgery.cpp.i:
-	cd /home/leyalutik/Desktop/git/skillbox/build && $(MAKE) $(MAKESILENT) -f SOURCE/CMakeFiles/surgery_lib.dir/build.make SOURCE/CMakeFiles/surgery_lib.dir/surgery.cpp.i
-.PHONY : surgery.cpp.i
+central_processor.cpp.i:
+	cd /home/leyalutik/Desktop/git/skillbox/build && $(MAKE) $(MAKESILENT) -f SOURCE/CMakeFiles/lib_devices.dir/build.make SOURCE/CMakeFiles/lib_devices.dir/central_processor.cpp.i
+.PHONY : central_processor.cpp.i
 
-surgery.s: surgery.cpp.s
-.PHONY : surgery.s
+central_processor.s: central_processor.cpp.s
+.PHONY : central_processor.s
 
 # target to generate assembly for a file
-surgery.cpp.s:
-	cd /home/leyalutik/Desktop/git/skillbox/build && $(MAKE) $(MAKESILENT) -f SOURCE/CMakeFiles/surgery_lib.dir/build.make SOURCE/CMakeFiles/surgery_lib.dir/surgery.cpp.s
-.PHONY : surgery.cpp.s
+central_processor.cpp.s:
+	cd /home/leyalutik/Desktop/git/skillbox/build && $(MAKE) $(MAKESILENT) -f SOURCE/CMakeFiles/lib_devices.dir/build.make SOURCE/CMakeFiles/lib_devices.dir/central_processor.cpp.s
+.PHONY : central_processor.cpp.s
+
+computer.o: computer.cpp.o
+.PHONY : computer.o
+
+# target to build an object file
+computer.cpp.o:
+	cd /home/leyalutik/Desktop/git/skillbox/build && $(MAKE) $(MAKESILENT) -f SOURCE/CMakeFiles/lib_devices.dir/build.make SOURCE/CMakeFiles/lib_devices.dir/computer.cpp.o
+.PHONY : computer.cpp.o
+
+computer.i: computer.cpp.i
+.PHONY : computer.i
+
+# target to preprocess a source file
+computer.cpp.i:
+	cd /home/leyalutik/Desktop/git/skillbox/build && $(MAKE) $(MAKESILENT) -f SOURCE/CMakeFiles/lib_devices.dir/build.make SOURCE/CMakeFiles/lib_devices.dir/computer.cpp.i
+.PHONY : computer.cpp.i
+
+computer.s: computer.cpp.s
+.PHONY : computer.s
+
+# target to generate assembly for a file
+computer.cpp.s:
+	cd /home/leyalutik/Desktop/git/skillbox/build && $(MAKE) $(MAKESILENT) -f SOURCE/CMakeFiles/lib_devices.dir/build.make SOURCE/CMakeFiles/lib_devices.dir/computer.cpp.s
+.PHONY : computer.cpp.s
+
+graphic_card.o: graphic_card.cpp.o
+.PHONY : graphic_card.o
+
+# target to build an object file
+graphic_card.cpp.o:
+	cd /home/leyalutik/Desktop/git/skillbox/build && $(MAKE) $(MAKESILENT) -f SOURCE/CMakeFiles/lib_devices.dir/build.make SOURCE/CMakeFiles/lib_devices.dir/graphic_card.cpp.o
+.PHONY : graphic_card.cpp.o
+
+graphic_card.i: graphic_card.cpp.i
+.PHONY : graphic_card.i
+
+# target to preprocess a source file
+graphic_card.cpp.i:
+	cd /home/leyalutik/Desktop/git/skillbox/build && $(MAKE) $(MAKESILENT) -f SOURCE/CMakeFiles/lib_devices.dir/build.make SOURCE/CMakeFiles/lib_devices.dir/graphic_card.cpp.i
+.PHONY : graphic_card.cpp.i
+
+graphic_card.s: graphic_card.cpp.s
+.PHONY : graphic_card.s
+
+# target to generate assembly for a file
+graphic_card.cpp.s:
+	cd /home/leyalutik/Desktop/git/skillbox/build && $(MAKE) $(MAKESILENT) -f SOURCE/CMakeFiles/lib_devices.dir/build.make SOURCE/CMakeFiles/lib_devices.dir/graphic_card.cpp.s
+.PHONY : graphic_card.cpp.s
+
+hard_drive.o: hard_drive.cpp.o
+.PHONY : hard_drive.o
+
+# target to build an object file
+hard_drive.cpp.o:
+	cd /home/leyalutik/Desktop/git/skillbox/build && $(MAKE) $(MAKESILENT) -f SOURCE/CMakeFiles/lib_devices.dir/build.make SOURCE/CMakeFiles/lib_devices.dir/hard_drive.cpp.o
+.PHONY : hard_drive.cpp.o
+
+hard_drive.i: hard_drive.cpp.i
+.PHONY : hard_drive.i
+
+# target to preprocess a source file
+hard_drive.cpp.i:
+	cd /home/leyalutik/Desktop/git/skillbox/build && $(MAKE) $(MAKESILENT) -f SOURCE/CMakeFiles/lib_devices.dir/build.make SOURCE/CMakeFiles/lib_devices.dir/hard_drive.cpp.i
+.PHONY : hard_drive.cpp.i
+
+hard_drive.s: hard_drive.cpp.s
+.PHONY : hard_drive.s
+
+# target to generate assembly for a file
+hard_drive.cpp.s:
+	cd /home/leyalutik/Desktop/git/skillbox/build && $(MAKE) $(MAKESILENT) -f SOURCE/CMakeFiles/lib_devices.dir/build.make SOURCE/CMakeFiles/lib_devices.dir/hard_drive.cpp.s
+.PHONY : hard_drive.cpp.s
+
+keyboard.o: keyboard.cpp.o
+.PHONY : keyboard.o
+
+# target to build an object file
+keyboard.cpp.o:
+	cd /home/leyalutik/Desktop/git/skillbox/build && $(MAKE) $(MAKESILENT) -f SOURCE/CMakeFiles/lib_devices.dir/build.make SOURCE/CMakeFiles/lib_devices.dir/keyboard.cpp.o
+.PHONY : keyboard.cpp.o
+
+keyboard.i: keyboard.cpp.i
+.PHONY : keyboard.i
+
+# target to preprocess a source file
+keyboard.cpp.i:
+	cd /home/leyalutik/Desktop/git/skillbox/build && $(MAKE) $(MAKESILENT) -f SOURCE/CMakeFiles/lib_devices.dir/build.make SOURCE/CMakeFiles/lib_devices.dir/keyboard.cpp.i
+.PHONY : keyboard.cpp.i
+
+keyboard.s: keyboard.cpp.s
+.PHONY : keyboard.s
+
+# target to generate assembly for a file
+keyboard.cpp.s:
+	cd /home/leyalutik/Desktop/git/skillbox/build && $(MAKE) $(MAKESILENT) -f SOURCE/CMakeFiles/lib_devices.dir/build.make SOURCE/CMakeFiles/lib_devices.dir/keyboard.cpp.s
+.PHONY : keyboard.cpp.s
+
+ram.o: ram.cpp.o
+.PHONY : ram.o
+
+# target to build an object file
+ram.cpp.o:
+	cd /home/leyalutik/Desktop/git/skillbox/build && $(MAKE) $(MAKESILENT) -f SOURCE/CMakeFiles/lib_devices.dir/build.make SOURCE/CMakeFiles/lib_devices.dir/ram.cpp.o
+.PHONY : ram.cpp.o
+
+ram.i: ram.cpp.i
+.PHONY : ram.i
+
+# target to preprocess a source file
+ram.cpp.i:
+	cd /home/leyalutik/Desktop/git/skillbox/build && $(MAKE) $(MAKESILENT) -f SOURCE/CMakeFiles/lib_devices.dir/build.make SOURCE/CMakeFiles/lib_devices.dir/ram.cpp.i
+.PHONY : ram.cpp.i
+
+ram.s: ram.cpp.s
+.PHONY : ram.s
+
+# target to generate assembly for a file
+ram.cpp.s:
+	cd /home/leyalutik/Desktop/git/skillbox/build && $(MAKE) $(MAKESILENT) -f SOURCE/CMakeFiles/lib_devices.dir/build.make SOURCE/CMakeFiles/lib_devices.dir/ram.cpp.s
+.PHONY : ram.cpp.s
 
 # Help Target
 help:
@@ -162,10 +282,25 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... surgery_lib"
-	@echo "... surgery.o"
-	@echo "... surgery.i"
-	@echo "... surgery.s"
+	@echo "... lib_devices"
+	@echo "... central_processor.o"
+	@echo "... central_processor.i"
+	@echo "... central_processor.s"
+	@echo "... computer.o"
+	@echo "... computer.i"
+	@echo "... computer.s"
+	@echo "... graphic_card.o"
+	@echo "... graphic_card.i"
+	@echo "... graphic_card.s"
+	@echo "... hard_drive.o"
+	@echo "... hard_drive.i"
+	@echo "... hard_drive.s"
+	@echo "... keyboard.o"
+	@echo "... keyboard.i"
+	@echo "... keyboard.s"
+	@echo "... ram.o"
+	@echo "... ram.i"
+	@echo "... ram.s"
 .PHONY : help
 
 
